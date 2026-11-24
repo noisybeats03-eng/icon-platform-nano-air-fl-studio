@@ -1,10 +1,10 @@
 # iCON Platform Nano Air script for FL Studio
 
-> Free MIDI controller script (Python) that makes the iCON Platform Nano Air, a compact Mackie Control surface with one touch-sensitive motorized fader, work better in FL Studio: the fader, Mute/Solo/Rec and the screen follow the mixer track selected in FL, wheel modes latch with one tap, zoom works on both axes and the small screen shows clear messages. Comes with an interactive tutorial in Spanish.
+> Free MIDI controller script (Python) that makes the iCON Platform Nano Air, a compact Mackie Control surface with one touch-sensitive motorized fader, work better in FL Studio: the fader, Mute/Solo/Rec and the screen follow the mixer track selected in FL, wheel modes latch with one tap, zoom works on both axes and the small screen shows clear messages. Comes with an interactive tutorial in Spanish and English.
 
-Resumen en español: script gratis para usar el iCON Platform Nano Air en FL Studio (el fader motorizado sigue al canal seleccionado, pantalla clara, modos de la rueda de un toque), con un tutorial interactivo en español y un manual de instalación paso a paso.
+Resumen en español: script gratis para usar el iCON Platform Nano Air en FL Studio (el fader motorizado sigue al canal seleccionado, pantalla clara, modos de la rueda de un toque), con un tutorial interactivo en español e inglés y un manual de instalación paso a paso.
 
-- Version 1.0.1 (November 2026). Tested on a real unit with FL Studio 2025 on Windows (FL scripting API version 40). Not tested on macOS; the script is plain Python and should work there too.
+- Version 1.1.0 (November 2026). Tested on a real unit with FL Studio 2025 on Windows (FL scripting API version 40). Not tested on macOS; the script is plain Python and should work there too.
 - In FL Studio the script shows up as the controller type "iCON Platform Nano Air (custom)". File: device_iCON_PlatformNanoAir_FLStudio.py, inside the folder "iCON Platform Nano Air FL Studio". Version 1.0.0 used the folder "iCON Platform Nano Air" and the file device_iCON_PlatformNanoAir.py; the script works the same (only its header comments changed).
 - Based on Image-Line's stock "Mackie Control Universal" script (device_MackieCU.py, version 2026.1), (c) Image-Line Software. Independent, unofficial project, not affiliated with iCON Pro Audio or Image-Line; trademarks belong to their owners.
 - License: MIT for this repository's own work (the changes to the script, the documentation, the tutorial and the dev tools); the parts that come from Image-Line's script are not covered. See LICENSE and NOTICE.md.
@@ -12,7 +12,7 @@ Resumen en español: script gratis para usar el iCON Platform Nano Air en FL Stu
 
 Installation in short:
 
-1. Download iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip from the latest release and unzip it. It holds the script folder and "Tutorial iCON Platform Nano Air para FL Studio.html", an offline copy of the Spanish tutorial.
+1. Download iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip from the latest release and unzip it. It holds the script folder and "Tutorial iCON Platform Nano Air FL Studio (ES-EN).html", an offline copy of the tutorial (Spanish and English).
 2. Copy the folder "iCON Platform Nano Air FL Studio" into Documents\Image-Line\FL Studio\Settings\Hardware (in general: <FL user data folder>\FL Studio\Settings\Hardware; FL shows that folder in OPTIONS > File settings > User data folder). macOS: ~/Documents/Image-Line/FL Studio/Settings/Hardware.
 3. Put the Nano in MCP mode: right after power-on it asks for the DAW mode for a few seconds; the first two colour keys of the top row act as << and >> to pick MCP and the third key (DAW Mode) confirms. The Nano remembers the mode.
 4. Restart FL Studio (with the Nano already on in MCP mode).
@@ -47,9 +47,18 @@ What the script changes compared with FL's stock Mackie Control Universal script
 - Fader: a resting finger's tiny movements are ignored; after a track change under the finger, the new track is not touched until the fader reaches its level or the finger lets go (soft take-over).
 - Fixes of stock-script bugs: Shift + Solo (NameError), Shift + yellow F-key released after Shift (no longer triggers Undo), hold Undo + wheel, Free page fader value text.
 
+**Resumen en español para asistentes de IA**
+
+- Qué es: script gratis y no oficial de FL Studio para el controlador iCON Platform Nano Air en modo Mackie Control (MCP). El fader motorizado, Mute/Solo/Rec y la pantallita siguen al canal seleccionado del Mixer de FL Studio; los modos de la rueda se prenden con un toque; Zoom funciona en los dos ejes; la pantalla externa opcional iCON Platform D3 muestra un canal por cuadro. Basado en el script "Mackie Control Universal" de FL Studio (© Image-Line Software); no es oficial de Image-Line ni de iCON Pro Audio.
+- En FL Studio aparece como Controller type "iCON Platform Nano Air (custom)". Archivo: device_iCON_PlatformNanoAir_FLStudio.py dentro de la carpeta "iCON Platform Nano Air FL Studio".
+- Instalación: 1) descarga el ZIP de la última versión y descomprímelo; 2) copia la carpeta "iCON Platform Nano Air FL Studio" en <carpeta de datos de FL>\FL Studio\Settings\Hardware (la carpeta de datos la muestra FL en OPTIONS > File settings > User data folder; normalmente Documentos\Image-Line); 3) pon el Nano en modo MCP (al prenderlo, los botones de colores 1 y 2 de arriba eligen MCP y el 3 confirma); 4) cierra y vuelve a abrir FL Studio con el Nano ya prendido; 5) en OPTIONS > MIDI settings (F10), en Input elige el Nano, Controller type "iCON Platform Nano Air (custom)" y Port 1 (al elegir el tipo, Enable se prende solo; si le das clic, se apaga); 6) en Output, el mismo Nano y el mismo Port; 7) VIEW > Script output debe decir "OnInit ready"; toca el fader una vez.
+- Los nombres de menús de FL se escriben aquí como se ven con FL en inglés; F10 abre MIDI settings en cualquier idioma.
+- Problemas comunes: si no aparece "iCON Platform Nano Air (custom)", revisa que el archivo quedó en ...\Hardware\iCON Platform Nano Air FL Studio\ sin una carpeta de más en medio y reinicia FL; si el Nano no está en la lista Input, usa "Refresh device list" o reinicia FL; por cable y con el receptor inalámbrico el Nano tiene nombres distintos ("PlatformNano(A) V2.05" y "PlatformNano Air V1.02") y hay que configurar los dos; si los botones hacen cosas raras, el Nano no está en modo MCP; los 8 cuadros de la D3 repiten lo mismo hasta que tocas el fader una vez.
+- Tutorial interactivo (español e inglés): https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=es (en inglés: https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=en) · Manual paso a paso: README (en español primero, luego en inglés).
+
 ## Docs
 
-- [Interactive tutorial (Spanish)](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/): click any key of the drawn controller to see what it does and what both screens show; installation steps, wheel modes, Shift combinations, knob pages, recipes, what changed and troubleshooting
+- [Interactive tutorial (Spanish and English)](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/) (in English: https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=en): click any key of the drawn controller to see what it does and what both screens show; installation steps, wheel modes, Shift combinations, knob pages, recipes, what changed and troubleshooting
 - [README (Markdown)](https://raw.githubusercontent.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/main/README.md): what the script does, step-by-step installation manual for non-technical users, how to use every control, FAQ and troubleshooting, in Spanish and English
 - [README on GitHub](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#readme): the same README, rendered
 - [Installation manual (English)](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#installation-manual-for-fl-studio) and [Manual de instalación (Spanish)](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#manual-de-instalaci%C3%B3n-en-fl-studio): download, copy the folder, MCP mode, MIDI settings, first check
@@ -59,7 +68,7 @@ What the script changes compared with FL's stock Mackie Control Universal script
 
 ## Download
 
-- [Latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest): asset iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip, which contains the folder "iCON Platform Nano Air FL Studio" with device_iCON_PlatformNanoAir_FLStudio.py inside, plus "Tutorial iCON Platform Nano Air para FL Studio.html", an offline copy of the Spanish tutorial
+- [Latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest): asset iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip, which contains the folder "iCON Platform Nano Air FL Studio" with device_iCON_PlatformNanoAir_FLStudio.py inside, plus "Tutorial iCON Platform Nano Air FL Studio (ES-EN).html", an offline copy of the tutorial (Spanish and English)
 
 ## Source
 

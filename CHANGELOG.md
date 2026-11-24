@@ -2,6 +2,14 @@
 
 Lo más nuevo va arriba. / Newest first.
 
+## v1.1.0 (2026-11)
+
+El script funciona igual que en la v1.0.1: solo cambiaron sus comentarios del principio, que ahora también vienen en español. / The script works exactly as in v1.0.1: only its header comments changed, and they now come in Spanish too.
+
+- **Tutorial en español e inglés / Tutorial in Spanish and English.** La página del tutorial y su copia en el ZIP tienen un botón **Español | English** y abren en el idioma de tu navegador (también puedes abrirla con `?lang=en` o `?lang=es`). Todo su texto está en los dos idiomas, también para buscadores y asistentes de IA. Los textos que muestran las pantallas del Nano y de la D3 no se traducen, porque son los que ves en el aparato. / The tutorial page and its copy in the ZIP have an **Español | English** switch and open in your browser's language (you can also open it with `?lang=en` or `?lang=es`). All of its text is in both languages, also for search engines and AI assistants. The texts on the Nano's and the D3's screens are not translated, because they are what the device shows.
+- **El tutorial del ZIP cambió de nombre / The ZIP's tutorial file was renamed** a / to `Tutorial iCON Platform Nano Air FL Studio (ES-EN).html`.
+- **Todo lo publicado, en los dos idiomas / Everything published, in both languages.** El README, el resumen para asistentes de IA (`llms.txt`), las notas de cada versión y los comentarios del script están en español e inglés. / The README, the summary for AI assistants (`llms.txt`), the release notes and the script's header comments are in Spanish and English.
+
 ## v1.0.1 (2026-11)
 
 El script funciona exactamente igual que en la v1.0.0: solo cambiaron sus comentarios del principio. / The script works exactly as in v1.0.0: only its header comments changed.

@@ -93,15 +93,17 @@ Para ver más detalle mientras pruebas, pon `NanoDebug = True` al principio del 
 
 ### Armar el ZIP de una versión nueva
 
-Desde la carpeta principal del repositorio (no desde `dev`), cambiando `v1.0.1` por la versión nueva:
+Desde la carpeta principal del repositorio (no desde `dev`), cambiando `v1.1.0` por la versión nueva:
 
 ```
-python -I -B -c "import zipfile; z = zipfile.ZipFile('../iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip', 'w', zipfile.ZIP_DEFLATED); z.write('iCON Platform Nano Air FL Studio'); z.write('iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py'); z.write('docs/index.html', 'Tutorial iCON Platform Nano Air para FL Studio.html'); z.close()"
+python -I -B -c "import zipfile; z = zipfile.ZipFile('../iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip', 'w', zipfile.ZIP_DEFLATED); z.write('iCON Platform Nano Air FL Studio'); z.write('iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py'); z.write('docs/index.html', 'Tutorial iCON Platform Nano Air FL Studio (ES-EN).html'); z.close()"
 ```
 
-Deja el ZIP en la carpeta de arriba (fuera del repositorio). Debe traer la carpeta `iCON Platform Nano Air FL Studio`, con solo el script adentro (byte por byte igual al del repositorio), y `Tutorial iCON Platform Nano Air para FL Studio.html`, que es una copia de `docs/index.html`. Sube ese ZIP al release; no lo subas al repositorio.
+Deja el ZIP en la carpeta de arriba (fuera del repositorio). Debe traer la carpeta `iCON Platform Nano Air FL Studio`, con solo el script adentro (byte por byte igual al del repositorio), y `Tutorial iCON Platform Nano Air FL Studio (ES-EN).html`, que es una copia de `docs/index.html`. Sube ese ZIP al release; no lo subas al repositorio.
 
-Antes de publicar, cambia la versión y el nombre del ZIP en `README.md`, `docs/index.html` (también en el JSON-LD: `version`, `softwareVersion` y `dateModified`), `docs/llms.txt`, el encabezado del script (`release 1.0.1`) y la fecha `<lastmod>` de `docs/sitemap.xml` (búscalos con `git grep -n 1.0.1`), y agrega la versión nueva a `CHANGELOG.md`.
+El tutorial es bilingüe: los textos en español tienen su traducción en el bloque `/*EN*/ ... /*EN-END*/` de `docs/index.html`. Si cambias textos de la página o etiquetas de pasos en `gen_screen_data.py`, abre la página, escribe `i18nMissing()` en la consola del navegador y agrega lo que falte hasta que regrese `[]`.
+
+Antes de publicar, cambia la versión y el nombre del ZIP en `README.md`, `docs/index.html` (también en el JSON-LD: `version`, `softwareVersion` y `dateModified`), `docs/llms.txt`, el encabezado del script (`release 1.1.0`) y la fecha `<lastmod>` de `docs/sitemap.xml` (búscalos con `git grep -n 1.1.0`), y agrega la versión nueva a `CHANGELOG.md`.
 
 ## English
 
@@ -190,12 +192,14 @@ For more detail while testing, set `NanoDebug = True` at the top of the script: 
 
 ### Building the ZIP for a new version
 
-From the repository's main folder (not from `dev`), replacing `v1.0.1` with the new version:
+From the repository's main folder (not from `dev`), replacing `v1.1.0` with the new version:
 
 ```
-python -I -B -c "import zipfile; z = zipfile.ZipFile('../iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip', 'w', zipfile.ZIP_DEFLATED); z.write('iCON Platform Nano Air FL Studio'); z.write('iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py'); z.write('docs/index.html', 'Tutorial iCON Platform Nano Air para FL Studio.html'); z.close()"
+python -I -B -c "import zipfile; z = zipfile.ZipFile('../iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip', 'w', zipfile.ZIP_DEFLATED); z.write('iCON Platform Nano Air FL Studio'); z.write('iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py'); z.write('docs/index.html', 'Tutorial iCON Platform Nano Air FL Studio (ES-EN).html'); z.close()"
 ```
 
-The ZIP lands in the folder above (outside the repository). It must hold the `iCON Platform Nano Air FL Studio` folder, with only the script inside (byte for byte the same as in the repository), and `Tutorial iCON Platform Nano Air para FL Studio.html`, a copy of `docs/index.html`. Upload that ZIP to the release; do not commit it.
+The ZIP lands in the folder above (outside the repository). It must hold the `iCON Platform Nano Air FL Studio` folder, with only the script inside (byte for byte the same as in the repository), and `Tutorial iCON Platform Nano Air FL Studio (ES-EN).html`, a copy of `docs/index.html`. Upload that ZIP to the release; do not commit it.
 
-Before publishing, update the version and the ZIP name in `README.md`, `docs/index.html` (including the JSON-LD `version`, `softwareVersion` and `dateModified`), `docs/llms.txt`, the script header (`release 1.0.1`) and the `<lastmod>` date in `docs/sitemap.xml` (find them with `git grep -n 1.0.1`), and add the new version to `CHANGELOG.md`.
+The tutorial is bilingual: the Spanish texts have their translation in the `/*EN*/ ... /*EN-END*/` block of `docs/index.html`. If you change page texts or step labels in `gen_screen_data.py`, open the page, type `i18nMissing()` in the browser console and add what is missing until it returns `[]`.
+
+Before publishing, update the version and the ZIP name in `README.md`, `docs/index.html` (including the JSON-LD `version`, `softwareVersion` and `dateModified`), `docs/llms.txt`, the script header (`release 1.1.0`) and the `<lastmod>` date in `docs/sitemap.xml` (find them with `git grep -n 1.1.0`), and add the new version to `CHANGELOG.md`.

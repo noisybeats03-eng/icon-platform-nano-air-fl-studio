@@ -3,28 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>iCON Platform Nano Air en FL Studio · script y tutorial</title>
-<meta name="description" content="Script gratis y no oficial para el iCON Platform Nano Air en FL Studio (Mackie Control): el fader sigue al canal seleccionado. Tutorial y manual en español.">
-<meta name="keywords" content="iCON Platform Nano Air, Platform Nano Air, FL Studio, script FL Studio, script MIDI, controlador MIDI, MIDI controller script, Mackie Control, MCU, superficie de control, fader motorizado, iCON Platform D3, tutorial en español">
+<script>
+// Language, before the page is drawn: ?lang=es|en, then the saved choice, then the browser's first language (es… = Spanish, anything else = English).
+// It sets <html lang> and the class lang-es or lang-en; the CSS then hides the other language. Without JavaScript both languages show.
+(function(){var l='',h=document.documentElement;try{l=(new URLSearchParams(location.search).get('lang')||'').toLowerCase()}catch(e){}
+if(l!=='es'&&l!=='en'){try{l=localStorage.getItem('nanoair-lang')||''}catch(e){l=''}}
+if(l!=='es'&&l!=='en'){var n=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']);l=n.some(function(x){return /^es/i.test(x||'')})?'es':'en'}
+h.lang=l;h.classList.add('lang-'+l)})();
+</script>
+<title>iCON Platform Nano Air en FL Studio · script y tutorial ES/EN</title>
+<meta name="description" content="Script gratis y no oficial para el iCON Platform Nano Air en FL Studio: el fader sigue al canal seleccionado. Tutorial y manual en español e inglés.">
+<meta name="keywords" content="iCON Platform Nano Air, Platform Nano Air, FL Studio, script FL Studio, script MIDI, controlador MIDI, MIDI controller script, FL Studio controller script, Mackie Control, MCU, superficie de control, fader motorizado, motorized fader, iCON Platform D3, tutorial en español, tutorial in English">
 <link rel="canonical" href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/">
-<link rel="alternate" hreflang="es" href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/">
-<link rel="alternate" hreflang="x-default" href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/">
 <link rel="alternate" type="text/markdown" href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt" title="llms.txt">
-<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/favicon.png" type="image/png" sizes="32x32">
+<link rel="icon" href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="iCON Platform Nano Air para FL Studio">
-<meta property="og:title" content="Tu iCON Platform Nano Air en FL Studio: script y tutorial interactivo">
-<meta property="og:description" content="Script gratis y no oficial para el iCON Platform Nano Air en FL Studio (Mackie Control): el fader sigue al canal seleccionado. Tutorial y manual en español.">
+<meta property="og:site_name" content="iCON Platform Nano Air · FL Studio">
+<meta property="og:title" content="iCON Platform Nano Air en FL Studio: script y tutorial en español e inglés">
+<meta property="og:description" content="Script gratis y no oficial para el iCON Platform Nano Air en FL Studio: el fader sigue al canal seleccionado. Tutorial y manual en español e inglés.">
 <meta property="og:url" content="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/">
 <meta property="og:locale" content="es_LA">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:image" content="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/og.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="Inicio de la guía: el título Tu iCON Platform Nano Air en FL Studio y el dibujo del Nano con su pantalla externa iCON Platform D3">
+<meta property="og:image:alt" content="Inicio de la guía / Guide start: Tu iCON Platform Nano Air en FL Studio, dibujo del Nano y su pantalla externa iCON Platform D3 / drawing of the Nano and its iCON Platform D3 external display">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tu iCON Platform Nano Air en FL Studio: script y tutorial interactivo">
-<meta name="twitter:description" content="Script gratis y no oficial para el iCON Platform Nano Air en FL Studio (Mackie Control): el fader sigue al canal seleccionado. Tutorial y manual en español.">
+<meta name="twitter:title" content="iCON Platform Nano Air en FL Studio: script y tutorial en español e inglés">
+<meta name="twitter:description" content="Script gratis y no oficial para el iCON Platform Nano Air en FL Studio: el fader sigue al canal seleccionado. Tutorial y manual en español e inglés.">
 <meta name="twitter:image" content="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/og.png">
 <script type="application/ld+json">
 {
@@ -35,17 +42,17 @@
    "@id": "https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/#script",
    "name": "Script de FL Studio para el iCON Platform Nano Air",
    "alternateName": ["iCON Platform Nano Air (custom)", "iCON Platform Nano Air FL Studio script", "device_iCON_PlatformNanoAir_FLStudio.py"],
-   "description": "Script MIDI de FL Studio para el controlador iCON Platform Nano Air en modo Mackie Control (MCP). El fader motorizado, Mute, Solo, Rec y la pantalla siguen al canal del Mixer seleccionado; los modos de la rueda se prenden con un toque; zoom vertical y horizontal; Undo de un toque; el botón Loop prende la grabación en loop; la pantalla de 2 x 7 caracteres muestra el canal, su volumen en dB y mensajes cortos, y la pantalla externa iCON Platform D3 muestra un canal por cuadro. Incluye un tutorial interactivo en español y un manual de instalación en español e inglés.",
+   "description": "Script MIDI de FL Studio para el controlador iCON Platform Nano Air en modo Mackie Control (MCP). El fader motorizado, Mute, Solo, Rec y la pantalla siguen al canal del Mixer seleccionado; los modos de la rueda se prenden con un toque; zoom vertical y horizontal; Undo de un toque; el botón Loop prende la grabación en loop; la pantalla de 2 x 7 caracteres muestra el canal, su volumen en dB y mensajes cortos, y la pantalla externa iCON Platform D3 muestra un canal por cuadro. Incluye un tutorial interactivo y un manual de instalación en español e inglés.",
    "url": "https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/",
    "codeRepository": "https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio",
    "programmingLanguage": {"@type": "ComputerLanguage", "name": "Python"},
    "runtimePlatform": "FL Studio",
-   "version": "1.0.1",
+   "version": "1.1.0",
    "dateModified": "2026-11-24",
-   "inLanguage": "es",
+   "inLanguage": ["es", "en"],
    "isAccessibleForFree": true,
    "license": "https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/blob/main/LICENSE",
-   "keywords": ["iCON Platform Nano Air", "FL Studio", "script MIDI", "MIDI controller script", "Mackie Control", "MCU", "fader motorizado", "iCON Platform D3", "tutorial en español"],
+   "keywords": ["iCON Platform Nano Air", "FL Studio", "script MIDI", "MIDI controller script", "Mackie Control", "MCU", "fader motorizado", "motorized fader", "iCON Platform D3", "tutorial en español", "tutorial in English"],
    "author": {"@type": "Person", "name": "noisybeats03-eng", "url": "https://github.com/noisybeats03-eng"},
    "isBasedOn": {
     "@type": "SoftwareSourceCode",
@@ -72,9 +79,9 @@
     "name": "iCON Platform Nano Air (custom)",
     "applicationCategory": "MultimediaApplication",
     "applicationSubCategory": "Script de controlador MIDI para FL Studio",
-    "operatingSystem": "Windows (probado); macOS (sin probar)",
+    "operatingSystem": "Windows (probado / tested); macOS (sin probar / not tested)",
     "softwareRequirements": "FL Studio (probado con FL Studio 2025); iCON Platform Nano Air en modo Mackie Control (MCP)",
-    "softwareVersion": "1.0.1",
+    "softwareVersion": "1.1.0",
     "downloadUrl": "https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest",
     "installUrl": "https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#manual-de-instalaci%C3%B3n-en-fl-studio",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
@@ -87,19 +94,41 @@
    "name": "Cómo instalar el script del iCON Platform Nano Air en FL Studio",
    "description": "Copia el script en la carpeta Hardware de FL Studio, pon el Nano en modo Mackie Control (MCP) y elige iCON Platform Nano Air (custom) en MIDI settings.",
    "inLanguage": "es",
-   "supply": [{"@type": "HowToSupply", "name": "iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip"}],
+   "supply": [{"@type": "HowToSupply", "name": "iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip"}],
    "tool": [
     {"@type": "HowToTool", "name": "iCON Platform Nano Air (con cable USB o con su receptor inalámbrico)"},
     {"@type": "HowToTool", "name": "FL Studio (probado con FL Studio 2025)"}
    ],
    "step": [
-    {"@type": "HowToStep", "position": 1, "name": "Descarga el script", "text": "Baja iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip de la página de descargas (Releases) del proyecto en GitHub y descomprímelo.", "url": "https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest"},
+    {"@type": "HowToStep", "position": 1, "name": "Descarga el script", "text": "Baja iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip de la página de descargas (Releases) del proyecto en GitHub y descomprímelo.", "url": "https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest"},
     {"@type": "HowToStep", "position": 2, "name": "Copia la carpeta", "text": "Copia la carpeta \"iCON Platform Nano Air FL Studio\" (con el archivo device_iCON_PlatformNanoAir_FLStudio.py adentro) en Documentos\\Image-Line\\FL Studio\\Settings\\Hardware. Si FL usa otra carpeta de datos, la ves en Options → File settings (User data folder): entra ahí a FL Studio\\Settings\\Hardware. En Mac: ~/Documents/Image-Line/FL Studio/Settings/Hardware (no se ha probado en Mac)."},
     {"@type": "HowToStep", "position": 3, "name": "Pon el Nano en modo MCP (Mackie Control)", "text": "Al prender el Nano, la pantalla pide el modo unos segundos: elige MCP con los botones de colores 1 y 2 de la fila de arriba (« y ») y confirma con el 3 (DAW Mode). El Nano lo recuerda. Inalámbrico: conecta antes el receptor USB de iCON; cuando se enlazan, la pantalla dice Paired."},
     {"@type": "HowToStep", "position": 4, "name": "Reinicia FL Studio", "text": "Cierra y vuelve a abrir FL Studio, ya con el Nano prendido en modo MCP."},
     {"@type": "HowToStep", "position": 5, "name": "Configura la entrada", "text": "En Options → MIDI settings (F10), en la lista Input elige el Nano (por ejemplo PlatformNano Air V1.02 inalámbrico o PlatformNano(A) V2.05 por cable), en Controller type elige iCON Platform Nano Air (custom) y pon Port 1. Al elegir el Controller type, Enable se prende solo: si le das clic, se apaga."},
     {"@type": "HowToStep", "position": 6, "name": "Configura la salida", "text": "En la lista Output elige el mismo Nano y ponle el mismo Port (1). Si usas cable e inalámbrico, configura los dos nombres una vez: FL guarda cada nombre por separado."},
-    {"@type": "HowToStep", "position": 7, "name": "Comprueba que funciona", "text": "En View → Script output, la pestaña del Nano dice OnInit ready. La pantalla del Nano muestra FL / LISTO unos 2 segundos y luego el canal seleccionado y su volumen en dB. Toca el fader una vez para que el script aprenda en qué canal está."}
+    {"@type": "HowToStep", "position": 7, "name": "Comprueba que funciona", "text": "En View → Script output, la pestaña del Nano dice OnInit ready. La pantalla del Nano muestra FL / LISTO unos 2 segundos y luego el canal seleccionado y su volumen en dB. Toca el fader una vez para que el script aprenda en qué lugar del banco está el fader."}
+   ]
+  },
+  {
+   "@type": "HowTo",
+   "@id": "https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/#instalar-en",
+   "url": "https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=en#instalar",
+   "name": "How to install the iCON Platform Nano Air script in FL Studio",
+   "description": "Copy the script into FL Studio's Hardware folder, put the Nano in Mackie Control (MCP) mode and choose iCON Platform Nano Air (custom) in MIDI settings.",
+   "inLanguage": "en",
+   "supply": [{"@type": "HowToSupply", "name": "iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip"}],
+   "tool": [
+    {"@type": "HowToTool", "name": "iCON Platform Nano Air (with its USB cable or its wireless receiver)"},
+    {"@type": "HowToTool", "name": "FL Studio (tested with FL Studio 2025)"}
+   ],
+   "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Download the script", "text": "Get iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip from the project's downloads page (Releases) on GitHub and unzip it.", "url": "https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest"},
+    {"@type": "HowToStep", "position": 2, "name": "Copy the folder", "text": "Copy the \"iCON Platform Nano Air FL Studio\" folder (with the file device_iCON_PlatformNanoAir_FLStudio.py inside) into Documents\\Image-Line\\FL Studio\\Settings\\Hardware. If FL uses another data folder, you can see it in Options → File settings (User data folder): go into FL Studio\\Settings\\Hardware there. On a Mac: ~/Documents/Image-Line/FL Studio/Settings/Hardware (not tested on Mac)."},
+    {"@type": "HowToStep", "position": 3, "name": "Put the Nano in MCP mode (Mackie Control)", "text": "When you switch the Nano on, the screen asks for the mode for a few seconds: choose MCP with colored keys 1 and 2 of the top row (« and ») and confirm with key 3 (DAW Mode). The Nano remembers it. Wireless: plug in iCON's USB receiver first; when they pair, the screen says Paired."},
+    {"@type": "HowToStep", "position": 4, "name": "Restart FL Studio", "text": "Close FL Studio and open it again, with the Nano already on in MCP mode."},
+    {"@type": "HowToStep", "position": 5, "name": "Set up the input", "text": "In Options → MIDI settings (F10), in the Input list pick the Nano (for example PlatformNano Air V1.02 wireless or PlatformNano(A) V2.05 by cable), in Controller type choose iCON Platform Nano Air (custom) and set Port 1. Choosing the Controller type already turns Enable on: if you click it, it turns off."},
+    {"@type": "HowToStep", "position": 6, "name": "Set up the output", "text": "In the Output list pick the same Nano and give it the same Port (1). If you use both cable and wireless, set up both names once: FL keeps each name separately."},
+    {"@type": "HowToStep", "position": 7, "name": "Check that it works", "text": "In View → Script output, the Nano's tab says OnInit ready. The Nano's screen shows FL / LISTO (\"ready\") for about 2 seconds, then the selected track and its volume in dB. Touch the fader once so the script learns where the fader is in the bank."}
    ]
   }
  ]
@@ -208,81 +237,109 @@ ol.install li{margin-bottom:10px}
 .full summary{cursor:pointer;font-weight:600;color:var(--accent);padding:10px 0}
 .full summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 #pantallas .seq small{color:var(--soft)}
+/* two languages: every text exists as .l-es and .l-en; the head script picks one and the other hides (with no JavaScript both show) */
+.lang-es .l-en,.lang-en .l-es{display:none!important}
+:root:not(.lang-es):not(.lang-en) span.l-en::before{content:" / "}
+.langsw{display:none;justify-content:flex-end;align-items:center;gap:2px;margin-bottom:8px}
+.lang-es .langsw,.lang-en .langsw{display:flex}
+.langsw button{min-height:44px;min-width:44px;padding:0 14px;border-radius:22px;border:2px solid transparent;background:none;color:var(--soft);font:600 15px Barlow,sans-serif;cursor:pointer}
+.langsw button:hover{color:var(--ink)}
+.lang-es .langsw [data-lang=es],.lang-en .langsw [data-lang=en]{color:var(--ink);border-color:var(--accent)}
+.langsw button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.langsw span{color:var(--soft)}
 @media(max-width:860px){.stagegrid{grid-template-columns:minmax(0,1fr)}.card{position:static}}
 @media(max-width:600px){.legend{grid-template-columns:repeat(2,minmax(0,1fr))}table{font-size:14px}th,td{padding:8px 6px}.stack thead{display:none}.stack tr{display:grid;padding-block:8px;border-bottom:1px solid var(--line)}.stack td{border:0;padding:2px 0}.stack td::before{content:attr(data-l);display:block;font:700 13px "Barlow Semi Condensed",sans-serif;color:var(--soft)}}
 @media(prefers-reduced-motion:no-preference){.ctl.match .hit{animation:pulse 1.2s ease-in-out 2}}
 @keyframes pulse{50%{stroke-opacity:.25}}
 </style>
-<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;const h=c.closest('table').rows[0].cells[i];c.dataset.l=h?(h.querySelector(document.documentElement.classList.contains('lang-en')?'.l-en':'.l-es')||h).textContent:''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
 <body>
 <header class="band"><div class="wrap">
-<h1>Tu iCON Platform Nano Air en FL Studio</h1>
-<p class="lead">Un script gratis y no oficial para el controlador iCON Platform Nano Air que hace que su fader motorizado, la pantalla y la rueda funcionen mejor en FL Studio, y esta guía de cada botón. Toca cualquier botón del dibujo para ver qué hace. Los 8 botones de colores cambian según la capa: elige el color arriba del dibujo.</p>
-<nav class="getbar" aria-label="Descarga y manual">
-<a class="go" href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest">Descargar el script</a>
-<a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio">Código y manual en GitHub</a>
-<a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#manual-de-instalaci%C3%B3n-en-fl-studio">Manual de instalación</a>
-<a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#installation-manual-for-fl-studio" lang="en" hreflang="en">Installation manual (English)</a>
-<small>Versión 1.0.1 · noviembre de 2026</small>
+<div class="langsw" id="langsw" role="group" aria-label="Idioma" data-t-aria="Idioma"><button type="button" data-lang="es" lang="es" aria-pressed="false">Español</button><span aria-hidden="true">|</span><button type="button" data-lang="en" lang="en" aria-pressed="false">English</button></div>
+<h1><span class="l-es" lang="es">Tu iCON Platform Nano Air en FL Studio</span><span class="l-en" lang="en">Your iCON Platform Nano Air in FL Studio</span></h1>
+<p class="lead l-es" lang="es">Un script gratis y no oficial para el controlador iCON Platform Nano Air que hace que su fader motorizado, la pantalla y la rueda funcionen mejor en FL Studio, y esta guía de cada botón. Toca cualquier botón del dibujo para ver qué hace. Los 8 botones de colores cambian según la capa: elige el color arriba del dibujo.</p>
+<p class="lead l-en" lang="en">A free, unofficial script for the iCON Platform Nano Air controller that makes its motorized fader, screen and wheel work better in FL Studio, plus this guide to every key. Click or tap any key on the drawing to see what it does. The 8 colored keys change with the layer: choose the color above the drawing.</p>
+<nav class="getbar" aria-label="Descarga y manual" data-t-aria="Descarga y manual">
+<a class="go" href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest"><span class="l-es" lang="es">Descargar el script</span><span class="l-en" lang="en">Download the script</span></a>
+<a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio"><span class="l-es" lang="es">Código y manual en GitHub</span><span class="l-en" lang="en">Code and manual on GitHub</span></a>
+<a class="l-es" lang="es" href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#manual-de-instalaci%C3%B3n-en-fl-studio">Manual de instalación</a>
+<a class="l-en" lang="en" hreflang="en" href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#installation-manual-for-fl-studio">Installation manual</a>
+<small><span class="l-es" lang="es">Versión 1.1.0 · noviembre de 2026</span><span class="l-en" lang="en">Version 1.1.0 · November 2026</span></small>
 </nav>
 </div></header>
-<noscript><div class="band" style="padding-block:0 18px"><div class="wrap"><p>Esta guía interactiva usa JavaScript. La guía completa en texto está en el <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#readme">README de GitHub</a>.</p></div></div></noscript>
+<noscript><div class="band" style="padding-block:0 18px"><div class="wrap"><p class="l-es" lang="es">Esta guía interactiva usa JavaScript: sin él, el dibujo no funciona y el español y el inglés se ven juntos. La guía completa en texto está en el <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#readme">README de GitHub</a>.</p><p class="l-en" lang="en">This interactive guide uses JavaScript: without it, the drawing doesn't work and Spanish and English show together. The full guide as text is in the <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#readme">GitHub README</a>.</p></div></div></noscript>
 
-<section class="band stage" id="controlador" aria-label="Controlador interactivo"><div class="wrap">
+<section class="band stage" id="controlador" aria-label="Controlador interactivo" data-t-aria="Controlador interactivo"><div class="wrap">
 <div class="tools">
-<div class="chips" role="radiogroup" aria-label="Capa de color" id="chips"></div>
-<div class="search"><input id="q" type="search" placeholder="Buscar: guardar, zoom, metrónomo…" aria-label="Buscar una función" autocomplete="off"><div class="res" id="res"></div></div>
+<div class="chips" role="radiogroup" aria-label="Capa de color" data-t-aria="Capa de color" id="chips"></div>
+<div class="search"><input id="q" type="search" placeholder="Buscar: guardar, zoom, metrónomo…" data-t-ph="Buscar: guardar, zoom, metrónomo…" aria-label="Buscar una función" data-t-aria="Buscar una función" autocomplete="off"><div class="res" id="res"></div></div>
 </div>
 <div class="stagegrid">
 <figure class="device">
-<svg id="dev" viewBox="0 -152 810 882" role="group" aria-label="Dibujo del Platform Nano Air con su pantalla externa: toca un botón para ver su función y lo que dicen las pantallas"></svg>
-<div class="legend" id="legend" aria-label="Los 8 botones de colores en la capa elegida"></div>
-<figcaption>Dibujo del panel de arriba y de la pantalla externa iCON Platform D3 (opcional). Las pantallas del dibujo enseñan lo que el script debería mostrar al tocar cada botón (con nombres de canales de ejemplo); el cuadro con borde es el del fader. Los nombres de los botones de colores son los del overlay oficial de FL Studio que hace iCON.</figcaption>
+<svg id="dev" viewBox="0 -152 810 882" role="group" aria-label="Dibujo del Platform Nano Air con su pantalla externa: toca un botón para ver su función y lo que dicen las pantallas" data-t-aria="Dibujo del Platform Nano Air con su pantalla externa: toca un botón para ver su función y lo que dicen las pantallas"></svg>
+<div class="legend" id="legend" aria-label="Los 8 botones de colores en la capa elegida" data-t-aria="Los 8 botones de colores en la capa elegida"></div>
+<figcaption><span class="l-es" lang="es">Dibujo del panel de arriba y de la pantalla externa iCON Platform D3 (opcional). Las pantallas del dibujo enseñan lo que el script debería mostrar al tocar cada botón (con nombres de canales de ejemplo); el cuadro con borde es el del fader. Los nombres de los botones de colores son los del overlay oficial de FL Studio que hace iCON.</span><span class="l-en" lang="en">Drawing of the top panel and of the optional iCON Platform D3 external display. The drawn screens show what the script should display when you press each key (with example track names); the square with a border is the fader's square. The colored-key names are those of iCON's official FL Studio overlay. Screen texts are kept exactly as the device shows them, and a few are Spanish words: LISTO = ready, CERRADO = closed, MODO = mode, TIEMPO = time format, COMPAS = bars, MIN:SEG = min:sec, PAGINA = page.</span></figcaption>
 </figure>
 <aside class="card" id="info" aria-live="polite"></aside>
 </div>
 </div></section>
 
-<nav class="toc band" aria-label="Secciones" style="padding-block:14px">
-<a href="#instalar">Instalar</a><a href="#pantallas">Pantallas</a><a href="#rueda">Rueda</a><a href="#combos">Combinaciones</a><a href="#paginas">Perillas</a><a href="#recetas">Recetas</a><a href="#cambios">Qué cambia</a><a href="#problemas">Si algo no funciona</a>
+<nav class="toc band" aria-label="Secciones" data-t-aria="Secciones" style="padding-block:14px">
+<a href="#instalar"><span class="l-es" lang="es">Instalar</span><span class="l-en" lang="en">Install</span></a><a href="#pantallas"><span class="l-es" lang="es">Pantallas</span><span class="l-en" lang="en">Screens</span></a><a href="#rueda"><span class="l-es" lang="es">Rueda</span><span class="l-en" lang="en">Wheel</span></a><a href="#combos"><span class="l-es" lang="es">Combinaciones</span><span class="l-en" lang="en">Combinations</span></a><a href="#paginas"><span class="l-es" lang="es">Perillas</span><span class="l-en" lang="en">Knobs</span></a><a href="#recetas"><span class="l-es" lang="es">Recetas</span><span class="l-en" lang="en">Recipes</span></a><a href="#cambios"><span class="l-es" lang="es">Qué cambia</span><span class="l-en" lang="en">What changes</span></a><a href="#problemas"><span class="l-es" lang="es">Si algo no funciona</span><span class="l-en" lang="en">Troubleshooting</span></a>
 </nav>
 
 <section class="band" id="instalar"><div class="wrap">
-<h2>Instálalo en FL Studio</h2>
-<p>Son unos minutos y no necesitas saber programar. Si quieres más detalle, sigue el <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#manual-de-instalaci%C3%B3n-en-fl-studio">manual de instalación</a> en GitHub.</p>
-<p class="note">En esta guía, los nombres de los menús y botones de FL están en inglés. Si tu FL está en otro idioma, se ven traducidos. La tecla F10 abre MIDI settings en cualquier idioma.</p>
-<ol class="steps install">
-<li><b>Descarga el script.</b> Baja <span class="path">iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip</span> de la <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest">página de descargas</a> y descomprímelo (clic derecho → Extraer todo). Trae dos cosas: la carpeta del script y este mismo tutorial, <span class="path">Tutorial iCON Platform Nano Air para FL Studio.html</span>, que se abre con doble clic aunque no tengas internet.</li>
+<h2><span class="l-es" lang="es">Instálalo en FL Studio</span><span class="l-en" lang="en">Install it in FL Studio</span></h2>
+<p class="l-es" lang="es">Son unos minutos y no necesitas saber programar. Si quieres más detalle, sigue el <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#manual-de-instalaci%C3%B3n-en-fl-studio">manual de instalación</a> en GitHub.</p>
+<p class="l-en" lang="en">It takes a few minutes and you don't need to know how to program. For more detail, follow the <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#installation-manual-for-fl-studio">installation manual</a> on GitHub.</p>
+<p class="note l-es" lang="es">En esta guía, los nombres de los menús y botones de FL están en inglés. Si tu FL está en otro idioma, se ven traducidos. La tecla F10 abre MIDI settings en cualquier idioma.</p>
+<p class="note l-en" lang="en">In this guide, FL's menus and buttons are named as FL shows them in English. If your FL is set to another language, they appear translated. The F10 key opens MIDI settings in any language.</p>
+<ol class="steps install l-es" lang="es">
+<li><b>Descarga el script.</b> Baja <span class="path">iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip</span> de la <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest">página de descargas</a> y descomprímelo (clic derecho → Extraer todo). Trae dos cosas: la carpeta del script y este mismo tutorial (en español e inglés), <span class="path">Tutorial iCON Platform Nano Air FL Studio (ES-EN).html</span>, que se abre con doble clic aunque no tengas internet.</li>
 <li><b>Copia la carpeta.</b> Copia la carpeta <b>iCON Platform Nano Air FL Studio</b> (con el archivo <span class="path">device_iCON_PlatformNanoAir_FLStudio.py</span> adentro) en <span class="path">Documentos\Image-Line\FL Studio\Settings\Hardware</span>. Si FL usa otra carpeta de datos, la ves en Options → File settings (User data folder): entra ahí a <span class="path">FL Studio\Settings\Hardware</span>. En Mac: <span class="path">~/Documents/Image-Line/FL Studio/Settings/Hardware</span> (no se ha probado en Mac).</li>
 <li><b>Pon el Nano en modo MCP (Mackie Control).</b> Al prenderlo (el switch está atrás: es el del extremo izquierdo si miras la parte de atrás), la pantalla pide el modo unos segundos: elige MCP con los botones de colores 1 y 2 de la fila de arriba (« y ») y confirma con el 3 (DAW Mode). El Nano lo recuerda. Inalámbrico: conecta antes el receptor USB de iCON a la compu; cuando se enlazan, la pantalla dice Paired.</li>
 <li><b>Reinicia FL Studio</b> (ciérralo y vuelve a abrirlo, ya con el Nano prendido en modo MCP).</li>
 <li><b>Configura la entrada.</b> Options → MIDI settings (F10). En la lista Input elige el Nano (por ejemplo «PlatformNano Air V1.02» inalámbrico o «PlatformNano(A) V2.05» por cable), en Controller type elige <b>iCON Platform Nano Air (custom)</b> y pon Port <b>1</b>. Ojo: al elegir el Controller type, Enable se prende solo; si le das clic, se apaga (fíjate en su luz).</li>
 <li><b>Configura la salida.</b> En la lista Output elige el mismo Nano y ponle el mismo Port (1). Cierra la ventana.</li>
-<li><b>Comprueba.</b> En View → Script output, la pestaña del Nano dice <b>OnInit ready</b>. La pantalla del Nano muestra <span class="lcd"><span>FL     </span><span>LISTO  </span></span> unos 2 segundos y luego el canal seleccionado y su volumen, por ejemplo <span class="lcd"><span>Vocal  </span><span>-5.2dB </span></span>. Toca el fader una vez: así el script aprende en qué canal está.</li>
+<li><b>Comprueba.</b> En View → Script output, la pestaña del Nano dice <b>OnInit ready</b>. La pantalla del Nano muestra <span class="lcd"><span>FL     </span><span>LISTO  </span></span> unos 2 segundos y luego el canal seleccionado y su volumen, por ejemplo <span class="lcd"><span>Vocal  </span><span>-5.2dB </span></span>. Toca el fader una vez: así el script aprende en qué lugar del banco está el fader.</li>
 </ol>
-<p class="note">¿Usas el cable y también el receptor inalámbrico? FL los ve con dos nombres y guarda cada uno por separado: haz los pasos 5 y 6 con los dos (si no, el día que se acabe la batería y conectes el cable parecerá que se borró todo). Para volver al script original de FL, elige Controller type «Mackie Control Universal»; para desinstalar, elige otro Controller type y borra la carpeta.</p>
+<ol class="steps install l-en" lang="en">
+<li><b>Download the script.</b> Get <span class="path">iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip</span> from the <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest">downloads page</a> and unzip it (right-click → Extract All). It contains two things: the script folder and this same tutorial (in Spanish and English), <span class="path">Tutorial iCON Platform Nano Air FL Studio (ES-EN).html</span>, which opens with a double-click even without internet.</li>
+<li><b>Copy the folder.</b> Copy the <b>iCON Platform Nano Air FL Studio</b> folder (with the file <span class="path">device_iCON_PlatformNanoAir_FLStudio.py</span> inside) into <span class="path">Documents\Image-Line\FL Studio\Settings\Hardware</span>. If FL uses another data folder, you can see it in Options → File settings (User data folder): go into <span class="path">FL Studio\Settings\Hardware</span> there. On a Mac: <span class="path">~/Documents/Image-Line/FL Studio/Settings/Hardware</span> (not tested on Mac).</li>
+<li><b>Put the Nano in MCP mode (Mackie Control).</b> When you switch it on (the power switch is on the back: it's the one at the far left when you look at the back panel), the screen asks for the mode for a few seconds: choose MCP with colored keys 1 and 2 of the top row (« and ») and confirm with key 3 (DAW Mode). The Nano remembers it. Wireless: first plug iCON's USB receiver into the computer; when they pair, the screen says Paired.</li>
+<li><b>Restart FL Studio</b> (close it and open it again, with the Nano already on in MCP mode).</li>
+<li><b>Set up the input.</b> Options → MIDI settings (F10). In the Input list, pick the Nano (for example "PlatformNano Air V1.02" wireless or "PlatformNano(A) V2.05" by cable), in Controller type choose <b>iCON Platform Nano Air (custom)</b> and set Port <b>1</b>. Careful: choosing the Controller type already turns Enable on; if you click it, it turns off (watch its light).</li>
+<li><b>Set up the output.</b> In the Output list, pick the same Nano and give it the same Port (1). Close the window.</li>
+<li><b>Check.</b> In View → Script output, the Nano's tab says <b>OnInit ready</b>. The Nano's screen shows <span class="lcd"><span>FL     </span><span>LISTO  </span></span> ("ready") for about 2 seconds, then the selected track and its volume, for example <span class="lcd"><span>Vocal  </span><span>-5.2dB </span></span>. Touch the fader once: that's how the script learns where the fader is in the bank.</li>
+</ol>
+<p class="note l-es" lang="es">¿Usas el cable y también el receptor inalámbrico? FL los ve con dos nombres y guarda cada uno por separado: haz los pasos 5 y 6 con los dos (si no, el día que se acabe la batería y conectes el cable parecerá que se borró todo). Para volver al script original de FL, elige Controller type «Mackie Control Universal»; para desinstalar, elige otro Controller type y borra la carpeta.</p>
+<p class="note l-en" lang="en">Do you use the cable and also the wireless receiver? FL sees them under two names and keeps the settings of each one separately: do steps 5 and 6 for both (otherwise, the day the battery runs out and you plug in the cable, it will look as if everything was erased). To go back to FL's original script, choose Controller type "Mackie Control Universal"; to uninstall, choose another Controller type and delete the folder.</p>
 </div></section>
 
 <section class="band" id="pantallas"><div class="wrap">
-<h2>Lo que dicen las pantallas</h2>
-<p>Así deberían verse la pantallita del Nano y la pantalla externa iCON Platform D3 (8 cuadros) con el script. Toca un botón en el dibujo de arriba y sus pantallas te lo enseñan paso a paso; aquí abajo está la lista completa para comparar con tu Nano. Los nombres de canales son de ejemplo: en tu proyecto salen los tuyos.</p>
+<h2><span class="l-es" lang="es">Lo que dicen las pantallas</span><span class="l-en" lang="en">What the screens say</span></h2>
+<p class="l-es" lang="es">Así deberían verse la pantallita del Nano y la pantalla externa iCON Platform D3 (8 cuadros) con el script. Toca un botón en el dibujo de arriba y sus pantallas te lo enseñan paso a paso; aquí abajo está la lista completa para comparar con tu Nano. Los nombres de canales son de ejemplo: en tu proyecto salen los tuyos.</p>
+<p class="l-en" lang="en">This is how the Nano's small screen and the iCON Platform D3 external display (8 squares) should look with the script. Click a key on the drawing above and its screens show you step by step; below is the full list to compare with your Nano. The track names are examples: your project shows your own.</p>
+<p class="note l-en" lang="en" id="glossary">Screen texts are kept exactly as the device shows them, so a few are Spanish words: <b>LISTO</b> = ready, <b>CERRADO</b> = closed, <b>MODO</b> = mode, <b>TIEMPO</b> = time format, <b>COMPAS</b> = bars, <b>MIN:SEG</b> = min:sec, <b>PAGINA</b> = page. <b>(FL's hint)</b> marks a message that comes from FL Studio itself: its hint text at that moment.</p>
 <div class="cols" id="scrnorm">
-<div class="box"><h3>Sin tocar nada</h3><p><span class="lcd"><span>Vocal  </span><span>-5.2dB </span></span> <small class="note">cuadro del fader y pantallita: el canal seleccionado y su volumen</small><br><span class="lcd"><span>Snare  </span><span>10%L   </span></span> <small class="note">los otros cuadros: su canal y su paneo (C = centro)</small></p></div>
-<div class="box"><h3>Al tocar un botón</h3><p><span class="lcd"><span>METRO  </span><span>ON     </span></span> <small class="note">los 8 cuadros y la pantallita, 1.5 s; luego todo vuelve. Una perilla solo cambia su cuadro.</small></p></div>
-<div class="box"><h3>Con un modo de rueda</h3><p><span class="lcd"><span>MIXER  </span><span>Vocal  </span></span> <small class="note">solo en el cuadro del fader y la pantallita: el modo arriba y lo que vas cambiando abajo</small></p></div>
-<div class="box"><h3>Al cargar el script</h3><p><small class="note">Los 8 cuadros repiten lo mismo hasta que tocas el fader una vez: así el script aprende en qué cuadro está.</small></p></div>
+<div class="box"><h3><span class="l-es" lang="es">Sin tocar nada</span><span class="l-en" lang="en">Without touching anything</span></h3><p class="l-es" lang="es"><span class="lcd"><span>Vocal  </span><span>-5.2dB </span></span> <small class="note">cuadro del fader y pantallita: el canal seleccionado y su volumen</small><br><span class="lcd"><span>Snare  </span><span>10%L   </span></span> <small class="note">los otros cuadros: su canal y su paneo (C = centro)</small></p><p class="l-en" lang="en"><span class="lcd"><span>Vocal  </span><span>-5.2dB </span></span> <small class="note">fader's square and small screen: the selected track and its volume</small><br><span class="lcd"><span>Snare  </span><span>10%L   </span></span> <small class="note">the other squares: their track and its pan (C = center)</small></p></div>
+<div class="box"><h3><span class="l-es" lang="es">Al tocar un botón</span><span class="l-en" lang="en">When you press a key</span></h3><p class="l-es" lang="es"><span class="lcd"><span>METRO  </span><span>ON     </span></span> <small class="note">los 8 cuadros y la pantallita, 1.5 s; luego todo vuelve. Una perilla solo cambia su cuadro.</small></p><p class="l-en" lang="en"><span class="lcd"><span>METRO  </span><span>ON     </span></span> <small class="note">all 8 squares and the small screen, 1.5 s; then everything goes back. A knob only changes its own square.</small></p></div>
+<div class="box"><h3><span class="l-es" lang="es">Con un modo de rueda</span><span class="l-en" lang="en">With a wheel mode</span></h3><p class="l-es" lang="es"><span class="lcd"><span>MIXER  </span><span>Vocal  </span></span> <small class="note">solo en el cuadro del fader y la pantallita: el modo arriba y lo que vas cambiando abajo</small></p><p class="l-en" lang="en"><span class="lcd"><span>MIXER  </span><span>Vocal  </span></span> <small class="note">only on the fader's square and the small screen: the mode on top and what you are changing below</small></p></div>
+<div class="box"><h3><span class="l-es" lang="es">Al cargar el script</span><span class="l-en" lang="en">When the script loads</span></h3><p class="l-es" lang="es"><small class="note">Los 8 cuadros repiten lo mismo hasta que tocas el fader una vez: así el script aprende en qué cuadro está.</small></p><p class="l-en" lang="en"><small class="note">All 8 squares repeat the same thing until you touch the fader once: that's how the script learns which square it is on.</small></p></div>
 </div>
-<details class="full" id="scrlist" style="margin-top:16px"><summary>Ver la lista completa (<span id="scrcount">69</span> botones)</summary>
-<div class="scroll"><table class="stack"><thead><tr><th>Botón</th><th>Qué haces</th><th>Pantallita del Nano</th><th>Dónde sale</th><th>Cuánto dura</th><th></th></tr></thead><tbody id="scrrows"></tbody></table></div>
+<details class="full" id="scrlist" style="margin-top:16px"><summary><span class="l-es" lang="es">Ver la lista completa (<span class="scrcount">69</span> botones)</span><span class="l-en" lang="en">See the full list (<span class="scrcount">69</span> controls)</span></summary>
+<div class="scroll"><table class="stack"><thead><tr><th><span class="l-es" lang="es">Botón</span><span class="l-en" lang="en">Control</span></th><th><span class="l-es" lang="es">Qué haces</span><span class="l-en" lang="en">What you do</span></th><th><span class="l-es" lang="es">Pantallita del Nano</span><span class="l-en" lang="en">Nano's small screen</span></th><th><span class="l-es" lang="es">Dónde sale</span><span class="l-en" lang="en">Where it shows</span></th><th><span class="l-es" lang="es">Cuánto dura</span><span class="l-en" lang="en">How long it lasts</span></th><th></th></tr></thead><tbody id="scrrows"></tbody></table></div>
 </details>
-<p class="note" style="margin-top:12px">Los mensajes de las pantallas también están en texto en el manual de GitHub: <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#lo-que-muestran-las-pantallas">Lo que muestran las pantallas</a>.</p>
+<p class="note l-es" lang="es" style="margin-top:12px">Los mensajes de las pantallas también están en texto en el manual de GitHub: <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#lo-que-muestran-las-pantallas">Lo que muestran las pantallas</a>.</p>
+<p class="note l-en" lang="en" style="margin-top:12px">The screen messages are also listed as text in the GitHub manual: <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#what-the-screens-show">What the screens show</a>.</p>
 </div></section>
 
 <section class="band" id="rueda"><div class="wrap">
-<h2>La rueda hace una cosa a la vez; estos botones eligen cuál</h2>
-<p><b>Un toque</b> deja el modo prendido (arriba en la pantalla sale el modo y abajo lo que vas cambiando) y giras la rueda; <b>otro toque</b> lo apaga. Si lo <b>mantienes apretado mientras giras</b>, se apaga solo al soltar. Sin ningún modo, la rueda mueve la posición de la canción.</p>
-<div class="scroll"><table class="stack"><thead><tr><th>Modo</th><th>Dónde está</th><th>Qué hace la rueda</th></tr></thead><tbody id="wheelrows">
+<h2><span class="l-es" lang="es">La rueda hace una cosa a la vez; estos botones eligen cuál</span><span class="l-en" lang="en">The wheel does one thing at a time; these keys choose which</span></h2>
+<p class="l-es" lang="es"><b>Un toque</b> deja el modo prendido (arriba en la pantalla sale el modo y abajo lo que vas cambiando) y giras la rueda; <b>otro toque</b> lo apaga. Si lo <b>mantienes apretado mientras giras</b>, se apaga solo al soltar. Sin ningún modo, la rueda mueve la posición de la canción.</p>
+<p class="l-en" lang="en"><b>One tap</b> turns the mode on (the screen shows the mode on top and what you are changing below) and you turn the wheel; <b>another tap</b> turns it off. If you <b>hold the key while you turn</b>, the mode turns off by itself when you let go. With no mode, the wheel moves the song position.</p>
+<div class="scroll"><table class="stack"><thead><tr><th><span class="l-es" lang="es">Modo</span><span class="l-en" lang="en">Mode</span></th><th><span class="l-es" lang="es">Dónde está</span><span class="l-en" lang="en">Where it is</span></th><th><span class="l-es" lang="es">Qué hace la rueda</span><span class="l-en" lang="en">What the wheel does</span></th></tr></thead><tbody id="wheelrows" class="l-es" lang="es">
 <tr><td data-l="Modo"><b>Mixer</b></td><td data-l="Dónde está">verde 2</td><td data-l="Qué hace la rueda">Va de canal en canal del Mixer; el fader te sigue.</td></tr>
 <tr><td data-l="Modo"><b>Pattern</b></td><td data-l="Dónde está">verde 1</td><td data-l="Qué hace la rueda">Cambia de pattern.</td></tr>
 <tr><td data-l="Modo"><b>Channel</b></td><td data-l="Dónde está">verde 3</td><td data-l="Qué hace la rueda">Va de canal en canal del Channel Rack.</td></tr>
@@ -296,13 +353,28 @@ ol.install li{margin-bottom:10px}
 <tr><td data-l="Modo"><b>Zoom ↔</b></td><td data-l="Dónde está">botón a la derecha de la rueda</td><td data-l="Qué hace la rueda">Zoom horizontal (tiempo).</td></tr>
 <tr><td data-l="Modo"><b>Navegar ↕ ↔</b></td><td data-l="Dónde está">botones a la izquierda de la rueda</td><td data-l="Qué hace la rueda">Flechas, como el teclado (menús y listas).</td></tr>
 <tr><td data-l="Modo"><b>Sin modo</b></td><td data-l="Dónde está">—</td><td data-l="Qué hace la rueda">Se mueve por lo enfocado: en la Playlist, la posición de la canción. Apretar la rueda: Scrub.</td></tr>
+</tbody><tbody id="wheelrows-en" class="l-en" lang="en">
+<tr><td data-l="Mode"><b>Mixer</b></td><td data-l="Where it is">green 2</td><td data-l="What the wheel does">Goes from track to track in the Mixer; the fader follows you.</td></tr>
+<tr><td data-l="Mode"><b>Pattern</b></td><td data-l="Where it is">green 1</td><td data-l="What the wheel does">Changes the pattern.</td></tr>
+<tr><td data-l="Mode"><b>Channel</b></td><td data-l="Where it is">green 3</td><td data-l="What the wheel does">Goes from channel to channel in the Channel Rack.</td></tr>
+<tr><td data-l="Mode"><b>Tempo</b></td><td data-l="Where it is">green 4</td><td data-l="What the wheel does">Raises or lowers the BPM (it changes your song). The screen and the digit display show the BPM.</td></tr>
+<tr><td data-l="Mode"><b>Free 1–4</b></td><td data-l="Where it is">green 5–8</td><td data-l="What the wheel does">A free control that you can link to any knob with Link to controller.</td></tr>
+<tr><td data-l="Mode"><b>Window</b></td><td data-l="Where it is">red 4</td><td data-l="What the wheel does">Goes from one FL window to the next.</td></tr>
+<tr><td data-l="Mode"><b>Move</b></td><td data-l="Where it is">purple 5</td><td data-l="What the wheel does">Moves the selection.</td></tr>
+<tr><td data-l="Mode"><b>Mark</b></td><td data-l="Where it is">purple 7</td><td data-l="What the wheel does">Jumps to the next or previous marker (with Shift, it selects the part in between).</td></tr>
+<tr><td data-l="Mode"><b>Undo</b></td><td data-l="Where it is">yellow 7</td><td data-l="What the wheel does">Hold it and turn: walks through the undo history.</td></tr>
+<tr><td data-l="Mode"><b>Zoom ↕</b></td><td data-l="Where it is">key right of the wheel</td><td data-l="What the wheel does">Track height.</td></tr>
+<tr><td data-l="Mode"><b>Zoom ↔</b></td><td data-l="Where it is">key right of the wheel</td><td data-l="What the wheel does">Horizontal zoom (time).</td></tr>
+<tr><td data-l="Mode"><b>Arrows ↕ ↔</b></td><td data-l="Where it is">keys left of the wheel</td><td data-l="What the wheel does">Arrow keys, like the keyboard (menus and lists).</td></tr>
+<tr><td data-l="Mode"><b>No mode</b></td><td data-l="Where it is">—</td><td data-l="What the wheel does">Moves through the focused window: in the Playlist, the song position. Pressing the wheel: Scrub.</td></tr>
 </tbody></table></div>
 </div></section>
 
 <section class="band" id="combos"><div class="wrap">
-<h2>Combinaciones: Shift es el botón 2 de la capa azul</h2>
-<p>Mantén <span class="k">Shift</span> apretado y toca el otro botón. Funciona fácil con los botones que no cambian de capa (transporte, rueda, Mute/Solo) y con los de la capa azul; para usarlo con otra capa, mantén Shift mientras cambias de color.</p>
-<div class="scroll"><table class="stack"><thead><tr><th>Combinación</th><th>Qué hace</th></tr></thead><tbody id="comborows">
+<h2><span class="l-es" lang="es">Combinaciones: Shift es el botón 2 de la capa azul</span><span class="l-en" lang="en">Shift combinations: Shift is key 2 of the blue layer</span></h2>
+<p class="l-es" lang="es">Mantén <span class="k">Shift</span> apretado y toca el otro botón. Funciona fácil con los botones que no cambian de capa (transporte, rueda, Mute/Solo) y con los de la capa azul; para usarlo con otra capa, mantén Shift mientras cambias de color.</p>
+<p class="l-en" lang="en">Hold <span class="k">Shift</span> and press the other key. It works directly with the keys that don't change with the layer (transport, wheel, Mute/Solo) and with the blue-layer keys; to use it with another layer, keep holding Shift while you change the color.</p>
+<div class="scroll"><table class="stack"><thead><tr><th><span class="l-es" lang="es">Combinación</span><span class="l-en" lang="en">Combination</span></th><th><span class="l-es" lang="es">Qué hace</span><span class="l-en" lang="en">What it does</span></th></tr></thead><tbody id="comborows" class="l-es" lang="es">
 <tr><td data-l="Combinación"><span class="k">Shift + Save</span></td><td data-l="Qué hace">Guarda una versión nueva del proyecto (MiProyecto_2).</td></tr>
 <tr><td data-l="Combinación"><span class="k">Shift + « / »</span></td><td data-l="Qué hace">Reproduce a media velocidad / al doble mientras lo mantienes.</td></tr>
 <tr><td data-l="Combinación"><span class="k">Shift + Loop</span></td><td data-l="Qué hace">Prende o apaga el Snap (imán).</td></tr>
@@ -317,78 +389,330 @@ ol.install li{margin-bottom:10px}
 <tr><td data-l="Combinación"><span class="k">Mantener Undo + rueda</span></td><td data-l="Qué hace">Recorre el historial de deshacer.</td></tr>
 <tr><td data-l="Combinación"><span class="k">Mantener un modo de rueda + girar</span></td><td data-l="Qué hace">Modo momentáneo: se apaga al soltar.</td></tr>
 <tr><td data-l="Combinación"><span class="k">Al encender: « / » y DAW Mode</span></td><td data-l="Qué hace">Elegir el modo del controlador. Mientras la pantalla pide el modo, los botones de colores 1 y 2 de la fila de arriba son « y » (eliges) y el 3 es DAW Mode (confirmas). Para FL debe ser MCP; el Nano lo recuerda, y si no tocas nada entra solo al último modo.</td></tr>
+</tbody><tbody id="comborows-en" class="l-en" lang="en">
+<tr><td data-l="Combination"><span class="k">Shift + Save</span></td><td data-l="What it does">Saves a new version of the project (MyProject_2).</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + « / »</span></td><td data-l="What it does">Plays at half / double speed while you hold it.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + Loop</span></td><td data-l="What it does">Turns Snap (the magnet) on or off.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + Enter / Esc</span></td><td data-l="What it does">Answers "Yes" / "No" in FL's dialogs.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + Link Ch</span></td><td data-l="What it does">Routes the selected channels one per mixer track, starting from the selected track.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + +Mark</span></td><td data-l="What it does">Adds an alternate marker.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + Solo</span></td><td data-l="What it does">Solo that also includes the tracks that send audio to it.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + wheel (Mark mode)</span></td><td data-l="What it does">Selects the part between markers.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + wheel (Zoom mode)</span></td><td data-l="What it does">Vertical zoom with the wheel.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + wheel (no mode)</span></td><td data-l="What it does">The wheel's alternate mode, like Scrub.</td></tr>
+<tr><td data-l="Combination"><span class="k">Shift + yellow keys 1–8</span></td><td data-l="What it does">FL's F1 to F8 keys (for example F1 help, F4 next empty pattern, F5 Playlist, F6 Channel Rack, F7 Piano roll, F8 Plugin picker). Hold Shift (blue 2), switch to the yellow layer and press the key; F2 is not possible because it's the same key as Shift.</td></tr>
+<tr><td data-l="Combination"><span class="k">Hold Undo + wheel</span></td><td data-l="What it does">Walks through the undo history.</td></tr>
+<tr><td data-l="Combination"><span class="k">Hold a wheel mode + turn</span></td><td data-l="What it does">Momentary mode: it turns off when you let go.</td></tr>
+<tr><td data-l="Combination"><span class="k">At power-on: « / » and DAW Mode</span></td><td data-l="What it does">Choose the controller's mode. While the screen asks for the mode, colored keys 1 and 2 of the top row are « and » (to choose) and key 3 is DAW Mode (to confirm). For FL it must be MCP; the Nano remembers it, and if you don't touch anything it goes into the last mode by itself.</td></tr>
 </tbody></table></div>
 </div></section>
 
 <section class="band" id="paginas"><div class="wrap">
-<h2>La columna derecha cambia lo que hacen las perillas</h2>
-<p>Las 4 perillas pequeñas controlan los canales 1 a 4 del banco (5 a 8 si prendes <span class="k">5-8</span>); cambias de banco con <span class="k">&lt;&lt;8</span> y <span class="k">8&gt;&gt;</span>. Apretar una perilla regresa su valor. El fader sigue al canal seleccionado en Pan, Stereo, Sends y Effects.</p>
+<h2><span class="l-es" lang="es">La columna derecha cambia lo que hacen las perillas</span><span class="l-en" lang="en">The right-hand column changes what the knobs do</span></h2>
+<p class="l-es" lang="es">Las 4 perillas pequeñas controlan los canales 1 a 4 del banco (5 a 8 si prendes <span class="k">5-8</span>); cambias de banco con <span class="k">&lt;&lt;8</span> y <span class="k">8&gt;&gt;</span>. Apretar una perilla regresa su valor. El fader sigue al canal seleccionado en Pan, Stereo, Sends y Effects.</p>
+<p class="l-en" lang="en">The 4 small knobs control tracks 1 to 4 of the bank (5 to 8 if you turn on <span class="k">5-8</span>); you change bank with <span class="k">&lt;&lt;8</span> and <span class="k">8&gt;&gt;</span>. Pressing a knob resets its value. The fader follows the selected track on Pan, Stereo, Sends and Effects.</p>
 <div class="cols" id="pages">
-<div class="box"><h3>Pan</h3><p>Cada perilla: paneo de su canal. Apretar: centrar.</p></div>
-<div class="box"><h3>Stereo</h3><p>Cada perilla: separación estéreo. Apretar: reiniciar.</p></div>
-<div class="box"><h3>Sends</h3><p>Perilla N: envío del canal seleccionado al canal N. Apretar: prender o apagar el envío.</p></div>
-<div class="box"><h3>Effects</h3><p>Perilla N: mezcla del efecto del slot N del canal seleccionado. Apretar: prender o apagar.</p></div>
-<div class="box"><h3>EQ</h3><p>El EQ integrado del canal seleccionado: perillas para frecuencias y ancho; el fader para una ganancia.</p></div>
-<div class="box"><h3>Free</h3><p>Todo se vuelve control libre para Link to controller (para plugins).</p></div>
+<div class="box"><h3>Pan</h3><p class="l-es" lang="es">Cada perilla: paneo de su canal. Apretar: centrar.</p><p class="l-en" lang="en">Each knob: the pan of its track. Press: center it.</p></div>
+<div class="box"><h3>Stereo</h3><p class="l-es" lang="es">Cada perilla: separación estéreo. Apretar: reiniciar.</p><p class="l-en" lang="en">Each knob: stereo separation. Press: reset it.</p></div>
+<div class="box"><h3>Sends</h3><p class="l-es" lang="es">Perilla N: envío del canal seleccionado al canal N. Apretar: prender o apagar el envío.</p><p class="l-en" lang="en">Knob N: send from the selected track to track N. Press: turn the send on or off.</p></div>
+<div class="box"><h3>Effects</h3><p class="l-es" lang="es">Perilla N: mezcla del efecto del slot N del canal seleccionado. Apretar: prender o apagar.</p><p class="l-en" lang="en">Knob N: mix level of the effect in slot N of the selected track. Press: turn it on or off.</p></div>
+<div class="box"><h3>EQ</h3><p class="l-es" lang="es">El EQ integrado del canal seleccionado: perillas para frecuencias y ancho; el fader para una ganancia.</p><p class="l-en" lang="en">The selected track's built-in EQ: knobs for frequencies and bandwidth; the fader for a gain.</p></div>
+<div class="box"><h3>Free</h3><p class="l-es" lang="es">Todo se vuelve control libre para Link to controller (para plugins).</p><p class="l-en" lang="en">Everything becomes a free control for Link to controller (for plugins).</p></div>
 </div>
 </div></section>
 
 <section class="band" id="recetas"><div class="wrap">
-<h2>Lo que hacen otros controladores, hecho en este</h2>
+<h2><span class="l-es" lang="es">Lo que hacen otros controladores, hecho en este</span><span class="l-en" lang="en">What other controllers do, done on this one</span></h2>
 <div class="cols" id="recipes">
-<div class="box"><h3>Mezclar canal por canal</h3><ol class="steps"><li>Toca Mixer (capa verde, botón 2).</li><li>Gira la rueda hasta el canal; el fader se va a su volumen y la pantalla dice su nombre.</li><li>Ajusta con el fader; usa Mute, Solo y Rec para ese canal.</li><li>Toca Mixer otra vez para que la rueda vuelva a lo normal.</li></ol></div>
-<div class="box"><h3>Grabar automatización con el fader</h3><ol class="steps"><li>En FL elige el pattern donde se guardará: FL guarda los movimientos dentro del pattern seleccionado.</li><li>Clic derecho en el botón de grabar de FL y marca "Automation" (quita "Audio" y "Notes" si solo quieres el movimiento).</li><li>Elige el canal con Mixer + rueda.</li><li>Toca ● y luego ▶ en el Nano y mueve el fader o las perillas mientras suena.</li><li>■ para terminar. Para verlo: clic derecho en el control de FL → Edit events; desde ahí puedes convertirlo en clip (Turn into automation clip).</li><li>Pruébalo una vez antes de confiar en él: FL no documenta cómo graba los movimientos que llegan de un script Mackie.</li></ol></div>
-<div class="box"><h3>Controlar la perilla de un plugin</h3><ol class="steps"><li>Toca Free en la columna derecha, para que la perilla del Nano no esté haciendo otra cosa.</li><li>En FL, clic derecho en la perilla del plugin → Link to controller….</li><li>Mueve la perilla o el fader del Nano: "Auto Detect" llena los datos solo. Luego Accept.</li><li>Varios a la vez: prende Multilink (Ctrl+J), mueve las perillas de FL y luego las del Nano en el mismo orden.</li><li>Para cambiar un enlace, vuelve a ligarlo con "Remove Conflicts" marcado; la lista está en Browser → Current project → Remote control.</li></ol></div>
-<div class="box"><h3>Grabar la voz en loop</h3><ol class="steps"><li>Selecciona la parte: Ctrl + arrastrar en la regla de compases de la Playlist.</li><li>Prende Loop (⟲) y, si quieres, 3..2..1 (capa azul, 6).</li><li>Arma un canal del Mixer: al elegir la entrada de tu micro se arma solo (o usa Rec en el Nano).</li><li>● y ▶: FL repite la parte y deja una toma por vuelta en la Playlist; ■ para terminar.</li><li>Para que cada toma quede limpia, FL recomienda grabar en un canal normal del Mixer y no en un Audio Track.</li></ol></div>
-<div class="box"><h3>Grabar solo una parte</h3><ol class="steps"><li>Clic derecho en el botón de grabar de FL y marca "Enable recording markers".</li><li>Selecciona la parte (Ctrl + arrastrar en la regla) y usa menú Playlist → Time markers → "Start recording/Stop recording at selection".</li><li>Consejo: quita la selección (Ctrl+D), arma el canal y da ▶ unos compases antes; FL empieza y deja de grabar solo en esos marcadores.</li></ol></div>
-<div class="box"><h3>Grabar con Edison</h3><ol class="steps"><li>Selecciona un canal del Mixer con la entrada de tu micro.</li><li>Toca Edison (capa azul, 3) para abrirlo en ese canal.</li><li>Si quieres que grabe en cuanto das Play, en FL usa Shift+E en ese canal: Edison queda listo con "On play".</li><li>▶ para grabar, ■ para parar; Shift+C manda la toma a la Playlist.</li></ol></div>
-<div class="box"><h3>Moverte por la canción</h3><ol class="steps"><li>Con la Playlist enfocada, la rueda sin modo mueve la posición; « y » retroceden y adelantan.</li><li>+Mark (capa morada, 8) deja marcadores; Mark (morada, 7) + rueda salta entre ellos.</li><li>Zoom ↕ / Zoom ↔ + rueda para acercar.</li></ol></div>
-<div class="box"><h3>Editar rápido</h3><ol class="steps"><li>Capa amarilla: Cut, Copy, Paste, Insert y Del, sobre la ventana activa. Ojo en la Playlist: Insert corta el clip y Del lo borra.</li><li>Undo (amarilla, 7): un toque deshace un paso; Un/Redo (8) alterna deshacer y rehacer.</li><li>Save (capa morada, 1) guarda; con Shift, una versión nueva.</li></ol></div>
+<div class="box"><div class="l-es" lang="es"><h3>Mezclar canal por canal</h3><ol class="steps"><li>Toca Mixer (capa verde, botón 2).</li><li>Gira la rueda hasta el canal; el fader se va a su volumen y la pantalla dice su nombre.</li><li>Ajusta con el fader; usa Mute, Solo y Rec para ese canal.</li><li>Toca Mixer otra vez para que la rueda vuelva a lo normal.</li></ol></div><div class="l-en" lang="en"><h3>Mix track by track</h3><ol class="steps"><li>Press Mixer (green layer, key 2).</li><li>Turn the wheel to the track; the fader moves to its volume and the screen shows its name.</li><li>Adjust with the fader; use Mute, Solo and Rec for that track.</li><li>Press Mixer again so the wheel goes back to normal.</li></ol></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Grabar automatización con el fader</h3><ol class="steps"><li>En FL elige el pattern donde se guardará: FL guarda los movimientos dentro del pattern seleccionado.</li><li>Clic derecho en el botón de grabar de FL y marca "Automation" (quita "Audio" y "Notes" si solo quieres el movimiento).</li><li>Elige el canal con Mixer + rueda.</li><li>Toca ● y luego ▶ en el Nano y mueve el fader o las perillas mientras suena.</li><li>■ para terminar. Para verlo: clic derecho en el control de FL → Edit events; desde ahí puedes convertirlo en clip (Turn into automation clip).</li><li>Pruébalo una vez antes de confiar en él: FL no documenta cómo graba los movimientos que llegan de un script Mackie.</li></ol></div><div class="l-en" lang="en"><h3>Record automation with the fader</h3><ol class="steps"><li>In FL, choose the pattern where it will be saved: FL stores the movements inside the selected pattern.</li><li>Right-click FL's record button and check "Automation" (uncheck "Audio" and "Notes" if you only want the movement).</li><li>Choose the track with Mixer + wheel.</li><li>Press ● and then ▶ on the Nano, and move the fader or the knobs while it plays.</li><li>■ to finish. To see it: right-click the control in FL → Edit events; from there you can turn it into a clip (Turn into automation clip).</li><li>Try it once before you rely on it: FL doesn't document how it records the movements that come from a Mackie script.</li></ol></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Controlar la perilla de un plugin</h3><ol class="steps"><li>Toca Free en la columna derecha, para que la perilla del Nano no esté haciendo otra cosa.</li><li>En FL, clic derecho en la perilla del plugin → Link to controller….</li><li>Mueve la perilla o el fader del Nano: "Auto Detect" llena los datos solo. Luego Accept.</li><li>Varios a la vez: prende Multilink (Ctrl+J), mueve las perillas de FL y luego las del Nano en el mismo orden.</li><li>Para cambiar un enlace, vuelve a ligarlo con "Remove Conflicts" marcado; la lista está en Browser → Current project → Remote control.</li></ol></div><div class="l-en" lang="en"><h3>Control a plugin knob</h3><ol class="steps"><li>Press Free in the right-hand column, so the Nano's knob isn't doing something else.</li><li>In FL, right-click the plugin knob → Link to controller….</li><li>Move the Nano's knob or fader: "Auto Detect" fills in the details by itself. Then Accept.</li><li>Several at once: turn on Multilink (Ctrl+J), move the FL knobs and then the Nano's in the same order.</li><li>To change a link, link it again with "Remove Conflicts" checked; the list is in Browser → Current project → Remote control.</li></ol></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Grabar la voz en loop</h3><ol class="steps"><li>Selecciona la parte: Ctrl + arrastrar en la regla de compases de la Playlist.</li><li>Prende Loop (⟲) y, si quieres, 3..2..1 (capa azul, 6).</li><li>Arma un canal del Mixer: al elegir la entrada de tu micro se arma solo (o usa Rec en el Nano).</li><li>● y ▶: FL repite la parte y deja una toma por vuelta en la Playlist; ■ para terminar.</li><li>Para que cada toma quede limpia, FL recomienda grabar en un canal normal del Mixer y no en un Audio Track.</li></ol></div><div class="l-en" lang="en"><h3>Record vocals in a loop</h3><ol class="steps"><li>Select the part: Ctrl + drag on the Playlist's bar ruler.</li><li>Turn on Loop (⟲) and, if you like, 3..2..1 (blue layer, 6).</li><li>Arm a mixer track: choosing your mic's input arms it by itself (or use Rec on the Nano).</li><li>● and ▶: FL repeats the part and leaves one take per pass in the Playlist; ■ to finish.</li><li>To keep each take clean, FL recommends recording on a normal mixer track, not on an Audio Track.</li></ol></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Grabar solo una parte</h3><ol class="steps"><li>Clic derecho en el botón de grabar de FL y marca "Enable recording markers".</li><li>Selecciona la parte (Ctrl + arrastrar en la regla) y usa menú Playlist → Time markers → "Start recording/Stop recording at selection".</li><li>Consejo: quita la selección (Ctrl+D), arma el canal y da ▶ unos compases antes; FL empieza y deja de grabar solo en esos marcadores.</li></ol></div><div class="l-en" lang="en"><h3>Record only one part</h3><ol class="steps"><li>Right-click FL's record button and check "Enable recording markers".</li><li>Select the part (Ctrl + drag on the ruler) and use the Playlist menu → Time markers → "Start recording/Stop recording at selection".</li><li>Tip: clear the selection (Ctrl+D), arm the track and press ▶ a few bars earlier; FL starts and stops recording by itself at those markers.</li></ol></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Grabar con Edison</h3><ol class="steps"><li>Selecciona un canal del Mixer con la entrada de tu micro.</li><li>Toca Edison (capa azul, 3) para abrirlo en ese canal.</li><li>Si quieres que grabe en cuanto das Play, en FL usa Shift+E en ese canal: Edison queda listo con "On play".</li><li>▶ para grabar, ■ para parar; Shift+C manda la toma a la Playlist.</li></ol></div><div class="l-en" lang="en"><h3>Record with Edison</h3><ol class="steps"><li>Select a mixer track that has your mic's input.</li><li>Press Edison (blue layer, 3) to open it on that track.</li><li>If you want it to record as soon as you press Play, use Shift+E on that track in FL: Edison is ready with "On play".</li><li>▶ to record, ■ to stop; Shift+C sends the take to the Playlist.</li></ol></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Moverte por la canción</h3><ol class="steps"><li>Con la Playlist enfocada, la rueda sin modo mueve la posición; « y » retroceden y adelantan.</li><li>+Mark (capa morada, 8) deja marcadores; Mark (morada, 7) + rueda salta entre ellos.</li><li>Zoom ↕ / Zoom ↔ + rueda para acercar.</li></ol></div><div class="l-en" lang="en"><h3>Move around the song</h3><ol class="steps"><li>With the Playlist focused, the wheel with no mode moves the position; « and » rewind and fast-forward.</li><li>+Mark (purple layer, 8) adds markers; Mark (purple, 7) + wheel jumps between them.</li><li>Zoom ↕ / Zoom ↔ + wheel to zoom in.</li></ol></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Editar rápido</h3><ol class="steps"><li>Capa amarilla: Cut, Copy, Paste, Insert y Del, sobre la ventana activa. Ojo en la Playlist: Insert corta el clip y Del lo borra.</li><li>Undo (amarilla, 7): un toque deshace un paso; Un/Redo (8) alterna deshacer y rehacer.</li><li>Save (capa morada, 1) guarda; con Shift, una versión nueva.</li></ol></div><div class="l-en" lang="en"><h3>Quick editing</h3><ol class="steps"><li>Yellow layer: Cut, Copy, Paste, Insert and Del, on the focused window. Careful in the Playlist: Insert splits the clip and Del deletes it.</li><li>Undo (yellow, 7): one tap undoes one step; Un/Redo (8) toggles between undo and redo.</li><li>Save (purple layer, 1) saves; with Shift, a new version.</li></ol></div></div>
 </div>
 </div></section>
 
 <section class="band" id="cambios"><div class="wrap">
-<h2>Qué cambia este script respecto al de FL Studio</h2>
-<p>El script <b>iCON Platform Nano Air (custom)</b> es una copia del script Mackie Control Universal que trae FL Studio (versión 2026.1, de Image-Line) con estos cambios. Los 40 botones de colores ya mandaban exactamente lo que dice el overlay de FL de iCON; lo que cambia es cómo responden.</p>
+<h2><span class="l-es" lang="es">Qué cambia este script respecto al de FL Studio</span><span class="l-en" lang="en">What this script changes compared with FL Studio's</span></h2>
+<p class="l-es" lang="es">El script <b>iCON Platform Nano Air (custom)</b> es una copia del script Mackie Control Universal que trae FL Studio (versión 2026.1, de Image-Line) con estos cambios. Los 40 botones de colores ya mandaban exactamente lo que dice el overlay de FL de iCON; lo que cambia es cómo responden.</p>
+<p class="l-en" lang="en">The <b>iCON Platform Nano Air (custom)</b> script is a copy of the Mackie Control Universal script that comes with FL Studio (version 2026.1, by Image-Line) with these changes. The 40 colored-key functions already sent exactly what iCON's FL overlay says; what changes is how they respond.</p>
 <div class="cols" id="changes">
-<div class="box"><h3>El fader sigue al canal seleccionado</h3><p>En el script de FL el fader quedaba fijo en un canal del banco; ahora va al canal que elijas (con Mixer + rueda, |&lt; &gt;| o el mouse), y Mute, Solo, Rec y la pantalla también.</p></div>
-<div class="box"><h3>Modos de la rueda con un toque</h3><p>En FL había que mantenerlos apretados. Ahora un toque los deja prendidos y otro los apaga; mantener + girar sigue funcionando.</p></div>
-<div class="box"><h3>Zoom en dos ejes</h3><p>Zoom ↕ cambia la altura de los tracks y Zoom ↔ el zoom horizontal, como dice iCON. En FL ambos hacían zoom horizontal.</p></div>
-<div class="box"><h3>Undo de un toque</h3><p>La tecla amarilla 7 dice Undo pero en FL solo recorría el historial; ahora un toque deshace un paso.</p></div>
-<div class="box"><h3>Loop de verdad</h3><p>El botón ⟲ en FL prendía el Snap; ahora prende la grabación en loop, y Shift + Loop prende el Snap.</p></div>
-<div class="box"><h3>Pantalla clara</h3><p>El script de FL está hecho para la pantalla larga de una consola Mackie: en el Nano salían rayitas y textos cortados, y al mover el fader brincaba entre dos mensajes. Ahora arriba sale el canal y abajo su volumen real en dB; los mensajes son cortos, completos y duran 1.5 s; al mover el fader solo cambia el número, y en modo Tempo el reloj de dígitos muestra el BPM. En la pantalla externa cada cuadro muestra un canal del banco y su paneo, y el cuadro del fader, el canal seleccionado.</p></div>
-<div class="box"><h3>Fader más estable</h3><p>Si dejas el dedo quieto sobre el fader, sus pequeños temblores ya no mueven el volumen. Si cambias de canal mientras lo tocas, el canal nuevo no cambia hasta que el fader llega a su nivel o lo sueltas.</p></div>
-<div class="box"><h3>Errores del script de FL corregidos</h3><p>Shift + Solo ya no da error; mantener Undo y girar la rueda ya funciona; Shift + amarilla 7 (F7) ya no deshace un paso si sueltas Shift primero; y en la página Free la pantalla muestra bien el valor del fader.</p></div>
-<div class="box"><h3>Todo lo demás, como iCON</h3><p>Los 40 botones de colores, la columna derecha y el transporte ya coincidían con el overlay oficial de FL; no se tocaron.</p></div>
+<div class="box"><div class="l-es" lang="es"><h3>El fader sigue al canal seleccionado</h3><p>En el script de FL el fader quedaba fijo en un canal del banco; ahora va al canal que elijas (con Mixer + rueda, |&lt; &gt;| o el mouse), y Mute, Solo, Rec y la pantalla también.</p></div><div class="l-en" lang="en"><h3>The fader follows the selected track</h3><p>With FL's script, the fader stayed on one fixed track of the bank; now it goes to the track you choose (with Mixer + wheel, |&lt; &gt;| or the mouse), and so do Mute, Solo, Rec and the screen.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Modos de la rueda con un toque</h3><p>En FL había que mantenerlos apretados. Ahora un toque los deja prendidos y otro los apaga; mantener + girar sigue funcionando.</p></div><div class="l-en" lang="en"><h3>One-tap wheel modes</h3><p>With FL's script you had to keep them held. Now one tap turns them on and another tap turns them off; hold + turn still works.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Zoom en dos ejes</h3><p>Zoom ↕ cambia la altura de los tracks y Zoom ↔ el zoom horizontal, como dice iCON. En FL ambos hacían zoom horizontal.</p></div><div class="l-en" lang="en"><h3>Zoom on both axes</h3><p>Zoom ↕ changes the track height and Zoom ↔ the horizontal zoom, as iCON's labels say. With FL's script, both did horizontal zoom.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Undo de un toque</h3><p>La tecla amarilla 7 dice Undo pero en FL solo recorría el historial; ahora un toque deshace un paso.</p></div><div class="l-en" lang="en"><h3>One-tap Undo</h3><p>Yellow key 7 says Undo, but with FL's script it only walked through the history; now one tap undoes one step.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Loop de verdad</h3><p>El botón ⟲ en FL prendía el Snap; ahora prende la grabación en loop, y Shift + Loop prende el Snap.</p></div><div class="l-en" lang="en"><h3>A real Loop</h3><p>With FL's script, the ⟲ key turned on Snap; now it turns on loop recording, and Shift + Loop turns on Snap.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Pantalla clara</h3><p>El script de FL está hecho para la pantalla larga de una consola Mackie: en el Nano salían rayitas y textos cortados, y al mover el fader brincaba entre dos mensajes. Ahora arriba sale el canal y abajo su volumen real en dB; los mensajes son cortos, completos y duran 1.5 s; al mover el fader solo cambia el número, y en modo Tempo el reloj de dígitos muestra el BPM. En la pantalla externa cada cuadro muestra un canal del banco y su paneo, y el cuadro del fader, el canal seleccionado.</p></div><div class="l-en" lang="en"><h3>A readable screen</h3><p>FL's script is made for the long display of a Mackie console: on the Nano it showed dashes and cut-off texts, and moving the fader made it jump between two messages. Now the top line shows the track and the bottom line its real volume in dB; messages are short, whole and last 1.5 s; when you move the fader only the number changes, and in Tempo mode the digit display shows the BPM. On the external display, each square shows a track of the bank and its pan, and the fader's square shows the selected track.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Fader más estable</h3><p>Si dejas el dedo quieto sobre el fader, sus pequeños temblores ya no mueven el volumen. Si cambias de canal mientras lo tocas, el canal nuevo no cambia hasta que el fader llega a su nivel o lo sueltas.</p></div><div class="l-en" lang="en"><h3>A steadier fader</h3><p>If you rest your finger on the fader, its tiny tremors no longer move the volume. If you change track while you touch it, the new track isn't changed until the fader reaches its level or you let go.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Errores del script de FL Studio corregidos</h3><p>Shift + Solo ya no da error; mantener Undo y girar la rueda ya funciona; Shift + amarilla 7 (F7) ya no deshace un paso si sueltas Shift primero; y en la página Free la pantalla muestra bien el valor del fader.</p></div><div class="l-en" lang="en"><h3>Fixed bugs from FL Studio's script</h3><p>Shift + Solo no longer gives an error; holding Undo and turning the wheel now works; Shift + yellow 7 (F7) no longer undoes a step if you let go of Shift first; and on the Free page the screen shows the fader value correctly.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Todo lo demás, como iCON</h3><p>Los 40 botones de colores, la columna derecha y el transporte ya coincidían con el overlay oficial de FL; no se tocaron.</p></div><div class="l-en" lang="en"><h3>Everything else, as iCON made it</h3><p>The 40 colored-key functions, the right-hand column and the transport already matched the official FL overlay; they were left untouched.</p></div></div>
 </div>
 </div></section>
 
 <section class="band" id="problemas"><div class="wrap">
-<h2>Si algo no funciona</h2>
+<h2><span class="l-es" lang="es">Si algo no funciona</span><span class="l-en" lang="en">Troubleshooting</span></h2>
 <div class="cols" id="faq">
-<div class="box"><h3>No sale "iCON Platform Nano Air (custom)" en Controller type</h3><p>La carpeta "iCON Platform Nano Air FL Studio", con el archivo device_iCON_PlatformNanoAir_FLStudio.py adentro, debe quedar en Documentos\Image-Line\FL Studio\Settings\Hardware (o en FL Studio\Settings\Hardware dentro de la carpeta de datos que dice Options → File settings → User data folder). Revisa que al descomprimir no haya quedado una carpeta dentro de otra y reinicia FL.</p></div>
-<div class="box"><h3>El Nano no aparece en MIDI settings</h3><p>Revisa que esté prendido. Inalámbrico: el receptor USB de iCON debe estar conectado y la pantalla del Nano debe decir Paired; si no se enlaza, usa el cable USB. Luego, en Options → MIDI settings, haz clic en Refresh device list (o reinicia FL).</p></div>
-<div class="box"><h3>FL no hace caso al controlador</h3><p>En FL: Options → MIDI settings (F10). En Input, el Nano debe tener Controller type "iCON Platform Nano Air (custom)", Port 1 y Enable prendido: al elegir el Controller type, Enable se prende solo, y si después le das clic se apaga. En Output, el mismo Nano con el mismo Port 1 (sirve otro número libre, pero el mismo en los dos).</p></div>
-<div class="box"><h3>Parece que se borró la configuración</h3><p>Pasa al cambiar de inalámbrico a cable o al revés: FL ve otro nombre ("PlatformNano Air V1.02" inalámbrico, "PlatformNano(A) V2.05" por cable; con otro firmware pueden ser otros) y guarda la configuración de cada nombre por separado. Configura el otro nombre una vez, igual que el primero, y ya queda.</p></div>
-<div class="box"><h3>La pantalla del Nano no prende</h3><p>El switch de encendido está atrás: es el del extremo izquierdo si miras la parte de atrás (– prendido, O apagado). También se carga por el USB mini. Si se acabó la batería, conéctalo por cable: funciona igual, aunque FL lo ve con otro nombre (ver "Parece que se borró la configuración").</p></div>
-<div class="box"><h3>Los botones hacen cosas raras</h3><p>Revisa que el Nano esté en modo MCP: al encenderlo, la pantalla pide el modo unos segundos; elige MCP con los botones de colores 1 y 2 de la fila de arriba (« y ») y confirma con el 3 (DAW Mode). Lo recuerda para la próxima.</p></div>
-<div class="box"><h3>El fader no se mueve</h3><p>Revisa que no esté prendido Flip (capa roja, 1) ni Master, y que estés en Pan, Stereo, Sends o Effects.</p></div>
-<div class="box"><h3>Un botón hizo algo inesperado</h3><p>Casi todo depende de la ventana enfocada en FL. Mira el mensaje arriba a la izquierda de FL: dice qué acaba de pasar. Si fue un error, Undo (amarilla, 7).</p></div>
-<div class="box"><h3>Quiero el comportamiento original de FL</h3><p>En MIDI settings cambia Controller type a "Mackie Control Universal". Para volver, elige otra vez "iCON Platform Nano Air (custom)". Para desinstalarlo, elige otro Controller type y borra la carpeta "iCON Platform Nano Air FL Studio".</p></div>
-<div class="box"><h3>Ver errores del script</h3><p>En FL: View → Script output, en la pestaña con el nombre del Nano (PlatformNano Air o PlatformNano(A)). Debe decir "OnInit ready". El aviso "Invalid mixer track nr 501" viene del script original de FL y no afecta.</p></div>
-<div class="box"><h3>La pantalla muestra nombres de menús</h3><p>Si abres menús de FL con el mouse, FL manda el nombre del menú a la pantalla del Nano (por ejemplo Menu y View). Es normal y se quita solo.</p></div>
-<div class="box"><h3>La pantalla externa repite lo mismo en los 8 cuadros</h3><p>Pasa al cargar el script. Toca el fader una vez: el script aprende en qué cuadro está y cada cuadro pasa a mostrar su canal.</p></div>
+<div class="box"><div class="l-es" lang="es"><h3>No sale "iCON Platform Nano Air (custom)" en Controller type</h3><p>La carpeta "iCON Platform Nano Air FL Studio", con el archivo device_iCON_PlatformNanoAir_FLStudio.py adentro, debe quedar en Documentos\Image-Line\FL Studio\Settings\Hardware (o en FL Studio\Settings\Hardware dentro de la carpeta de datos que dice Options → File settings → User data folder). Revisa que al descomprimir no haya quedado una carpeta dentro de otra y reinicia FL.</p></div><div class="l-en" lang="en"><h3>"iCON Platform Nano Air (custom)" is not in Controller type</h3><p>The "iCON Platform Nano Air FL Studio" folder, with the file device_iCON_PlatformNanoAir_FLStudio.py inside, must end up in Documents\Image-Line\FL Studio\Settings\Hardware (or in FL Studio\Settings\Hardware inside the data folder shown in Options → File settings → User data folder). Check that unzipping didn't leave one folder inside another, and restart FL.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>El Nano no aparece en MIDI settings</h3><p>Revisa que esté prendido. Inalámbrico: el receptor USB de iCON debe estar conectado y la pantalla del Nano debe decir Paired; si no se enlaza, usa el cable USB. Luego, en Options → MIDI settings, haz clic en Refresh device list (o reinicia FL).</p></div><div class="l-en" lang="en"><h3>The Nano doesn't appear in MIDI settings</h3><p>Check that it's switched on. Wireless: iCON's USB receiver must be plugged in and the Nano's screen must say Paired; if they don't pair, use the USB cable. Then, in Options → MIDI settings, click Refresh device list (or restart FL).</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>FL Studio no hace caso al controlador</h3><p>En FL: Options → MIDI settings (F10). En Input, el Nano debe tener Controller type "iCON Platform Nano Air (custom)", Port 1 y Enable prendido: al elegir el Controller type, Enable se prende solo, y si después le das clic se apaga. En Output, el mismo Nano con el mismo Port 1 (sirve otro número libre, pero el mismo en los dos).</p></div><div class="l-en" lang="en"><h3>FL Studio ignores the controller</h3><p>In FL: Options → MIDI settings (F10). In Input, the Nano must have Controller type "iCON Platform Nano Air (custom)", Port 1 and Enable on: choosing the Controller type already turns Enable on, and if you click it afterwards it turns off. In Output, the same Nano with the same Port 1 (another free number works too, but it must be the same in both).</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Parece que se borró la configuración</h3><p>Pasa al cambiar de inalámbrico a cable o al revés: FL ve otro nombre ("PlatformNano Air V1.02" inalámbrico, "PlatformNano(A) V2.05" por cable; con otro firmware pueden ser otros) y guarda la configuración de cada nombre por separado. Configura el otro nombre una vez, igual que el primero, y ya queda.</p></div><div class="l-en" lang="en"><h3>The setup seems to be gone</h3><p>It happens when you switch from wireless to cable or the other way around: FL sees another name ("PlatformNano Air V1.02" wireless, "PlatformNano(A) V2.05" by cable; with other firmware they may be different) and keeps the settings of each name separately. Set up the other name once, the same way as the first one, and that's it.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>La pantalla del Nano no prende</h3><p>El switch de encendido está atrás: es el del extremo izquierdo si miras la parte de atrás (– prendido, O apagado). También se carga por el USB mini. Si se acabó la batería, conéctalo por cable: funciona igual, aunque FL lo ve con otro nombre (ver "Parece que se borró la configuración").</p></div><div class="l-en" lang="en"><h3>The Nano's screen doesn't light up</h3><p>The power switch is on the back: it's the one at the far left when you look at the back panel (– on, O off). It also charges through the mini USB port. If the battery is empty, connect it by cable: it works the same, although FL sees it under another name (see "The setup seems to be gone").</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Los botones hacen cosas raras</h3><p>Revisa que el Nano esté en modo MCP: al encenderlo, la pantalla pide el modo unos segundos; elige MCP con los botones de colores 1 y 2 de la fila de arriba (« y ») y confirma con el 3 (DAW Mode). Lo recuerda para la próxima.</p></div><div class="l-en" lang="en"><h3>The keys do strange things</h3><p>Check that the Nano is in MCP mode: when you switch it on, the screen asks for the mode for a few seconds; choose MCP with colored keys 1 and 2 of the top row (« and ») and confirm with key 3 (DAW Mode). It remembers it for next time.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>El fader no se mueve</h3><p>Revisa que no esté prendido Flip (capa roja, 1) ni Master, y que estés en Pan, Stereo, Sends o Effects.</p></div><div class="l-en" lang="en"><h3>The fader doesn't move</h3><p>Check that neither Flip (red layer, 1) nor Master is on, and that you are on Pan, Stereo, Sends or Effects.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Un botón hizo algo inesperado</h3><p>Casi todo depende de la ventana enfocada en FL. Mira el mensaje arriba a la izquierda de FL: dice qué acaba de pasar. Si fue un error, Undo (amarilla, 7).</p></div><div class="l-en" lang="en"><h3>A key did something unexpected</h3><p>Almost everything depends on FL's focused window. Look at the message at FL's top left: it says what just happened. If it was a mistake, Undo (yellow, 7).</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Quiero el comportamiento original de FL Studio</h3><p>En MIDI settings cambia Controller type a "Mackie Control Universal". Para volver, elige otra vez "iCON Platform Nano Air (custom)". Para desinstalarlo, elige otro Controller type y borra la carpeta "iCON Platform Nano Air FL Studio".</p></div><div class="l-en" lang="en"><h3>I want FL Studio's original behavior</h3><p>In MIDI settings, change Controller type to "Mackie Control Universal". To come back, choose "iCON Platform Nano Air (custom)" again. To uninstall it, choose another Controller type and delete the "iCON Platform Nano Air FL Studio" folder.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>Ver errores del script</h3><p>En FL: View → Script output, en la pestaña con el nombre del Nano (PlatformNano Air o PlatformNano(A)). Debe decir "OnInit ready". El aviso "Invalid mixer track nr 501" viene del script original de FL y no afecta.</p></div><div class="l-en" lang="en"><h3>See the script's errors</h3><p>In FL: View → Script output, on the tab with the Nano's name (PlatformNano Air or PlatformNano(A)). It must say "OnInit ready". The warning "Invalid mixer track nr 501" comes from FL's original script and is harmless.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>La pantalla muestra nombres de menús</h3><p>Si abres menús de FL con el mouse, FL manda el nombre del menú a la pantalla del Nano (por ejemplo Menu y View). Es normal y se quita solo.</p></div><div class="l-en" lang="en"><h3>The screen shows menu names</h3><p>If you open FL's menus with the mouse, FL sends the menu name to the Nano's screen (for example Menu and View). That's normal and goes away by itself.</p></div></div>
+<div class="box"><div class="l-es" lang="es"><h3>La pantalla externa repite lo mismo en los 8 cuadros</h3><p>Pasa al cargar el script. Toca el fader una vez: el script aprende en qué cuadro está y cada cuadro pasa a mostrar su canal.</p></div><div class="l-en" lang="en"><h3>The external display shows the same thing on all 8 squares</h3><p>It happens when the script loads. Touch the fader once: the script learns which square it is on and each square starts showing its own track.</p></div></div>
 </div>
 </div></section>
 
 <footer class="band"><div class="wrap">
-<p>Script <b>iCON Platform Nano Air (custom)</b>, versión 1.0.1, probado con FL Studio 2025 en noviembre de 2026 (en Windows; en Mac no se ha probado). Está basado en el script Mackie Control Universal de FL Studio (versión 2026.1, © Image-Line Software). Esta guía se hizo con el manual y el overlay de FL Studio de iCON; los nombres de canales son de ejemplo.</p>
-<p>Proyecto independiente: no es material oficial de iCON Pro Audio ni de Image-Line, ni está afiliado a ellos. Las marcas son de sus dueños.</p>
-<p><a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest">Descargar</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio">Código en GitHub</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#manual-de-instalaci%C3%B3n-en-fl-studio">Manual de instalación</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues">Reportar un problema</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/blob/main/NOTICE.md">Licencia y avisos</a> · <a href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt">Resumen en texto (en inglés) para asistentes de IA (llms.txt)</a></p>
+<p class="l-es" lang="es">Script <b>iCON Platform Nano Air (custom)</b>, versión 1.1.0, probado con FL Studio 2025 en noviembre de 2026 (en Windows; en Mac no se ha probado). Está basado en el script Mackie Control Universal de FL Studio (versión 2026.1, © Image-Line Software). Esta guía se hizo con el manual y el overlay de FL Studio de iCON; los nombres de canales son de ejemplo.</p>
+<p class="l-en" lang="en">Script <b>iCON Platform Nano Air (custom)</b>, version 1.1.0, tested with FL Studio 2025 in November 2026 (on Windows; not tested on Mac). It is based on FL Studio's Mackie Control Universal script (version 2026.1, © Image-Line Software). This guide was made with iCON's manual and iCON's FL Studio overlay; the track names are examples.</p>
+<p class="l-es" lang="es">Proyecto independiente: no es material oficial de iCON Pro Audio ni de Image-Line, ni está afiliado a ellos. Las marcas son de sus dueños.</p>
+<p class="l-en" lang="en">Independent project: it is not official material from iCON Pro Audio or Image-Line, and it is not affiliated with them. Trademarks belong to their owners.</p>
+<p class="l-es" lang="es"><a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest">Descargar</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio">Código en GitHub</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#manual-de-instalaci%C3%B3n-en-fl-studio">Manual de instalación</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues">Reportar un problema</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/blob/main/NOTICE.md">Licencia y avisos</a> · <a href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt">Resumen en texto para asistentes de IA (llms.txt)</a></p>
+<p class="l-en" lang="en"><a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest">Download</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio">Code on GitHub</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio#installation-manual-for-fl-studio">Installation manual</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues">Report a problem</a> · <a href="https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/blob/main/NOTICE.md">License and notices</a> · <a href="https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt">Text summary for AI assistants (llms.txt)</a></p>
 </div></footer>
-
 <script>
 {
+// ---- Two languages. The texts of this script are written in Spanish; EN holds the English text of each one, keyed by the exact
+// Spanish string (so the screen data that dev/gen_screen_data.py writes keeps working: its step labels are looked up the same way).
+// t(s) gives s in the current language, with {0}, {1}… filled by the extra arguments. i18nMissing() lists what has no English yet.
+const EN=/*EN*/{
+// the page's own words
+"iCON Platform Nano Air en FL Studio · script y tutorial ES/EN":"iCON Platform Nano Air in FL Studio · script and tutorial ES/EN",
+"Script gratis y no oficial para el iCON Platform Nano Air en FL Studio: el fader sigue al canal seleccionado. Tutorial y manual en español e inglés.":"Free, unofficial script for the iCON Platform Nano Air in FL Studio: the fader follows the selected track. Tutorial and manual in English and Spanish.",
+"Qué hace":"What it does",
+"Cómo se usa":"How to use it",
+"Con Shift":"With Shift",
+"En las pantallas":"On the screens",
+"▶ Ver otra vez en el dibujo":"▶ Play it again on the drawing",
+"Señal que manda: {0}":"Signal it sends: {0}",
+"No cambia nada en las pantallas.":"Nothing changes on the screens.",
+"Botón de colores {0} ({1}) · {2}":"Colored key {0} ({1}) · {2}",
+"fila de arriba":"top row",
+"fila de abajo":"bottom row",
+"capa {0}":"{0} layer",
+"Columna derecha (páginas de las perillas)":"Right-hand column (knob pages)",
+"{0}, botón {1}":"{0}, key {1}",
+"columna derecha":"right-hand column",
+"panel":"panel",
+"Nada con esa palabra":"Nothing matches that word",
+"Jog · apretar = Scrub":"Jog · press = Scrub",
+"no cambia":"no change",
+"▶ Ver":"▶ Show",
+"Ver en el dibujo: {0}":"Show on the drawing: {0}",
+"hasta que lo apagues":"until you turn it off",
+"cambia mientras lo mueves":"changes while you move it",
+"se queda":"stays",
+"{0} después de soltarlo":"{0} after you let go",
+"vuelve a lo normal":"back to normal",
+"el fader pasa al cuadro {0}":"the fader moves to square {0}",
+"los 8 cuadros":"all 8 squares",
+"los 8 cuadros cambian de canal":"all 8 squares change track",
+"pantallita y cuadro del fader":"small screen and fader's square",
+"cuadro {0}":"square {0}",
+"cuadros {0}":"squares {0}",
+"varios cuadros":"several squares",
+"reloj de dígitos":"digit display",
+// labels of the page's own elements (aria-label, placeholder)
+"Idioma":"Language",
+"Descarga y manual":"Download and manual",
+"Controlador interactivo":"Interactive controller",
+"Capa de color":"Color layer",
+"Buscar: guardar, zoom, metrónomo…":"Search: save, zoom, metronome…",
+"Buscar una función":"Search for a function",
+"Dibujo del Platform Nano Air con su pantalla externa: toca un botón para ver su función y lo que dicen las pantallas":"Drawing of the Platform Nano Air with its external display: tap a key to see what it does and what the screens say",
+"Los 8 botones de colores en la capa elegida":"The 8 colored keys on the chosen layer",
+"Secciones":"Sections",
+// layer names
+"Roja":"Red",
+"Verde":"Green",
+"Azul":"Blue",
+"Morada":"Purple",
+"Amarilla":"Yellow",
+// colored keys, red layer
+"Intercambia el fader y las perillas: el fader controla lo que hacían las perillas (por ejemplo el paneo) y las perillas el volumen. Mientras Flip está prendido, el fader deja de seguir al canal seleccionado.":"Swaps the fader and the knobs: the fader controls what the knobs did (for example the pan) and the knobs control the volume. While Flip is on, the fader stops following the selected track.",
+"Toque: prende o apaga (se ilumina).":"Tap: turns it on or off (it lights up).",
+"Abre el Browser de FL (sonidos, plugins y proyectos) y lo pone al frente.":"Opens FL's Browser (sounds, plugins and projects) and brings it to the front.",
+"Abre el Channel Rack y lo pone al frente. El overlay lo llama \"Main\"; en FL este botón abre el Channel Rack.":"Opens the Channel Rack and brings it to the front. The overlay calls it \"Main\"; in FL this key opens the Channel Rack.",
+"Modo de rueda: la rueda pasa de una ventana de FL a otra (Playlist, Channel Rack, Mixer, Piano roll, Browser, plugins abiertos…).":"Wheel mode: the wheel goes from one FL window to the next (Playlist, Channel Rack, Mixer, Piano roll, Browser, open plugins…).",
+"Toque: se queda prendido y giras la rueda. Otro toque: se apaga. Mantener + girar: se apaga al soltar.":"Tap: it stays on and you turn the wheel. Another tap: it turns off. Hold + turn: it turns off when you let go.",
+"Prende o apaga el suavizado: en vez de saltar de golpe, lo que mueves con el fader y las perillas llega a FL con una pequeña rampa.":"Turns smoothing on or off: instead of jumping all at once, what you move with the fader and the knobs reaches FL with a short ramp.",
+"Manda el comando Punch In de FL, cuyo efecto exacto Image-Line no documenta. Para grabar solo una parte usa los marcadores Start/Stop recording (receta \"Grabar solo una parte\").":"Sends FL's Punch In command, whose exact effect Image-Line doesn't document. To record only one part, use the Start/Stop recording markers (recipe \"Record only one part\").",
+"Manda el comando Punch Out de FL, cuyo efecto exacto Image-Line no documenta. Para grabar solo una parte usa los marcadores Start/Stop recording.":"Sends FL's Punch Out command, whose exact effect Image-Line doesn't document. To record only one part, use the Start/Stop recording markers.",
+"Mantenlo apretado mientras suena para hacer una selección en vivo (FL lo llama \"live selection\").":"Hold it while the song plays to make a selection on the fly (FL calls it \"live selection\").",
+// colored keys, green layer
+"Modo de rueda: la rueda cambia al pattern anterior o siguiente; la pantalla muestra su nombre.":"Wheel mode: the wheel changes to the previous or next pattern; the screen shows its name.",
+"Modo de rueda: la rueda va de canal en canal del Mixer. El fader del Nano se va solo al volumen del canal que elijas.":"Wheel mode: the wheel goes from track to track in the Mixer. The Nano's fader moves by itself to the volume of the track you choose.",
+"Modo de rueda: la rueda va de canal en canal del Channel Rack (instrumentos y samples).":"Wheel mode: the wheel goes from channel to channel in the Channel Rack (instruments and samples).",
+"Modo de rueda: la rueda sube o baja el tempo (BPM) del proyecto. Cuidado: cambia tu canción.":"Wheel mode: the wheel raises or lowers the project's tempo (BPM). Careful: it changes your song.",
+"Modo de rueda libre: la rueda manda un control propio que puedes ligar a cualquier perilla de FL (clic derecho en la perilla → Link to controller… → gira la rueda → Accept).":"Free wheel mode: the wheel sends a control of its own that you can link to any FL knob (right-click the knob → Link to controller… → turn the wheel → Accept).",
+// colored keys, blue layer
+"Cambia cómo dibuja el controlador sus medidores de nivel (horizontales, verticales o apagados); la pantalla del Nano dice METERS y el modo. No cambia nada en FL.":"Changes how the controller draws its level meters (horizontal, vertical or off); the Nano's screen says METERS and the mode. It changes nothing in FL.",
+"Botón modificador: mantenlo apretado y toca otro botón para usar su segunda función (ver Combinaciones).":"Modifier key: hold it and press another key to use that key's second function (see Combinations).",
+"Mantener apretado.":"Hold it down.",
+"Abre Edison, el editor y grabador de audio de FL, en el canal del Mixer seleccionado.":"Opens Edison, FL's audio editor and recorder, on the selected mixer track.",
+"Prende o apaga el metrónomo de FL, como Ctrl+M. En el overlay dice \"Metrono\".":"Turns FL's metronome on or off, like Ctrl+M. The overlay says \"Metrono\".",
+"Cambia el reloj de FL entre compases y minutos:segundos (también el reloj de dígitos del Nano); la pantalla dice TIEMPO y COMPAS o MIN:SEG.":"Switches FL's clock between bars and minutes:seconds (the Nano's digit display too); the screen says TIEMPO (time format) and COMPAS (bars) or MIN:SEG (min:sec).",
+"Prende o apaga la cuenta antes de grabar (Recording Count-in, Ctrl+P): el metrónomo marca unos compases antes. En FL, clic derecho en ese botón para elegir cuántos.":"Turns the count-in before recording on or off (Recording Count-in, Ctrl+P): the metronome clicks for a few bars first. In FL, right-click that button to choose how many.",
+"Manda el comando Mode de FL, que Image-Line no documenta. Si lo pruebas, mira el mensaje arriba a la izquierda de FL: ahí dice qué cambió.":"Sends FL's Mode command, which Image-Line doesn't document. If you try it, look at the message at FL's top left: it says what changed.",
+"Cambia entre modo Pattern (repite el pattern) y modo Song (toca la Playlist), como la tecla L.":"Switches between Pattern mode (loops the pattern) and Song mode (plays the Playlist), like the L key.",
+// colored keys, purple layer
+"Guarda el proyecto, como Ctrl+S.":"Saves the project, like Ctrl+S.",
+"Shift + Save: guarda una versión nueva con número (MiProyecto_2) sin tocar la anterior.":"Shift + Save: saves a new numbered version (MyProject_2) without touching the previous one.",
+"Abre el menú de la ventana activa de FL. Muévete con los botones de flechas de la rueda, confirma con Enter (morada 4) y ciérralo con Esc (morada 3).":"Opens the menu of FL's focused window. Move with the arrow keys next to the wheel, confirm with Enter (purple 4) and close it with Esc (purple 3).",
+"Escape: cancela o cierra el diálogo o menú abierto.":"Escape: cancels or closes the open dialog or menu.",
+"Shift + Esc: responde \"No\" en un diálogo (como la tecla N).":"Shift + Esc: answers \"No\" in a dialog (like the N key).",
+"Enter: acepta o confirma el diálogo o la opción marcada de un menú.":"Enter: accepts or confirms the dialog or the highlighted menu option.",
+"Shift + Enter: responde \"Sí\" en un diálogo (como la tecla Y).":"Shift + Enter: answers \"Yes\" in a dialog (like the Y key).",
+"Modo de rueda: la rueda mueve lo que tengas seleccionado (clips o notas).":"Wheel mode: the wheel moves whatever you have selected (clips or notes).",
+"Manda los canales seleccionados del Channel Rack al canal del Mixer seleccionado, como Ctrl+L.":"Routes the selected Channel Rack channels to the selected mixer track, like Ctrl+L.",
+"Shift + Link Ch: uno por canal a partir del seleccionado (3 canales con el 4 elegido van al 4, 5 y 6).":"Shift + Link Ch: one per track, starting from the selected one (3 channels with track 4 selected go to 4, 5 and 6).",
+"Modo de rueda: la rueda salta al marcador siguiente o anterior de la canción.":"Wheel mode: the wheel jumps to the song's next or previous marker.",
+"Con Shift: la rueda va seleccionando el tramo entre marcadores.":"With Shift: the wheel selects the part between markers.",
+"Agrega un marcador de tiempo en la Playlist, como Alt+T.":"Adds a time marker in the Playlist, like Alt+T.",
+"Shift + +Mark: agrega un marcador \"alterno\" (FL no explica la diferencia).":"Shift + +Mark: adds an \"alternate\" marker (FL doesn't explain the difference).",
+// colored keys, yellow layer
+"Corta lo seleccionado en la ventana activa, como Ctrl+X.":"Cuts the selection in the focused window, like Ctrl+X.",
+"Shift + Cut: tecla F1 (ayuda).":"Shift + Cut: F1 key (help).",
+"Copia lo seleccionado, como Ctrl+C.":"Copies the selection, like Ctrl+C.",
+"Pega, como Ctrl+V.":"Pastes, like Ctrl+V.",
+"Shift + Paste: tecla F3.":"Shift + Paste: F3 key.",
+"Como la tecla Insert de FL. Ojo: en la Playlist corta (divide) el clip donde está el cursor.":"Like FL's Insert key. Careful: in the Playlist it cuts (splits) the clip at the cursor.",
+"Shift + Insert: tecla F4 (siguiente pattern vacío).":"Shift + Insert: F4 key (next empty pattern).",
+"Borra lo seleccionado, como la tecla Supr. Ojo: en la Playlist borra el clip seleccionado.":"Deletes the selection, like the Delete key. Careful: in the Playlist it deletes the selected clip.",
+"Shift + Del: tecla F5 (Playlist).":"Shift + Del: F5 key (Playlist).",
+"Abre el menú del elemento seleccionado, como su clic derecho o su menú de herramientas.":"Opens the menu of the selected item, like right-clicking it or like its tools menu.",
+"Shift + ItemMenu: tecla F6 (Channel Rack).":"Shift + ItemMenu: F6 key (Channel Rack).",
+"Un toque deshace un paso, como Ctrl+Alt+Z en FL.":"One tap undoes one step, like Ctrl+Alt+Z in FL.",
+"Mantenlo y gira la rueda para recorrer el historial de deshacer.":"Hold it and turn the wheel to walk through the undo history.",
+"Shift + Undo: tecla F7 (Piano roll).":"Shift + Undo: F7 key (Piano roll).",
+"Como Ctrl+Z en FL: deshace el último cambio y, si lo vuelves a tocar, lo rehace.":"Like Ctrl+Z in FL: undoes the last change and, if you press it again, redoes it.",
+"Shift + Un/Redo: tecla F8 (Plugin picker).":"Shift + Un/Redo: F8 key (Plugin picker).",
+// the other controls (knobs 1-4 and the layer keys give their English where they are built)
+"Perilla grande":"Big knob",
+"Funciona como la perilla del canal 1 del banco: hace lo que diga la página activa (paneo, envío, efecto…). Apretarla regresa el valor.":"Works like the knob of track 1 of the bank: it does what the current page says (pan, send, effect…). Pressing it resets the value.",
+"CC 0x10 · nota 0x20":"CC 0x10 · note 0x20",
+"Pantalla externa (8 cuadros)":"External display (8 squares)",
+"Un cuadro por canal del banco: arriba el nombre y abajo lo que mueve su perilla en la página activa (en Pan, el paneo: C es centro, 10%L es 10% a la izquierda). El cuadro donde está el fader muestra el canal seleccionado y su volumen, igual que la pantallita del Nano. Los mensajes de los botones (METRO ON, MUTE ON…) cubren los 8 cuadros 1.5 s; los modos de rueda salen solo en el cuadro del fader.":"One square per track of the bank: the name on top and, below, what its knob moves on the current page (on Pan, the pan: C is center, 10%L is 10% to the left). The square where the fader is shows the selected track and its volume, like the Nano's small screen. Key messages (METRO ON, MUTE ON…) cover all 8 squares for 1.5 s; wheel modes show only on the fader's square.",
+"Al cargar el script, los 8 cuadros repiten lo mismo hasta que tocas el fader: así el script aprende en qué cuadro está. Si mueves una perilla, solo cambia su cuadro.":"When the script loads, all 8 squares repeat the same thing until you touch the fader: that's how the script learns which square it is on. If you move a knob, only its square changes.",
+"Pantallita del Nano":"Nano's small screen",
+"Muestra el cuadro donde está el fader: arriba el canal seleccionado en FL y abajo su volumen en dB (por ejemplo Vocal y -5.2dB). Al tocar un botón sale 1.5 s un mensaje corto y completo: METRO ON, LOOPREC OFF, MUTE ON, SAVE OK… Con un modo de rueda prendido, arriba sale el modo y abajo lo que vas cambiando (MIXER y el canal, TEMPO y el BPM).":"Shows the fader's square: the track selected in FL on top and its volume in dB below (for example Vocal and -5.2dB). When you press a key, a short, whole message shows for 1.5 s: METRO ON, LOOPREC OFF, MUTE ON, SAVE OK… With a wheel mode on, the mode shows on top and what you are changing below (MIXER and the track, TEMPO and the BPM).",
+"Mientras mueves el fader el nombre se queda fijo y solo cambia el número. Los nombres largos se acortan a 7 letras: \"Insert 12\" sale \"Ins 12\".":"While you move the fader, the name stays put and only the number changes. Long names are squeezed to 7 characters: \"Insert 12\" shows as \"Ins 12\".",
+"Reloj de dígitos":"Digit display",
+"La posición de la canción, en compases o en minutos:segundos (cámbialo con TimeFormat, capa azul). En modo Tempo muestra el BPM, por ejemplo 130.00.":"The song position, in bars or in minutes:seconds (switch it with TimeFormat, blue layer). In Tempo mode it shows the BPM, for example 130.00.",
+"5-8":"5-8",
+"Cambia las 4 perillas pequeñas entre los canales 1–4 y 5–8 del banco. No manda nada a FL.":"Switches the 4 small knobs between tracks 1–4 and 5–8 of the bank. It sends nothing to FL.",
+"Fader <":"Fader <",
+"Pasa el fader al canal anterior del banco. FL selecciona ese canal y abre el Mixer.":"Moves the fader to the previous track of the bank. FL selects that track and opens the Mixer.",
+"Select 0x18–0x1F":"Select 0x18–0x1F",
+"Fader >":"Fader >",
+"Pasa el fader al canal siguiente del banco. FL selecciona ese canal y abre el Mixer.":"Moves the fader to the next track of the bank. FL selects that track and opens the Mixer.",
+"Banco <<8":"Bank <<8",
+"Banco anterior: las perillas y los nombres saltan 8 canales hacia atrás.":"Previous bank: the knobs and the names jump 8 tracks back.",
+"Banco 8>>":"Bank 8>>",
+"Banco siguiente: las perillas y los nombres saltan 8 canales hacia adelante.":"Next bank: the knobs and the names jump 8 tracks forward.",
+"Candado":"Lock",
+"Función interna del controlador. No manda nada a FL.":"A function of the controller itself. It sends nothing to FL.",
+"Fader motorizado":"Motorized fader",
+"Volumen del canal seleccionado en FL: se mueve solo cuando cambias de canal y al moverlo cambias ese volumen. Es sensible al tacto: mientras lo tocas, FL no lo empuja.":"Volume of the track selected in FL: it moves by itself when you change track, and moving it changes that volume. It is touch-sensitive: while you touch it, FL doesn't push it.",
+"Con Master prendido controla el volumen principal de FL.":"With Master on, it controls FL's main volume.",
+"Pitch bend":"Pitch bend",
+"Mute":"Mute",
+"Silencia o activa el canal seleccionado en FL.":"Mutes or unmutes the track selected in FL.",
+"Solo":"Solo",
+"Deja sonando solo el canal seleccionado (y lo que necesita para sonar).":"Leaves only the selected track playing (and what it needs in order to sound).",
+"Shift + Solo: incluye también los canales que le mandan audio.":"Shift + Solo: also includes the tracks that send audio to it.",
+"Rec (canal)":"Rec (track)",
+"Arma el canal seleccionado para grabar; la pantalla dice REC ARM y ON u OFF.":"Arms the selected track for recording; the screen says REC ARM and ON or OFF.",
+"Master":"Master",
+"Pasa el fader al volumen principal de FL (el volumen general de arriba). Tócalo otra vez para regresar al canal. No manda nada a FL al tocarlo.":"Switches the fader to FL's main volume (the master volume at the top). Press it again to go back to the track. Pressing it sends nothing to FL.",
+"Retroceder":"Rewind",
+"Retrocede mientras lo mantienes.":"Rewinds while you hold it.",
+"Shift + «: reproduce a media velocidad mientras lo mantienes.":"Shift + «: plays at half speed while you hold it.",
+"Adelantar":"Fast-forward",
+"Adelanta mientras lo mantienes.":"Fast-forwards while you hold it.",
+"Shift + »: reproduce al doble de velocidad mientras lo mantienes.":"Shift + »: plays at double speed while you hold it.",
+"Loop":"Loop",
+"Prende o apaga la grabación en loop (Recording Loop): al grabar, FL repite el pattern, el Piano roll o la selección de la Playlist y sigue grabando, una toma por vuelta, hasta que le das stop. La luz indica si está prendida.":"Turns loop recording (Recording Loop) on or off: while recording, FL repeats the pattern, the Piano roll or the Playlist selection and keeps recording, one take per pass, until you press stop. The light shows whether it is on.",
+"Shift + Loop: prende o apaga el Snap (el imán de la cuadrícula).":"Shift + Loop: turns Snap (the grid magnet) on or off.",
+"Stop":"Stop",
+"Detiene la reproducción o la grabación.":"Stops playback or recording.",
+"Play":"Play",
+"Reproduce.":"Plays.",
+"Grabar":"Record",
+"Arma la grabación de FL (como la tecla R). Luego Play para empezar, salvo que en FL tengas activado \"Recording starts playback\".":"Arms FL's recording (like the R key). Then press Play to start, unless \"Recording starts playback\" is turned on in FL.",
+"Rueda":"Jog wheel",
+"Sin ningún modo, la rueda se mueve por lo que tengas enfocado en FL: en la Playlist mueve la posición de la canción, en el Mixer cambia de canal y en el Browser baja por la lista. Con un modo prendido (Mixer, Zoom, Tempo…) hace lo de ese modo.":"With no mode, the wheel moves through whatever is focused in FL: in the Playlist it moves the song position, in the Mixer it changes track and in the Browser it goes down the list. With a mode on (Mixer, Zoom, Tempo…) it does what that mode does.",
+"Apretar la rueda prende o apaga Scrub: la rueda pasa a su modo alterno (reubicar en vez de seleccionar).":"Pressing the wheel turns Scrub on or off: the wheel switches to its alternate mode (relocate instead of select).",
+"Shift + rueda: el mismo modo alterno mientras mantienes Shift.":"Shift + wheel: the same alternate mode while you hold Shift.",
+"CC 0x3C · Scrub 0x65":"CC 0x3C · Scrub 0x65",
+"Navegar ↕":"Arrows ↕",
+"La rueda manda flechas arriba/abajo, como el teclado (sirve para moverte en menús y listas). Vuelve a tocarlo para salir. No manda nada a FL al tocarlo.":"The wheel sends up/down arrow keys, like the keyboard (useful to move through menus and lists). Press it again to leave. Pressing it sends nothing to FL.",
+"Navegar ↔":"Arrows ↔",
+"La rueda manda flechas izquierda/derecha, como el teclado. Vuelve a tocarlo para salir.":"The wheel sends left/right arrow keys, like the keyboard. Press it again to leave.",
+"Zoom ↕":"Zoom ↕",
+"Zoom vertical: con la rueda cambias la altura de los tracks (o de las teclas en el Piano roll), para ver mejor la waveform.":"Vertical zoom: with the wheel you change the height of the tracks (or of the keys in the Piano roll), to see the waveform better.",
+"Toque: prende (luz). Gira la rueda. Toque: apaga.":"Tap: on (lit). Turn the wheel. Tap: off.",
+"0x64 + flechas":"0x64 + arrows",
+"Zoom ↔":"Zoom ↔",
+"Zoom horizontal: con la rueda acercas o alejas el tiempo en la Playlist o el Piano roll.":"Horizontal zoom: with the wheel you zoom in or out on time in the Playlist or the Piano roll.",
+"Pan":"Pan",
+"Página Pan: cada perilla mueve el paneo de su canal; apretarla lo centra.":"Pan page: each knob moves the pan of its track; pressing it centers it.",
+"Stereo":"Stereo",
+"Página Stereo: cada perilla cambia la separación estéreo de su canal; apretarla la reinicia.":"Stereo page: each knob changes the stereo separation of its track; pressing it resets it.",
+"Sends":"Sends",
+"Página Sends: la perilla N manda audio del canal seleccionado al canal N del banco; apretarla prende o apaga ese envío.":"Sends page: knob N sends audio from the selected track to track N of the bank; pressing it turns that send on or off.",
+"Effects":"Effects",
+"Página Effects: la perilla N mueve la mezcla del efecto en el slot N del canal seleccionado; apretarla lo prende o apaga.":"Effects page: knob N moves the mix level of the effect in slot N of the selected track; pressing it turns the effect on or off.",
+"EQ":"EQ",
+"Página EQ: las perillas mueven el ecualizador integrado del canal seleccionado (frecuencias y ancho de banda); el fader, una ganancia.":"EQ page: the knobs move the selected track's built-in equalizer (frequencies and bandwidth); the fader, a gain.",
+"Free":"Free",
+"Página Free: el fader, perillas y botones se vuelven controles libres para ligarlos a lo que quieras con Link to controller.":"Free page: the fader, knobs and keys become free controls that you can link to anything you want with Link to controller.",
+// what you do in each step of the screen playback (labels written by dev/gen_screen_data.py)
+"Un toque":"One tap",
+"Otro toque":"Another tap",
+"Giras la rueda un clic":"Turn the wheel one click",
+"Otro clic de rueda":"Another wheel click",
+"Otro toque: se apaga":"Another tap: it turns off",
+"Shift + Save":"Shift + Save",
+"Mantener apretado":"Hold it down",
+"Soltar":"Let go",
+"Shift + Metronome":"Shift + Metronome",
+"Mantener y girar la rueda":"Hold it and turn the wheel",
+"Giras a la derecha":"Turn it to the right",
+"Apretar la perilla (centro)":"Press the knob (center)",
+"Bajas el fader":"Lower the fader",
+"Con Mixer prendido lo mueves":"Move it with Mixer on",
+"Apagas Mixer":"Turn Mixer off",
+"Con Master prendido mueves el fader":"Move the fader with Master on",
+"Shift + Loop":"Shift + Loop",
+"Giras la rueda (sin modo)":"Turn the wheel (no mode)",
+"Aprietas la rueda":"Press the wheel",
+"Otra vez":"Again",
+"Giras la rueda (manda flecha arriba)":"Turn the wheel (sends arrow up)",
+"Giras la rueda (manda flecha derecha)":"Turn the wheel (sends arrow right)"
+}/*EN-END*/;
+const own=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
+let LANG=document.documentElement.classList.contains('lang-en')?'en':'es';
+function t(s,...a){const r=LANG==='en'&&typeof s==='string'&&own(EN,s)?EN[s]:s;return a.length?String(r).replace(/\{(\d)\}/g,(m,i)=>a[+i]):r}
+// texts built from a number or a layer name give their English version right where they are built
+const en=(es,e)=>(EN[es]=e,es);
+// the page's own words (card, table, search, title), kept in one place so i18nMissing() can check them
+const U={title:'iCON Platform Nano Air en FL Studio · script y tutorial ES/EN',
+ desc:'Script gratis y no oficial para el iCON Platform Nano Air en FL Studio: el fader sigue al canal seleccionado. Tutorial y manual en español e inglés.',
+ what:'Qué hace',how:'Cómo se usa',shift:'Con Shift',screens:'En las pantallas',replay:'▶ Ver otra vez en el dibujo',signal:'Señal que manda: {0}',noScreen:'No cambia nada en las pantallas.',
+ fnWhere:'Botón de colores {0} ({1}) · {2}',top:'fila de arriba',bottom:'fila de abajo',layer:'capa {0}',pages:'Columna derecha (páginas de las perillas)',
+ keyAt:'{0}, botón {1}',right:'columna derecha',panel:'panel',nothing:'Nada con esa palabra',jog:'Jog · apretar = Scrub',
+ noChange:'no cambia',show:'▶ Ver',showOn:'Ver en el dibujo: {0}',untilOff:'hasta que lo apagues',whileMoving:'cambia mientras lo mueves',stays:'se queda',afterLetGo:'{0} después de soltarlo'};
+// where a change shows on the screens: whereLabel() returns one of these codes (plus the square numbers), whereTxt() words it
+const WHERE={back:'vuelve a lo normal',strip:'el fader pasa al cuadro {0}',all8:'los 8 cuadros',all8ch:'los 8 cuadros cambian de canal',fader:'pantallita y cuadro del fader',sq:'cuadro {0}',sqs:'cuadros {0}',some:'varios cuadros',digits:'reloj de dígitos'};
 const LAY=[{k:'r',n:'Roja',c:'var(--r)',h:'#e5484d'},{k:'g',n:'Verde',c:'var(--g)',h:'#30a46c'},{k:'b',n:'Azul',c:'var(--b)',h:'#3e8ff7'},{k:'p',n:'Morada',c:'var(--p)',h:'#9b59d0'},{k:'y',n:'Amarilla',c:'var(--y)',h:'#e0a400'}];
 const WHEEL='Toque: se queda prendido y giras la rueda. Otro toque: se apaga. Mantener + girar: se apaga al soltar.';
 const FREE=k=>({t:'Free '+k,d:'Modo de rueda libre: la rueda manda un control propio que puedes ligar a cualquier perilla de FL (clic derecho en la perilla → Link to controller… → gira la rueda → Accept).',h:WHEEL,m:'0x'+(0x41+k).toString(16).toUpperCase(),w:1});
@@ -440,11 +764,15 @@ const FX=[298,396,495,592],FY=[269,336];
 // Fixed controls: x,y in the 810x730 panel; s = shape
 const CTL=[
 {id:'knobM',s:'knob',x:164,y:79,r:28,t:'Perilla grande',d:'Funciona como la perilla del canal 1 del banco: hace lo que diga la página activa (paneo, envío, efecto…). Apretarla regresa el valor.',m:'CC 0x10 · nota 0x20'},
-...[1,2,3,4].map((n,i)=>({id:'knob'+n,s:'knob',x:388+i*98,y:62,r:22,t:'Perilla '+n,d:'Controla el canal '+n+' del banco (o el '+(n+4)+' si prendiste 5-8) según la página activa: paneo, separación estéreo, envíos, efectos o EQ. Apretarla regresa el valor; en Sends prende o apaga el envío.',m:'CC 0x'+(16+n-1).toString(16)+' (o +4 con 5-8)'})),
+...[1,2,3,4].map((n,i)=>({id:'knob'+n,s:'knob',x:388+i*98,y:62,r:22,t:en('Perilla '+n,'Knob '+n),
+ d:en('Controla el canal '+n+' del banco (o el '+(n+4)+' si prendiste 5-8) según la página activa: paneo, separación estéreo, envíos, efectos o EQ. Apretarla regresa el valor; en Sends prende o apaga el envío.',
+  'Controls track '+n+' of the bank (or track '+(n+4)+' if you turned on 5-8) on the current page: pan, stereo separation, sends, effects or EQ. Pressing it resets the value; on Sends it turns the send on or off.'),
+ m:en('CC 0x'+(16+n-1).toString(16)+' (o +4 con 5-8)','CC 0x'+(16+n-1).toString(16)+' (or +4 with 5-8)')})),
 {id:'d3',s:'d3',x:405,y:-80,t:'Pantalla externa (8 cuadros)',d:'Un cuadro por canal del banco: arriba el nombre y abajo lo que mueve su perilla en la página activa (en Pan, el paneo: C es centro, 10%L es 10% a la izquierda). El cuadro donde está el fader muestra el canal seleccionado y su volumen, igual que la pantallita del Nano. Los mensajes de los botones (METRO ON, MUTE ON…) cubren los 8 cuadros 1.5 s; los modos de rueda salen solo en el cuadro del fader.',h:'Al cargar el script, los 8 cuadros repiten lo mismo hasta que tocas el fader: así el script aprende en qué cuadro está. Si mueves una perilla, solo cambia su cuadro.'},
 {id:'oled',s:'oled',x:306,y:151,t:'Pantallita del Nano',d:'Muestra el cuadro donde está el fader: arriba el canal seleccionado en FL y abajo su volumen en dB (por ejemplo Vocal y -5.2dB). Al tocar un botón sale 1.5 s un mensaje corto y completo: METRO ON, LOOPREC OFF, MUTE ON, SAVE OK… Con un modo de rueda prendido, arriba sale el modo y abajo lo que vas cambiando (MIXER y el canal, TEMPO y el BPM).',h:'Mientras mueves el fader el nombre se queda fijo y solo cambia el número. Los nombres largos se acortan a 7 letras: "Insert 12" sale "Ins 12".'},
 {id:'leds',s:'digits',x:581,y:152,t:'Reloj de dígitos',d:'La posición de la canción, en compases o en minutos:segundos (cámbialo con TimeFormat, capa azul). En modo Tempo muestra el BPM, por ejemplo 130.00.'},
-...LAY.map((L,i)=>({id:'lay'+L.k,s:'layer',x:387+i*72,y:204,r:14,t:'Capa '+L.n.toLowerCase(),d:'Cambia los 8 botones de colores a la capa '+L.n.toLowerCase()+'. No manda nada a FL; lo maneja el controlador.',lay:i})),
+...LAY.map((L,i)=>({id:'lay'+L.k,s:'layer',x:387+i*72,y:204,r:14,t:en('Capa '+L.n.toLowerCase(),EN[L.n]+' layer'),
+ d:en('Cambia los 8 botones de colores a la capa '+L.n.toLowerCase()+'. No manda nada a FL; lo maneja el controlador.','Switches the 8 colored keys to the '+String(EN[L.n]).toLowerCase()+' layer. It sends nothing to FL; the controller handles it.'),lay:i})),
 {id:'b58',s:'round',x:99,y:175,r:15,lab:'5-8',t:'5-8',d:'Cambia las 4 perillas pequeñas entre los canales 1–4 y 5–8 del banco. No manda nada a FL.'},
 {id:'fprev',s:'small',x:99,y:239,lab:'|<',t:'Fader <',d:'Pasa el fader al canal anterior del banco. FL selecciona ese canal y abre el Mixer.',m:'Select 0x18–0x1F'},
 {id:'fnext',s:'small',x:99,y:305,lab:'>|',t:'Fader >',d:'Pasa el fader al canal siguiente del banco. FL selecciona ese canal y abre el Mixer.',m:'Select 0x18–0x1F'},
@@ -480,6 +808,7 @@ let layer=1,selId='fn1';
 const NS='http://www.w3.org/2000/svg';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fnAt=i=>FN[i][LAY[layer].k];
+const layerOf=L=>t(U.layer,String(t(L.n)).toLowerCase()); // "capa roja" / "red layer"
 
 // small drawn icons (no emoji): transport symbols, arrows and the padlock
 function icon(k,x,y){
@@ -496,7 +825,7 @@ function icon(k,x,y){
  return '';
 }
 function shape(c){
- const g=`data-id="${c.id}" class="ctl" tabindex="0" role="button" aria-label="${esc(c.t)}"`;
+ const g=`data-id="${c.id}" class="ctl" tabindex="0" role="button" aria-label="${esc(t(c.t))}"`;
  if(c.icon&&c.s==='round')return `<g ${g}><circle cx="${c.x}" cy="${c.y+3}" r="${c.r}" fill="#060608"/><circle cx="${c.x}" cy="${c.y}" r="${c.r}" fill="#e7a8b6"/>${icon(c.icon,c.x,c.y)}<circle class="hit" cx="${c.x}" cy="${c.y}" r="${c.r+(c.id==='navH'||c.id==='zoomH'?10:12)}"/></g>`;
  if(c.icon&&c.s==='key')return `<g ${g}><rect x="${c.x-c.w/2}" y="${c.y-c.hh/2+3}" width="${c.w}" height="${c.hh}" rx="6" fill="#060608"/><rect x="${c.x-c.w/2}" y="${c.y-c.hh/2}" width="${c.w}" height="${c.hh}" rx="6" fill="${c.fill||'#f3b9c8'}"/>${icon(c.icon,c.x,c.y)}<rect class="hit" x="${c.x-c.w/2-5}" y="${c.y-c.hh/2-5}" width="${c.w+10}" height="${c.hh+10}" rx="8"/></g>`;
  if(c.s==='knob')return `<g ${g}><circle cx="${c.x}" cy="${c.y+6}" r="${c.r+4}" fill="#060608"/><circle cx="${c.x}" cy="${c.y}" r="${c.r}" fill="#2b2b31" stroke="#45454e"/><circle cx="${c.x}" cy="${c.y-3}" r="${c.r*.72}" fill="#d9d9de"/><circle class="hit" cx="${c.x}" cy="${c.y}" r="${c.r+6}"/></g>`;
@@ -508,14 +837,14 @@ function shape(c){
  if(c.s==='small')return `<g ${g}><rect x="${c.x-18}" y="${c.y-15}" width="36" height="32" rx="5" fill="#060608"/><rect x="${c.x-18}" y="${c.y-17}" width="36" height="32" rx="5" fill="#e7a8b6"/><text x="${c.x}" y="${c.y+4}" font-size="11" text-anchor="middle" fill="#3b1a22" font-weight="700">${esc(c.lab)}</text><rect class="hit" x="${c.x-30}" y="${c.y-29}" width="60" height="58" rx="9"/></g>`;
  if(c.s==='fader')return `<g ${g}><rect x="${c.x-5}" y="172" width="10" height="464" rx="5" fill="#050507" stroke="#33333b"/>${Array.from({length:22},(_,i)=>`<line x1="${c.x+12}" x2="${c.x+(i%5?20:26)}" y1="${190+i*20}" y2="${190+i*20}" stroke="#55555f"/>`).join('')}<rect x="${c.x-22}" y="${c.y-14}" width="44" height="30" rx="4" fill="#06060a"/><rect x="${c.x-22}" y="${c.y-17}" width="44" height="30" rx="4" fill="#cfcfd6"/><line x1="${c.x-18}" x2="${c.x+18}" y1="${c.y-2}" y2="${c.y-2}" stroke="#7a7a85" stroke-width="2"/><rect class="hit" x="${c.x-30}" y="166" width="60" height="476" rx="10"/></g>`;
  if(c.s==='recdot')return `<g ${g}><circle cx="${c.x}" cy="${c.y+3}" r="${c.r}" fill="#060608"/><circle cx="${c.x}" cy="${c.y}" r="${c.r}" fill="#e7a8b6"/><circle cx="${c.x}" cy="${c.y}" r="6" fill="#d61f2c"/><circle class="hit" cx="${c.x}" cy="${c.y}" r="${c.r+12}"/></g>`;
- if(c.s==='jog')return `<g ${g}><rect x="${c.x-90}" y="${c.y-86}" width="180" height="180" rx="10" fill="none" stroke="#2e2e36"/><circle cx="${c.x}" cy="${c.y+8}" r="${c.r+4}" fill="#040406"/><circle cx="${c.x}" cy="${c.y}" r="${c.r}" fill="#1e1e24" stroke="#4a4a55" stroke-width="3"/><circle cx="${c.x}" cy="${c.y}" r="${c.r*.66}" fill="#111115" stroke="#33333b"/><circle cx="${c.x-24}" cy="${c.y-28}" r="7" fill="#3a3a44"/><text x="${c.x}" y="${c.y+c.r+28}" font-size="12" text-anchor="middle" fill="#9a9aa5">Jog · apretar = Scrub</text><circle class="hit" cx="${c.x}" cy="${c.y}" r="${c.r+6}"/></g>`;
+ if(c.s==='jog')return `<g ${g}><rect x="${c.x-90}" y="${c.y-86}" width="180" height="180" rx="10" fill="none" stroke="#2e2e36"/><circle cx="${c.x}" cy="${c.y+8}" r="${c.r+4}" fill="#040406"/><circle cx="${c.x}" cy="${c.y}" r="${c.r}" fill="#1e1e24" stroke="#4a4a55" stroke-width="3"/><circle cx="${c.x}" cy="${c.y}" r="${c.r*.66}" fill="#111115" stroke="#33333b"/><circle cx="${c.x-24}" cy="${c.y-28}" r="7" fill="#3a3a44"/><text x="${c.x}" y="${c.y+c.r+28}" font-size="12" text-anchor="middle" fill="#9a9aa5">${esc(t(U.jog))}</text><circle class="hit" cx="${c.x}" cy="${c.y}" r="${c.r+6}"/></g>`;
  // generic key (rectangle); Mute, Solo and Master get a bigger tap area
  const P=/^(mute|solo|master)$/.test(c.id)?8:5;
  return `<g ${g}><rect x="${c.x-c.w/2}" y="${c.y-c.hh/2+3}" width="${c.w}" height="${c.hh}" rx="6" fill="#060608"/><rect x="${c.x-c.w/2}" y="${c.y-c.hh/2}" width="${c.w}" height="${c.hh}" rx="6" fill="${c.fill||'#f3b9c8'}"/><text x="${c.x}" y="${c.y+5}" font-size="${c.lab.length>4?12:17}" text-anchor="middle" fill="#2a1219" font-weight="700" font-family="Barlow Semi Condensed">${esc(c.lab)}</text><rect class="hit" x="${c.x-c.w/2-P}" y="${c.y-c.hh/2-P}" width="${c.w+2*P}" height="${c.hh+2*P}" rx="8"/></g>`;
 }
 function fnKey(i){
  const x=FX[i%4],y=FY[i<4?0:1],L=LAY[layer],f=fnAt(i);
- return `<g data-id="fn${i}" class="ctl" tabindex="0" role="button" aria-label="${esc(f.t)} (capa ${L.n.toLowerCase()})"><rect x="${x-37}" y="${y-22}" width="74" height="50" rx="7" fill="#060608"/><rect x="${x-37}" y="${y-25}" width="74" height="50" rx="7" fill="#f3b9c8"/><rect x="${x-37}" y="${y+16}" width="74" height="9" rx="3" fill="${L.h}"/><text x="${x}" y="${y+5}" font-size="${f.t.length>9?11.5:14}" text-anchor="middle" fill="#2a1219" font-weight="700" font-family="Barlow Semi Condensed">${esc(f.t)}</text><rect class="hit" x="${x-42}" y="${y-30}" width="84" height="60" rx="9"/></g>`;
+ return `<g data-id="fn${i}" class="ctl" tabindex="0" role="button" aria-label="${esc(f.t)} (${esc(layerOf(L))})"><rect x="${x-37}" y="${y-22}" width="74" height="50" rx="7" fill="#060608"/><rect x="${x-37}" y="${y-25}" width="74" height="50" rx="7" fill="#f3b9c8"/><rect x="${x-37}" y="${y+16}" width="74" height="9" rx="3" fill="${L.h}"/><text x="${x}" y="${y+5}" font-size="${f.t.length>9?11.5:14}" text-anchor="middle" fill="#2a1219" font-weight="700" font-family="Barlow Semi Condensed">${esc(f.t)}</text><rect class="hit" x="${x-42}" y="${y-30}" width="84" height="60" rx="9"/></g>`;
 }
 function draw(){
  svg.innerHTML=`<defs><linearGradient id="pan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a31"/><stop offset="1" stop-color="#18181d"/></linearGradient></defs><rect x="4" y="4" width="802" height="722" rx="22" fill="url(#pan)" stroke="#3a3a44"/><rect x="230" y="108" width="520" height="80" rx="8" fill="#0c0c0f"/><rect x="262" y="236" width="372" height="132" rx="10" fill="none" stroke="#3a2a30" stroke-width="2"/><rect x="654" y="242" width="70" height="384" rx="10" fill="none" stroke="#3a2a30" stroke-width="2"/>${[0,1,2,3].map(i=>`<circle cx="${600+i*24}" cy="118" r="4" fill="${['#e5484d','#e0a400','#30a46c','#30a46c'][i]}"/>`).join('')}<text x="620" y="566" font-size="12" fill="#9a9aa5" font-family="Barlow Semi Condensed">Zoom</text><text x="405" y="704" font-size="22" fill="#d9d9de" font-style="italic" font-weight="700" font-family="Barlow Semi Condensed" letter-spacing="3">PLATFORM · NANO AIR</text>`+CTL.map(shape).join('')+FN.map((_,i)=>fnKey(i)).join('');
@@ -526,7 +855,9 @@ function draw(){
 const START=SCR?Object.values(SCR.scenes)[0].start:[' '.repeat(56),' '.repeat(56),'',6];
 const NB=String.fromCharCode(160);
 const lcdTxt=s=>String(s).replace(/~/g,'→').replace(/\x7f/g,'←');
-const seg=(row,k)=>row.slice(k*7,k*7+7);
+// "(texto de FL)" stands where FL Studio's own hint text goes: it is page text, so English mode shows "(FL's hint)"
+const LCD_EN={'(texto ':"(FL's  ",'de FL) ':'hint)  '};
+const seg=(row,k)=>{const c=row.slice(k*7,k*7+7);return LANG==='en'&&own(LCD_EN,c)?LCD_EN[c]:c};
 const fmtDur=d=>String(Math.round(d*10)/10)+' s';
 let cur=null,timers=[];
 function setT(id,s){const e=document.getElementById(id);if(e)e.textContent=lcdTxt(s).replace(/ /g,NB)}
@@ -534,7 +865,8 @@ function paint(f){cur=f;const [T,B,D,st]=f;for(let k=0;k<8;k++){setT('d3t'+k,seg
 const keyOf=f=>f&&f.m&&/^0x[0-9a-f]{2}$/i.test(f.m)?'n'+f.m.slice(2).toLowerCase():null;
 const isFn=id=>/^fn\d$/.test(id); // the 8 colour keys (fn0..fn7), not 'fnext'
 function sceneKey(id){return isFn(id)?keyOf(fnAt(+id.slice(2))):id}
-function markStep(i){document.querySelectorAll('#scrsteps li').forEach((li,k)=>li.classList.toggle('on',k===i))}
+let stepOn=-1; // the step being played, so a language switch can mark it again on the new card
+function markStep(i){stepOn=i;document.querySelectorAll('#scrsteps li').forEach((li,k)=>li.classList.toggle('on',k===i))}
 function stopPlay(){timers.forEach(clearTimeout);timers=[];markStep(-1)}
 function play(key){stopPlay();const sc=SCR&&SCR.scenes[key];if(!sc){paint(START);return}paint(sc.start);let T=350;
  sc.steps.forEach((st,i)=>{const t0=T;timers.push(setTimeout(()=>markStep(i),t0));for(const fr of st.f)timers.push(setTimeout(()=>paint(fr.slice(1)),t0+fr[0]*1000));const last=st.f.length?st.f[st.f.length-1][0]:0;T=t0+Math.max(1300,last*1000+1000)});
@@ -543,43 +875,44 @@ function same8(T,B){for(let k=1;k<8;k++)if(seg(T,k)!==seg(T,0)||seg(B,k)!==seg(B
 function whereLabel(prev,f){
  const [T,B,D,st]=f,[pT,pB,pD,pst]=prev,ch=[];
  for(let k=0;k<8;k++)if(seg(T,k)!==seg(pT,k)||seg(B,k)!==seg(pB,k))ch.push(k);
- if(ch.length&&T===START[0]&&B===START[1]&&st===START[3])return 'vuelve a lo normal';
- if(st!==pst)return 'el fader pasa al cuadro '+(st+1);
- if(ch.length===8&&same8(T,B))return 'los 8 cuadros';
- if(ch.length===8)return 'los 8 cuadros cambian de canal';
- if(ch.length===1&&ch[0]===st)return 'pantallita y cuadro del fader';
- if(ch.length&&!ch.includes(st))return ch.length===1?'cuadro '+(ch[0]+1):'cuadros '+ch.map(k=>k+1).join(', ');
- if(ch.length)return 'varios cuadros';
- if(D!==pD)return 'reloj de dígitos';
- return '';
+ if(ch.length&&T===START[0]&&B===START[1]&&st===START[3])return {k:'back'};
+ if(st!==pst)return {k:'strip',n:[st+1]};
+ if(ch.length===8&&same8(T,B))return {k:'all8'};
+ if(ch.length===8)return {k:'all8ch'};
+ if(ch.length===1&&ch[0]===st)return {k:'fader'};
+ if(ch.length&&!ch.includes(st))return {k:ch.length===1?'sq':'sqs',n:ch.map(k=>k+1)};
+ if(ch.length)return {k:'some'};
+ if(D!==pD)return {k:'digits'};
+ return {k:''};
 }
-function chip(f,where){const [T,B,D,st]=f;let k=st;
- if(/^cuadros? \d/.test(where))k=+where.split(' ')[1].replace(',','')-1;
- if(where==='reloj de dígitos')return `<span class="lcd" style="color:#ff3b4e">${esc((D||'').trim())}</span>`;
+const whereTxt=w=>w.k?t(WHERE[w.k],(w.n||[]).join(', ')):'';
+function chip(f,w){const [T,B,D,st]=f;let k=st;
+ if(w.k==='sq'||w.k==='sqs')k=w.n[0]-1; // a change away from the fader's square: show the first square that changed
+ if(w.k==='digits')return `<span class="lcd" style="color:#ff3b4e">${esc((D||'').trim())}</span>`;
  return `<span class="lcd"><span>${esc(lcdTxt(seg(T,k)))}</span><span>${esc(lcdTxt(seg(B,k)))}</span></span>`}
 function items(sc,i){let prev=sc.start;for(let j=0;j<i;j++){const ff=sc.steps[j].f;if(ff.length)prev=ff[ff.length-1].slice(1)}
  const st=sc.steps[i],out=[];st.f.forEach((fr,j)=>{const f=fr.slice(1),nx=st.f[j+1];out.push({f,w:whereLabel(prev,f),d:nx?nx[0]-fr[0]:null});prev=f});return out}
 function describe(sc,i){const it=items(sc,i);
- if(!it.length)return '<div class="seq"><small>No cambia nada en las pantallas.</small></div>';
+ if(!it.length)return `<div class="seq"><small>${esc(t(U.noScreen))}</small></div>`;
  const show=it.length>4?[it[0],it[1],{gap:1},it[it.length-1]]:it;
- return '<div class="seq">'+show.map(x=>x.gap?'<small>…</small>':`${chip(x.f,x.w)}<small>${esc(x.w)}${x.d!==null&&x.d>=0.3?' · '+fmtDur(x.d):''}</small>`).join('<small>→</small>')+'</div>'}
+ return '<div class="seq">'+show.map(x=>x.gap?'<small>…</small>':`${chip(x.f,x.w)}<small>${esc(whereTxt(x.w))}${x.d!==null&&x.d>=0.3?' · '+fmtDur(x.d):''}</small>`).join('<small>→</small>')+'</div>'}
 function scrBlock(id){const sc=SCR&&SCR.scenes[sceneKey(id)];if(!sc)return '';
- return `<dt>En las pantallas</dt><dd><ol class="steps2" id="scrsteps">${sc.steps.map((st,i)=>`<li><span class="act">${i+1}. ${esc(st.a)}</span>${describe(sc,i)}</li>`).join('')}</ol><button class="replay" id="replay" type="button">▶ Ver otra vez en el dibujo</button></dd>`}
+ return `<dt>${esc(t(U.screens))}</dt><dd><ol class="steps2" id="scrsteps">${sc.steps.map((st,i)=>`<li><span class="act">${i+1}. ${esc(t(st.a))}</span>${describe(sc,i)}</li>`).join('')}</ol><button class="replay" id="replay" type="button">${esc(t(U.replay))}</button></dd>`}
 function info(id){
  let c,where='',five='';
- if(isFn(id)){const i=+id.slice(2);c=fnAt(i);where=`Botón de colores ${i+1} (${i<4?'fila de arriba':'fila de abajo'}) · capa ${LAY[layer].n.toLowerCase()}`;
+ if(isFn(id)){const i=+id.slice(2);c=fnAt(i);where=t(U.fnWhere,i+1,t(i<4?U.top:U.bottom),layerOf(LAY[layer]));
   five=`<div class="five">${LAY.map(L=>`<span style="color:${L.h}">${esc(FN[i][L.k].t)}</span>`).join('')}</div>`}
- else{c=CTL.find(x=>x.id===id);where=c.pg?'Columna derecha (páginas de las perillas)':''}
- $('info').innerHTML=`<div class="where">${esc(where)}</div><h2>${esc(c.t)}</h2><dl><dt>Qué hace</dt><dd>${esc(c.d)}</dd>${c.h?`<dt>Cómo se usa</dt><dd>${esc(c.h)}</dd>`:''}${(c.s&&c.s.length>8)||c.s2?`<dt>Con Shift</dt><dd>${esc(c.s2||c.s)}</dd>`:''}${scrBlock(id)}</dl>${five}${c.m?`<div class="sig">Señal que manda: ${esc(c.m)}</div>`:''}`;
+ else{c=CTL.find(x=>x.id===id);where=c.pg?t(U.pages):''}
+ $('info').innerHTML=`<div class="where">${esc(where)}</div><h2>${esc(t(c.t))}</h2><dl><dt>${esc(t(U.what))}</dt><dd>${esc(t(c.d))}</dd>${c.h?`<dt>${esc(t(U.how))}</dt><dd>${esc(t(c.h))}</dd>`:''}${(c.s&&c.s.length>8)||c.s2?`<dt>${esc(t(U.shift))}</dt><dd>${esc(t(c.s2||c.s))}</dd>`:''}${scrBlock(id)}</dl>${five}${c.m?`<div class="sig">${esc(t(U.signal,t(c.m)))}</div>`:''}`;
  const rb=$('replay');if(rb)rb.onclick=()=>{if(matchMedia('(max-width:860px)').matches)svg.scrollIntoView({behavior:'smooth',block:'center'});play(sceneKey(id))};
 }
 // on narrow screens the card sits below the drawing: bring it into view after a tap
 function select(id,quiet){selId=id;info(id);mark();if(quiet)return;play(sceneKey(id));if(matchMedia('(max-width:860px)').matches&&$('info').getBoundingClientRect().top>innerHeight-120)$('info').scrollIntoView({behavior:'smooth',block:'start'})}
 function mark(){for(const g of svg.querySelectorAll('.ctl'))g.classList.toggle('sel',g.dataset.id===selId);for(const b of document.querySelectorAll('#legend button'))b.classList.toggle('sel',b.dataset.id===selId)}
 function setLayer(i){layer=i;renderChips();draw();renderLegend();if(isFn(selId)){info(selId);play(sceneKey(selId))}}
-function renderChips(){$('chips').innerHTML=LAY.map((L,i)=>`<button class="chip" role="radio" aria-checked="${i===layer}" data-l="${i}" style="color:${L.h}"><i style="background:${L.h}"></i><span style="color:var(--bandInk)">${L.n}</span></button>`).join('')}
+function renderChips(){$('chips').innerHTML=LAY.map((L,i)=>`<button class="chip" role="radio" aria-checked="${i===layer}" data-l="${i}" style="color:${L.h}"><i style="background:${L.h}"></i><span style="color:var(--bandInk)">${esc(t(L.n))}</span></button>`).join('')}
 function renderLegend(){$('legend').innerHTML=FN.map((_,i)=>`<button data-id="fn${i}" style="border-bottom-color:${LAY[layer].h}">${i+1}. ${esc(fnAt(i).t)}</button>`).join('');mark()}
-// search over every key on every layer
+// search over every key on every layer, in both languages: a word of either language finds a key; the results show in the current one
 const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 // Spanish words people type for each function
 const KW={Save:'guardar salvar',Cut:'cortar',Copy:'copiar',Paste:'pegar',Del:'borrar eliminar suprimir',Insert:'insertar',Undo:'deshacer',
@@ -592,7 +925,23 @@ const KW={Save:'guardar salvar',Cut:'cortar',Copy:'copiar',Paste:'pegar',Del:'bo
  'Fader motorizado':'volumen fader motor automatizacion automation',Shift:'shift combinacion','Link Ch':'ligar canal mixer',ItemMenu:'menu clic derecho',Menu:'menu abrir',
  'Pattern Song':'modo cancion patron song',TimeFormat:'tiempo reloj formato',Select:'punch seleccion',In:'punch entrada',Out:'punch salida',
  'Pantalla externa (8 cuadros)':'d3 platform d3 lcd'};
-const INDEX=[...FN.flatMap((f,i)=>LAY.map((L,li)=>({id:'fn'+i,li,t:f[L.k].t,txt:f[L.k].t+' '+(KW[f[L.k].t]||'')+' '+f[L.k].d+' '+(f[L.k].s||''),where:'capa '+L.n.toLowerCase()+', botón '+(i+1)}))),...CTL.map(c=>({id:c.id,li:-1,t:c.t,txt:c.t+' '+(KW[c.t]||'')+' '+c.d+' '+(c.h||'')+' '+(c.s2||''),where:c.pg?'columna derecha':'panel'}))];
+// English words people type for each function (same keys as KW)
+const KW_EN={Save:'save store',Cut:'cut',Copy:'copy',Paste:'paste',Del:'delete remove erase',Insert:'insert split',Undo:'undo history',
+ 'Un/Redo':'redo undo',Metronome:'metronome click',Tempo:'bpm speed tempo',Loop:'loop repeat recording snap magnet',
+ Grabar:'record recording rec vocals voice',Play:'play start',Stop:'stop',Mute:'mute silence',Solo:'solo isolate',Window:'window windows',
+ Browser:'browser sounds samples open',Mixer:'mixer tracks track',Pattern:'pattern patterns',Mark:'marker markers jump','+Mark':'marker add',
+ Edison:'record audio editor open vocals voice',Smooth:'smoothing smooth',Flip:'flip swap','3..2..1':'count-in countdown count',Pan:'pan panning',
+ Sends:'sends send',Effects:'effects plugins fx',EQ:'equalizer eq',Free:'link to controller plugin free',Main:'channel rack open',
+ 'Zoom ↕':'zoom vertical height tracks waveform','Zoom ↔':'zoom horizontal time','Rueda':'jog wheel scrub',Master:'master main volume',
+ 'Fader motorizado':'volume fader motor motorized automation',Shift:'shift combination','Link Ch':'link channel mixer route',ItemMenu:'menu right-click',Menu:'menu open',
+ 'Pattern Song':'song mode pattern',TimeFormat:'time clock format bars',Select:'punch selection live',In:'punch in',Out:'punch out',
+ 'Pantalla externa (8 cuadros)':'d3 platform d3 lcd external display screen'};
+const enOf=s=>own(EN,s)?EN[s]:'';
+const both=(...a)=>a.filter(Boolean).map(s=>s+' '+enOf(s)).join(' '); // a text plus its English version
+const kw=s=>(KW[s]||'')+' '+(KW_EN[s]||'');
+const INDEX=[...FN.flatMap((f5,i)=>LAY.map((L,li)=>{const f=f5[L.k];return {id:'fn'+i,li,i,t:f.t,txt:both(f.t,f.d,f.s)+' '+kw(f.t)}})),
+ ...CTL.map(c=>({id:c.id,li:-1,pg:!!c.pg,t:c.t,txt:both(c.t,c.d,c.h,c.s2)+' '+kw(c.t)}))];
+const hitWhere=h=>h.li>=0?t(U.keyAt,layerOf(LAY[h.li]),h.i+1):t(h.pg?U.right:U.panel);
 // each typed word must appear; long words also match their stem (guardar ~ guarda)
 const stems=q=>q.split(/\s+/).filter(Boolean).map(w=>w.length>5?w.slice(0,w.length-2):w);
 function search(q){
@@ -601,10 +950,10 @@ function search(q){
  if(q.length<2){box.classList.remove('on');box.innerHTML='';return}
  const st=stems(q);
  // exact name first, then names and keywords where a typed word starts a word (typed text is escaped before it goes into a RegExp)
- const reEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const atWord=(t,w)=>new RegExp('(^|[^a-z0-9])'+reEsc(w)).test(t);
- const rank=e=>{const k=norm(e.t+' '+(KW[e.t]||''));return (norm(e.t)===q?2:0)+(st.some(w=>atWord(k,w))?1:0)};
- const hits=INDEX.filter(e=>{const t=norm(e.txt);return st.every(w=>t.includes(w))}).sort((a,b)=>rank(b)-rank(a)).slice(0,8);
- box.innerHTML=hits.length?hits.map((h,k)=>`<button data-k="${k}"><b>${esc(h.t)}</b> <small>${esc(h.where)}</small></button>`).join(''):'<button disabled>Nada con esa palabra</button>';
+ const reEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const atWord=(s,w)=>new RegExp('(^|[^a-z0-9])'+reEsc(w)).test(s);
+ const rank=e=>{const k=norm(e.t+' '+enOf(e.t)+' '+kw(e.t));return (norm(e.t)===q||norm(enOf(e.t))===q?2:0)+(st.some(w=>atWord(k,w))?1:0)};
+ const hits=INDEX.filter(e=>{const x=norm(e.txt);return st.every(w=>x.includes(w))}).sort((a,b)=>rank(b)-rank(a)).slice(0,8);
+ box.innerHTML=hits.length?hits.map((h,k)=>`<button data-k="${k}"><b>${esc(t(h.t))}</b> <small>${esc(hitWhere(h))}</small></button>`).join(''):`<button disabled>${esc(t(U.nothing))}</button>`;
  box.classList.add('on');box._hits=hits;
 }
 $('q').addEventListener('input',e=>search(e.target.value));
@@ -618,25 +967,55 @@ $('chips').addEventListener('click',e=>{const b=e.target.closest('[data-l]');if(
 $('legend').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)select(b.dataset.id)});
 svg.addEventListener('click',e=>{const g=e.target.closest('.ctl');if(!g)return;const c=CTL.find(x=>x.id===g.dataset.id);if(c&&c.s==='layer')setLayer(c.lay);select(g.dataset.id)});
 svg.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const g=e.target.closest('.ctl');if(!g)return;e.preventDefault();const c=CTL.find(x=>x.id===g.dataset.id);if(c&&c.s==='layer')setLayer(c.lay);select(g.dataset.id);svg.querySelector(`[data-id="${g.dataset.id}"]`)?.focus()});
-// "Lo que dicen las pantallas": every control with its first change (the text sections of the page are plain HTML)
-function firstChange(sc){const it=items(sc,0);return it.find(x=>x.w!=='reloj de dígitos')||it[0]||null}
-function howLong(sc,id,isMode){const it=items(sc,0),fc=firstChange(sc);if(!fc)return '—';if(isMode)return 'hasta que lo apagues';
- if(id==='fader')return 'cambia mientras lo mueves';
- if(fc.w==='los 8 cuadros')return fc.d===null?'se queda':fmtDur(fc.d);
- const st=sc.steps[0].f,back=it.findIndex(x=>x.w==='vuelve a lo normal');if(back<1)return 'se queda';
- return fmtDur(st[back][0]-st[back-1][0])+' después de soltarlo'}
+// "Lo que dicen las pantallas" / "What the screens say": every control with its first change (the text sections of the page are plain HTML)
+function firstChange(sc){const it=items(sc,0);return it.find(x=>x.w.k!=='digits')||it[0]||null}
+function howLong(sc,id,isMode){const it=items(sc,0),fc=firstChange(sc);if(!fc)return '—';if(isMode)return t(U.untilOff);
+ if(id==='fader')return t(U.whileMoving);
+ if(fc.w.k==='all8')return fc.d===null?t(U.stays):fmtDur(fc.d);
+ const st=sc.steps[0].f,back=it.findIndex(x=>x.w.k==='back');if(back<1)return t(U.stays);
+ return t(U.afterLetGo,fmtDur(st[back][0]-st[back-1][0]))}
 function rowHtml(name,plain,sc,id,li,isMode){const fc=firstChange(sc);
  const dur=howLong(sc,id,isMode);
- return `<tr><td>${name}</td><td>${esc(sc.steps[0].a)}</td><td>${fc?chip(fc.f,fc.w):'<small class="note">no cambia</small>'}</td><td>${fc?esc(fc.w):'—'}</td><td>${dur}</td><td><button class="playrow" type="button" data-play="${id}" data-lay="${li}" aria-label="Ver en el dibujo: ${esc(plain)}">▶ Ver</button></td></tr>`}
+ return `<tr><td>${name}</td><td>${esc(t(sc.steps[0].a))}</td><td>${fc?chip(fc.f,fc.w):`<small class="note">${esc(t(U.noChange))}</small>`}</td><td>${fc?esc(whereTxt(fc.w)):'—'}</td><td>${esc(dur)}</td><td><button class="playrow" type="button" data-play="${id}" data-lay="${li}" aria-label="${esc(t(U.showOn,plain))}">${esc(t(U.show))}</button></td></tr>`}
 const ROWS_CTL=['fader','master','knobM','knob1','knob2','knob3','knob4','mute','solo','rec','play','stop','recT','rew','ff','loop','jog','zoomV','zoomH','pg0','pg1','pg2','pg3','pg4','pg5','fprev','fnext','bprev','bnext'];
-let rows=ROWS_CTL.filter(id=>SCR&&SCR.scenes[id]).map(id=>{const c=CTL.find(x=>x.id===id);return rowHtml(esc(c.t),c.t,SCR.scenes[id],id,-1,id==='zoomV'||id==='zoomH')});
-LAY.forEach((L,li)=>FN.forEach((f5,i)=>{const f=f5[L.k],k=keyOf(f);if(!k||!SCR||!SCR.scenes[k])return;rows.push(rowHtml(`<span class="dot" style="background:${L.h}"></span>${esc(f.t)} <small class="note">capa ${L.n.toLowerCase()}, botón ${i+1}</small>`,f.t+' (capa '+L.n.toLowerCase()+')',SCR.scenes[k],'fn'+i,li,!!f.w))}));
-$('scrrows').innerHTML=rows.join('');
-$('scrcount').textContent=rows.length;
+function renderRows(){
+ const rows=ROWS_CTL.filter(id=>SCR&&SCR.scenes[id]).map(id=>{const c=CTL.find(x=>x.id===id);return rowHtml(esc(t(c.t)),t(c.t),SCR.scenes[id],id,-1,id==='zoomV'||id==='zoomH')});
+ LAY.forEach((L,li)=>FN.forEach((f5,i)=>{const f=f5[L.k],k=keyOf(f);if(!k||!SCR||!SCR.scenes[k])return;rows.push(rowHtml(`<span class="dot" style="background:${L.h}"></span>${esc(f.t)} <small class="note">${esc(t(U.keyAt,layerOf(L),i+1))}</small>`,f.t+' ('+layerOf(L)+')',SCR.scenes[k],'fn'+i,li,!!f.w))}));
+ $('scrrows').innerHTML=rows.join('');
+ for(const e of document.querySelectorAll('.scrcount'))e.textContent=rows.length;
+}
 // the long list starts closed on narrow screens and open on wide ones
 $('scrlist').open=!matchMedia('(max-width:860px)').matches;
 $('scrrows').addEventListener('click',e=>{const b=e.target.closest('[data-play]');if(!b)return;const li=+b.dataset.lay;if(li>=0&&li!==layer)setLayer(li);select(b.dataset.play);$('controlador').scrollIntoView({behavior:'smooth',block:'start'})});
-renderChips();draw();renderLegend();select('fn1',true);
+// ---- the language switch: rewrites everything the script draws (keeping the selected key and layer) and remembers the choice
+function setLang(l,save){
+ LANG=l;const h=document.documentElement;h.lang=l;h.classList.remove('lang-es','lang-en');h.classList.add('lang-'+l);
+ document.title=t(U.title);
+ const md=document.querySelector('meta[name="description"]');if(md)md.setAttribute('content',t(U.desc));
+ for(const b of document.querySelectorAll('#langsw [data-lang]'))b.setAttribute('aria-pressed',String(b.dataset.lang===l));
+ for(const e of document.querySelectorAll('[data-t-aria]'))e.setAttribute('aria-label',t(e.dataset.tAria));
+ for(const e of document.querySelectorAll('[data-t-ph]'))e.setAttribute('placeholder',t(e.dataset.tPh));
+ renderChips();draw();renderLegend();renderRows();info(selId);markStep(stepOn);
+ if(cur)paint(cur);
+ // the results list is redrawn even when closed (Enter can still pick from it), and keeps its open/closed state
+ {const r=$('res'),on=r.classList.contains('on');search($('q').value);if(!on)r.classList.remove('on')}
+ if(!save)return;
+ // saved for the next visit and written in the address (?lang=xx, keeping any #section); both can fail offline or in private mode
+ try{localStorage.setItem('nanoair-lang',l)}catch(e){}
+ try{const u=new URL(location.href);u.searchParams.set('lang',l);history.replaceState(history.state,'',u.search+u.hash)}catch(e){}
+}
+$('langsw').addEventListener('click',e=>{const b=e.target.closest('[data-lang]');if(b)setLang(b.dataset.lang,true)});
+// every Spanish text the page can show that has no English text yet (it should return an empty list)
+window.i18nMissing=()=>{const out=new Set(),chk=s=>{if(typeof s==='string'&&s.trim()&&!own(EN,s)&&!/^0x[0-9A-F]{2}(–0x[0-9A-F]{2})?$/i.test(s))out.add(s)}; // signals that are only hex numbers need no translation
+ LAY.forEach(L=>chk(L.n));
+ FN.forEach(f5=>LAY.forEach(L=>{const f=f5[L.k];chk(f.d);chk(f.h);chk(f.s)}));
+ CTL.forEach(c=>{chk(c.t);chk(c.d);chk(c.h);chk(c.s2);chk(c.m)});
+ if(SCR)Object.values(SCR.scenes).forEach(sc=>sc.steps.forEach(st=>chk(st.a)));
+ Object.values(U).forEach(chk);Object.values(WHERE).forEach(chk);
+ document.querySelectorAll('[data-t-aria],[data-t-ph]').forEach(e=>{chk(e.dataset.tAria);chk(e.dataset.tPh)});
+ Object.keys(KW).forEach(k=>{if(!KW_EN[k])out.add('KW_EN '+k)});
+ return [...out]};
+setLang(LANG);
 }
 </script>
 </body>

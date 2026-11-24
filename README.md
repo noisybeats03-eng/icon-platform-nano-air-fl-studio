@@ -4,9 +4,9 @@
 
 **FL Studio MIDI script for the iCON Platform Nano Air controller** in Mackie Control (MCP) mode. Use it instead of the generic Mackie Control Universal (MCU) script that comes with FL: the motorized fader follows the selected mixer track, the small screen shows that track and its volume in dB, wheel modes latch with one tap and the optional Platform D3 external display shows one track per square. Includes a step-by-step [installation manual](#installation-manual-for-fl-studio).
 
-- **Tutorial interactivo / Interactive tutorial** (en español / in Spanish): [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/) · también viene dentro del ZIP de descarga y se abre sin internet / also inside the download ZIP, works offline
-- **Descarga / Download:** [última versión / latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest), archivo / file `iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip` (el script y el tutorial / the script and the tutorial)
-- **Versión / Version:** 1.0.1, noviembre de 2026 / November 2026. Probado con FL Studio 2025 en Windows / Tested with FL Studio 2025 on Windows.
+- **Tutorial interactivo / Interactive tutorial** (español e inglés / Spanish and English): [en español](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=es) · [in English](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=en) · también viene dentro del ZIP de descarga y se abre sin internet / also inside the download ZIP, works offline
+- **Descarga / Download:** [última versión / latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest), archivo / file `iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip` (el script y el tutorial / the script and the tutorial)
+- **Versión / Version:** 1.1.0, noviembre de 2026 / November 2026. Probado con FL Studio 2025 en Windows / Tested with FL Studio 2025 on Windows.
 
 **[Español](#español)** · **[English](#english)**
 
@@ -101,10 +101,10 @@ Abajo está cada paso con detalle.
 **Opción A (recomendada): el ZIP de la versión**
 
 1. Abre la página de la [última versión](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest).
-2. Baja hasta **Assets** y haz clic en `iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip` (en versiones nuevas cambia el número). No uses los archivos "Source code".
+2. Baja hasta **Assets** y haz clic en `iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip` (en versiones nuevas cambia el número). No uses los archivos "Source code".
 3. El ZIP queda en tu carpeta **Descargas**.
 4. Haz clic derecho en el ZIP → **Extraer todo…** (en Windows en inglés: **Extract All…**) → **Extraer**.
-5. Se abre una carpeta nueva con dos cosas: la carpeta `iCON Platform Nano Air FL Studio` (adentro está el archivo `device_iCON_PlatformNanoAir_FLStudio.py`) y el archivo `Tutorial iCON Platform Nano Air para FL Studio.html`. Solo vas a instalar la carpeta. El tutorial ábrelo con doble clic cuando quieras: se abre en tu navegador y funciona sin internet.
+5. Se abre una carpeta nueva con dos cosas: la carpeta `iCON Platform Nano Air FL Studio` (adentro está el archivo `device_iCON_PlatformNanoAir_FLStudio.py`) y el archivo `Tutorial iCON Platform Nano Air FL Studio (ES-EN).html`. Solo vas a instalar la carpeta. El tutorial ábrelo con doble clic cuando quieras: se abre en tu navegador, funciona sin internet y está en español e inglés.
 
 **Opción B: todo el repositorio**
 
@@ -151,7 +151,7 @@ En macOS (no probado): en Finder, menú **Ir > Ir a la carpeta…**, pega `~/Doc
    ```text
    ...\FL Studio\Settings\Hardware\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py
    ```
-3. Revisa que no haya una carpeta de más en medio, por ejemplo `Hardware\iCON-Platform-Nano-Air-FL-Studio-v1.0.1\iCON Platform Nano Air FL Studio\...` o `Hardware\icon-platform-nano-air-fl-studio-main\iCON Platform Nano Air FL Studio\...`. Si queda así, FL no lo encuentra.
+3. Revisa que no haya una carpeta de más en medio, por ejemplo `Hardware\iCON-Platform-Nano-Air-FL-Studio-v1.1.0\iCON Platform Nano Air FL Studio\...` o `Hardware\icon-platform-nano-air-fl-studio-main\iCON Platform Nano Air FL Studio\...`. Si queda así, FL no lo encuentra.
 
 **Paso 4. Cierra FL Studio**
 
@@ -240,7 +240,7 @@ Cada vez que abras FL, **toca el fader una vez**. Basta con tocarlo; no hace fal
 
 ### Cómo se usa en FL Studio
 
-Aquí está el resumen. Para verlo con dibujos, abre el [tutorial interactivo](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/): tocas cualquier botón del Nano dibujado y te dice qué hace, y la pantallita y la Platform D3 dibujadas muestran lo que deberían decir. Su sección "Lo que dicen las pantallas" lista los 69 controles, y también tiene los modos de la rueda, las combinaciones con Shift, las páginas de las perillas, recetas y ayuda si algo falla.
+Aquí está el resumen. Para verlo con dibujos, abre el [tutorial interactivo](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=es): tocas cualquier botón del Nano dibujado y te dice qué hace, y la pantallita y la Platform D3 dibujadas muestran lo que deberían decir. Su sección "Lo que dicen las pantallas" lista los 69 controles, y también tiene los modos de la rueda, las combinaciones con Shift, las páginas de las perillas, recetas y ayuda si algo falla.
 
 Tres palabras que se usan mucho:
 
@@ -453,7 +453,7 @@ La pantallita del Nano tiene 2 líneas de 7 letras.
 2. En FL, haz clic derecho en la perilla del plugin → **Link to controller…**
 3. Mueve la perilla del Nano (o gira la rueda): FL la detecta sola. Haz clic en **Accept**.
 
-Más recetas en el [tutorial interactivo](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/): grabar automatización con el fader, grabar en loop, grabar solo una parte con marcadores y grabar con Edison.
+Más recetas en el [tutorial interactivo](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=es): grabar automatización con el fader, grabar en loop, grabar solo una parte con marcadores y grabar con Edison.
 
 ### Preguntas frecuentes
 
@@ -627,8 +627,8 @@ Licencia MIT ([LICENSE](LICENSE)) para el trabajo propio de este repositorio: lo
 | Ruta | Qué es |
 |---|---|
 | `iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py` | El script (lo único que se instala) |
-| `docs/index.html` | El tutorial interactivo en español (GitHub Pages) |
-| `docs/llms.txt` | Resumen en texto (en inglés) para asistentes de IA: [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt) |
+| `docs/index.html` | El tutorial interactivo, en español e inglés (GitHub Pages) |
+| `docs/llms.txt` | Resumen en texto (en inglés y español) para asistentes de IA: [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt) |
 | `dev/` | Herramientas para probar el script fuera de FL ([dev/README.md](dev/README.md)) |
 | `CHANGELOG.md` | Lo que cambió en cada versión |
 | `LICENSE`, `NOTICE.md` | Licencia y avisos |
@@ -753,10 +753,10 @@ Every step is explained below.
 **Option A (recommended): the release ZIP**
 
 1. Open the [latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest) page.
-2. Scroll down to **Assets** and click `iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip` (newer versions have a different number). Don't use the "Source code" files.
+2. Scroll down to **Assets** and click `iCON-Platform-Nano-Air-FL-Studio-v1.1.0.zip` (newer versions have a different number). Don't use the "Source code" files.
 3. The ZIP goes to your **Downloads** folder.
 4. Right-click the ZIP → **Extract All…** → **Extract**.
-5. A new folder opens with two things in it: the `iCON Platform Nano Air FL Studio` folder (with the file `device_iCON_PlatformNanoAir_FLStudio.py` inside) and the file `Tutorial iCON Platform Nano Air para FL Studio.html`. The folder is the only thing you install. Double-click the tutorial whenever you like: it opens in your web browser and works offline (it is in Spanish).
+5. A new folder opens with two things in it: the `iCON Platform Nano Air FL Studio` folder (with the file `device_iCON_PlatformNanoAir_FLStudio.py` inside) and the file `Tutorial iCON Platform Nano Air FL Studio (ES-EN).html`. The folder is the only thing you install. Double-click the tutorial whenever you like: it opens in your web browser, works offline and is in Spanish and English.
 
 **Option B: the whole repository**
 
@@ -803,7 +803,7 @@ On macOS (not tested): in Finder, use **Go > Go to Folder…**, paste `~/Documen
    ```text
    ...\FL Studio\Settings\Hardware\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py
    ```
-3. Make sure there is no extra folder in between, such as `Hardware\iCON-Platform-Nano-Air-FL-Studio-v1.0.1\iCON Platform Nano Air FL Studio\...` or `Hardware\icon-platform-nano-air-fl-studio-main\iCON Platform Nano Air FL Studio\...`. FL won't find it that way.
+3. Make sure there is no extra folder in between, such as `Hardware\iCON-Platform-Nano-Air-FL-Studio-v1.1.0\iCON Platform Nano Air FL Studio\...` or `Hardware\icon-platform-nano-air-fl-studio-main\iCON Platform Nano Air FL Studio\...`. FL won't find it that way.
 
 **Step 4. Close FL Studio**
 
@@ -892,7 +892,7 @@ Every time you open FL, **touch the fader once**. Just touch it; you don't have 
 
 ### How to use it in FL Studio
 
-Here is the summary. To see it with drawings, open the [interactive tutorial](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/) (in Spanish): click any key of the drawn Nano to read what it does, and the drawn small screen and Platform D3 play what they should show. Its section "Lo que dicen las pantallas" ("what the screens say") lists all 69 controls, and it also covers the wheel modes, Shift combinations, knob pages, recipes and troubleshooting.
+Here is the summary. To see it with drawings, open the [interactive tutorial](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=en): click any key of the drawn Nano to read what it does, and the drawn small screen and Platform D3 play what they should show. Its screens section lists all 69 controls, and it also covers the wheel modes, Shift combinations, knob pages, recipes and troubleshooting.
 
 Three words used a lot:
 
@@ -1107,7 +1107,7 @@ The Nano's small screen has 2 lines of 7 characters.
 2. In FL, right-click the plugin knob → **Link to controller…**
 3. Move the Nano's knob (or turn the wheel): FL detects it by itself. Click **Accept**.
 
-More recipes in the [interactive tutorial](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/) (in Spanish): recording automation with the fader, loop recording, recording only one part with markers, and recording with Edison.
+More recipes in the [interactive tutorial](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/?lang=en): recording automation with the fader, loop recording, recording only one part with markers, and recording with Edison.
 
 ### FAQ
 
@@ -1281,8 +1281,8 @@ MIT license ([LICENSE](LICENSE)) for this repository's own work: the changes to 
 | Path | What it is |
 |---|---|
 | `iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py` | The script (the only thing you install) |
-| `docs/index.html` | The interactive tutorial, in Spanish (GitHub Pages) |
-| `docs/llms.txt` | Plain-text summary for AI assistants: [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt) |
+| `docs/index.html` | The interactive tutorial, in Spanish and English (GitHub Pages) |
+| `docs/llms.txt` | Plain-text summary for AI assistants (English and Spanish): [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt) |
 | `dev/` | Tools to test the script outside FL ([dev/README.md](dev/README.md)) |
 | `CHANGELOG.md` | What changed in each version |
 | `LICENSE`, `NOTICE.md` | License and notices |

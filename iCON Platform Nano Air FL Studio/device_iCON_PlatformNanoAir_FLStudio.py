@@ -1,7 +1,8 @@
 # name=iCON Platform Nano Air (custom)
 # url=
-# iCON Platform Nano Air script for FL Studio, release 1.0.1. Unofficial: not affiliated with Image-Line or iCON Pro Audio.
-# Manual, tutorial and updates: https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio
+# iCON Platform Nano Air script for FL Studio, release 1.1.0. Unofficial: not affiliated with Image-Line or iCON Pro Audio.
+# Script de FL Studio para el iCON Platform Nano Air (1.1.0). No es oficial de Image-Line ni de iCON Pro Audio.
+# Manual, tutorial and updates / Manual, tutorial y actualizaciones: https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio
 # Based on the FL Studio stock "Mackie Control Universal" script (device_MackieCU.py, version 2026.1), (c) Image-Line Software.
 # Image-Line's parts are not covered by this project's MIT license. This project's changes: Copyright (c) 2026 noisybeats03-eng,
 # MIT License; full texts in LICENSE and NOTICE.md at the link above.
