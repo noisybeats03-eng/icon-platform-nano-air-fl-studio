@@ -40,7 +40,7 @@ def base_track_select(index, step):
     if index == 0:
         world['chan'] = (world['chan'] + step) % len(CHANNELS)
     elif index == 1:
-        state['sel'] = max(0, min(29, state['sel'] + step))
+        state['sel'] = max(0, min(125, state['sel'] + step))
     elif index == 2:
         world['pat'] = max(1, world['pat'] + step)
 
@@ -68,6 +68,7 @@ def set_time_disp(*a):
 
 
 mixer._over['getTrackName'] = lambda t, *a: NAMES.get(t, 'Insert %d' % t)
+mixer._over['trackCount'] = lambda: 127  # like FL: Master + 125 inserts + Current, so <<8 wraps the way a real Nano does
 mixer._over['soloTrack'] = lambda t, *a: state['solo'].symmetric_difference_update({t})
 device._over['baseTrackSelect'] = base_track_select
 device._over['midiOutSysex'] = lcd_sysex
@@ -265,8 +266,9 @@ for cid, n in (('rew', 0x5B), ('ff', 0x5C), ('stop', 0x5D), ('play', 0x5E), ('re
 S_['loop'] = run([('Un toque', lambda: tap(0x56), 2.2), ('Otro toque', lambda: tap(0x56), 2.2), ('Shift + Loop', lambda: shift_tap(0x56), 2.2)])
 S_['jog'] = run([('Giras la rueda (sin modo)', lambda: (cc(0x3C, 1), tick(0.2), cc(0x3C, 1), tick(0.2), cc(0x3C, 1)), 1.2),
                  ('Aprietas la rueda', lambda: tap(0x65), 2.2), ('Otra vez', lambda: tap(0x65), 2.2)])
-S_['zoomV'] = run([('Un toque', lambda: tap(0x64), 1.2), ('Flecha arriba', lambda: tap(0x60), 0.8), ('Otro toque', lambda: tap(0x64), 2.2)])
-S_['zoomH'] = run([('Un toque', lambda: tap(0x64), 1.2), ('Flecha derecha', lambda: tap(0x63), 0.8), ('Otro toque', lambda: tap(0x64), 2.2)])
+# with Zoom on, the script turns the wheel into arrow keys; the simulator taps the arrow note the wheel stands for
+S_['zoomV'] = run([('Un toque', lambda: tap(0x64), 1.2), ('Giras la rueda (manda flecha arriba)', lambda: tap(0x60), 0.8), ('Otro toque', lambda: tap(0x64), 2.2)])
+S_['zoomH'] = run([('Un toque', lambda: tap(0x64), 1.2), ('Giras la rueda (manda flecha derecha)', lambda: tap(0x63), 0.8), ('Otro toque', lambda: tap(0x64), 2.2)])
 for k in range(6):
     S_['pg%d' % k] = run([('Un toque', lambda k=k: tap(0x28 + k), 2.2)])
 S_['fprev'] = run([('Un toque', lambda: tap(0x18 + FADER_STRIP - 1), 2.0)])

@@ -1,4 +1,4 @@
-"""Tiny FL Studio scripting simulator to exercise device_iCON_PlatformNanoAir.py outside FL.
+"""Tiny FL Studio scripting simulator to exercise device_iCON_PlatformNanoAir_FLStudio.py outside FL.
 
 Usage: python -I flsim.py <script.py>
 Uses FL's real midi.py / utils.py; every other FL module is a recording stub.

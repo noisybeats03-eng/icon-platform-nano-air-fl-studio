@@ -1,6 +1,10 @@
 # name=iCON Platform Nano Air (custom)
 # url=
-# Based on the FL Studio stock "Mackie Control Universal" script (version 2026.1).
+# iCON Platform Nano Air script for FL Studio, release 1.0.1. Unofficial: not affiliated with Image-Line or iCON Pro Audio.
+# Manual, tutorial and updates: https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio
+# Based on the FL Studio stock "Mackie Control Universal" script (device_MackieCU.py, version 2026.1), (c) Image-Line Software.
+# Image-Line's parts are not covered by this project's MIT license. This project's changes: Copyright (c) 2026 noisybeats03-eng,
+# MIT License; full texts in LICENSE and NOTICE.md at the link above.
 # Changes for the iCON Platform Nano Air:
 #  - ZOOM latches: tap once and the wheel/arrows zoom, tap again to go back to normal (ZOOM LED shows the state).
 #  - In zoom mode: up/down = vertical zoom (track height), left/right = horizontal zoom, jog wheel = horizontal zoom.
@@ -14,6 +18,7 @@
 #    Drawn only from OnIdle (no flicker while the fader moves), real dB values, messages stay 1.5 s.
 #    External 8-square screen (NanoStrips): one channel per square, the fader's square = the selected track.
 #  - Fader: a resting finger's jitter is ignored; a newly selected track is taken over only when the fader reaches it.
+#  - Stock-script bugs fixed: Shift + Solo NameError, Shift + F1-F8 release, ui.GetHintMsg typo, Free page fader value text.
 # version 2026.1
 
 import patterns

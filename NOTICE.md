@@ -1,4 +1,4 @@
-# Avisos y atribución / Notices and attribution
+# Avisos y atribución · iCON Platform Nano Air para FL Studio / Notices and attribution · iCON Platform Nano Air for FL Studio
 
 **Español** · [English](#english)
 
@@ -6,7 +6,7 @@
 
 ### De dónde viene el script
 
-El archivo `iCON Platform Nano Air/device_iCON_PlatformNanoAir.py` es una **copia modificada** del script «Mackie Control Universal» que viene con FL Studio (archivo `device_MackieCU.py`, versión 2026.1), © Image-Line Software.
+El archivo `iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py` es una **copia modificada** del script «Mackie Control Universal» que viene con FL Studio (archivo `device_MackieCU.py`, versión 2026.1), © Image-Line Software.
 
 - Las partes que vienen de ese script siguen siendo de Image-Line Software.
 - Los cambios están marcados en el código con comentarios `Nano Air`, resumidos al principio del archivo y explicados en [CHANGELOG.md](CHANGELOG.md).
@@ -48,7 +48,7 @@ Las herramientas de `dev/` usan `midi.py` y `utils.py` de **tu propia instalaci�
 
 ### Where the script comes from
 
-The file `iCON Platform Nano Air/device_iCON_PlatformNanoAir.py` is a **modified copy** of the "Mackie Control Universal" script that ships with FL Studio (file `device_MackieCU.py`, version 2026.1), © Image-Line Software.
+The file `iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py` is a **modified copy** of the "Mackie Control Universal" script that ships with FL Studio (file `device_MackieCU.py`, version 2026.1), © Image-Line Software.
 
 - The parts that come from that script still belong to Image-Line Software.
 - The changes are marked in the code with `Nano Air` comments, summarised at the top of the file and explained in [CHANGELOG.md](CHANGELOG.md).

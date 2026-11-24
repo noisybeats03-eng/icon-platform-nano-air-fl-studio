@@ -1,4 +1,4 @@
-# Herramientas de desarrollo / Developer tools
+# Herramientas de desarrollo · iCON Platform Nano Air para FL Studio / Developer tools · iCON Platform Nano Air for FL Studio
 
 > **No necesitas esta carpeta para usar el script.** Es para quien quiera cambiarlo o comprobar que sigue funcionando. Para instalarlo, ve al [README principal](../README.md).
 >
@@ -35,12 +35,12 @@ Abre una terminal (PowerShell o Símbolo del sistema) **en la carpeta `dev`** y 
 Usa siempre `python -I -B`:
 
 - `-I` (modo aislado): Python no usa variables de entorno ni paquetes del usuario y no busca módulos en la carpeta actual, así ningún `midi.py` suelto reemplaza al de FL.
-- `-B`: no crea la carpeta `__pycache__` junto al script. Sin `-B` aparece `iCON Platform Nano Air\__pycache__`, que no debe subirse al repositorio ni ir en el ZIP.
+- `-B`: no crea la carpeta `__pycache__` junto al script. Sin `-B` aparece `iCON Platform Nano Air FL Studio\__pycache__`, que no debe subirse al repositorio ni ir en el ZIP.
 
 **1. Probar el script (112 pruebas)**
 
 ```
-python -I -B flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py"
+python -I -B flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py"
 ```
 
 Escribe una línea `PASS` o `FAIL` por cada prueba y al final `ALL PASS` (o `N FAILED`). Si todo pasó, termina con código 0; si algo falló, con código 1. Las líneas `OnInit ready`, `OnDeInit ready` y `Nano Air screen: ...` que salen en medio son normales: son mensajes del propio script.
@@ -48,7 +48,7 @@ Escribe una línea `PASS` o `FAIL` por cada prueba y al final `ALL PASS` (o `N F
 **2. Actualizar las pantallas del tutorial** (cada vez que cambies lo que muestra la pantalla)
 
 ```
-python -I -B gen_screen_data.py flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py" screen_data.json
+python -I -B gen_screen_data.py flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py" screen_data.json
 python -I -B embed_screen_data.py ..\docs\index.html screen_data.json
 ```
 
@@ -59,7 +59,7 @@ python -I -B embed_screen_data.py ..\docs\index.html screen_data.json
 **3. Ver la línea de tiempo de la pantallita** (opcional)
 
 ```
-python -I -B flicker_probe.py flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py"
+python -I -B flicker_probe.py flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py"
 ```
 
 Primero repite las pruebas A y B de `flsim.py`. Luego, para cada escena (mover el fader, Metronome, prender el modo Mixer, girar la rueda, mover el fader en modo Mixer, apagar el modo Mixer, Undo, Mute), imprime cada texto que sale en la pantallita, cuándo sale y cuánto se ve, y cuenta cuántos cambios duran menos de 0.3 s. No dice PASS o FAIL: es para mirarlo.
@@ -83,23 +83,25 @@ En Mac o Linux los comandos son los mismos, con `/` en lugar de `\` (y `python3`
 
 ### Probar un cambio en FL
 
-1. Edita `iCON Platform Nano Air\device_iCON_PlatformNanoAir.py`. El archivo usa finales de línea de Windows (CRLF); `.gitattributes` hace que Git no los cambie.
+1. Edita `iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py`. El archivo usa finales de línea de Windows (CRLF); `.gitattributes` hace que Git no los cambie.
 2. Corre `flsim.py` hasta que diga `ALL PASS`.
-3. Copia la carpeta `iCON Platform Nano Air` a `Documentos\Image-Line\FL Studio\Settings\Hardware` (o a la carpeta de datos que dice FL en OPTIONS > File settings > User data folder).
-4. En FL: OPTIONS > MIDI settings > **Update MIDI scripts** (o reinicia FL). En VIEW > Script output, en la pestaña con el nombre del Nano, debe decir `OnInit ready`.
+3. Copia la carpeta `iCON Platform Nano Air FL Studio` a `Documentos\Image-Line\FL Studio\Settings\Hardware` (o a la carpeta de datos que dice FL en OPTIONS > File settings > User data folder).
+4. En FL: **VIEW > Script output > Reload script** si el script ya estaba elegido, o reinicia FL si copiaste la carpeta por primera vez. En la pestaña con el nombre del Nano debe decir `OnInit ready`.
 5. Si cambiaste textos de la pantalla, actualiza el tutorial (paso 2 de arriba).
 
 Para ver más detalle mientras pruebas, pon `NanoDebug = True` al principio del script: en VIEW > Script output se escribe cada posición del fader que entra y que sale, y las notas de Select, de banco y de toque del fader. Vuelve a ponerlo en `False` al terminar.
 
 ### Armar el ZIP de una versión nueva
 
-Desde la carpeta principal del repositorio (no desde `dev`), cambiando `v1.0.0` por la versión nueva:
+Desde la carpeta principal del repositorio (no desde `dev`), cambiando `v1.0.1` por la versión nueva:
 
 ```
-python -I -B -c "import zipfile; z = zipfile.ZipFile('../iCON-Platform-Nano-Air-FL-Studio-v1.0.0.zip', 'w', zipfile.ZIP_DEFLATED); z.write('iCON Platform Nano Air'); z.write('iCON Platform Nano Air/device_iCON_PlatformNanoAir.py'); z.close()"
+python -I -B -c "import zipfile; z = zipfile.ZipFile('../iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip', 'w', zipfile.ZIP_DEFLATED); z.write('iCON Platform Nano Air FL Studio'); z.write('iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py'); z.write('docs/index.html', 'Tutorial iCON Platform Nano Air para FL Studio.html'); z.close()"
 ```
 
-Deja el ZIP en la carpeta de arriba (fuera del repositorio) con la carpeta `iCON Platform Nano Air` y solo el script adentro, byte por byte igual al del repositorio. Sube ese ZIP al release; no lo subas al repositorio.
+Deja el ZIP en la carpeta de arriba (fuera del repositorio). Debe traer la carpeta `iCON Platform Nano Air FL Studio`, con solo el script adentro (byte por byte igual al del repositorio), y `Tutorial iCON Platform Nano Air para FL Studio.html`, que es una copia de `docs/index.html`. Sube ese ZIP al release; no lo subas al repositorio.
+
+Antes de publicar, cambia la versión y el nombre del ZIP en `README.md`, `docs/index.html` (también en el JSON-LD: `version`, `softwareVersion` y `dateModified`), `docs/llms.txt`, el encabezado del script (`release 1.0.1`) y la fecha `<lastmod>` de `docs/sitemap.xml` (búscalos con `git grep -n 1.0.1`), y agrega la versión nueva a `CHANGELOG.md`.
 
 ## English
 
@@ -130,12 +132,12 @@ Open a terminal (PowerShell or Command Prompt) **in the `dev` folder** and copy 
 Always use `python -I -B`:
 
 - `-I` (isolated mode): Python ignores environment variables and user packages and does not look for modules in the current folder, so no stray `midi.py` can replace FL's.
-- `-B`: does not create a `__pycache__` folder next to the script. Without `-B`, an `iCON Platform Nano Air\__pycache__` folder appears; it must not go into the repository or the ZIP.
+- `-B`: does not create a `__pycache__` folder next to the script. Without `-B`, an `iCON Platform Nano Air FL Studio\__pycache__` folder appears; it must not go into the repository or the ZIP.
 
 **1. Check the script (112 checks)**
 
 ```
-python -I -B flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py"
+python -I -B flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py"
 ```
 
 It prints one `PASS` or `FAIL` line per check and finally `ALL PASS` (or `N FAILED`). It exits with code 0 when everything passed and 1 when something failed. The `OnInit ready`, `OnDeInit ready` and `Nano Air screen: ...` lines in between are normal: they are the script's own messages.
@@ -143,7 +145,7 @@ It prints one `PASS` or `FAIL` line per check and finally `ALL PASS` (or `N FAIL
 **2. Update the tutorial's screens** (whenever you change what the screen shows)
 
 ```
-python -I -B gen_screen_data.py flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py" screen_data.json
+python -I -B gen_screen_data.py flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py" screen_data.json
 python -I -B embed_screen_data.py ..\docs\index.html screen_data.json
 ```
 
@@ -154,7 +156,7 @@ python -I -B embed_screen_data.py ..\docs\index.html screen_data.json
 **3. See the small screen's timeline** (optional)
 
 ```
-python -I -B flicker_probe.py flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py"
+python -I -B flicker_probe.py flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py"
 ```
 
 It first repeats sections A and B of `flsim.py`. Then, for each scene (moving the fader, Metronome, Mixer mode on, turning the wheel, moving the fader in Mixer mode, Mixer mode off, Undo, Mute), it prints every text the small screen shows, when it appears and how long it stays, and counts the changes that last less than 0.3 s. It does not say PASS or FAIL: it is for looking at.
@@ -178,20 +180,22 @@ On a Mac or Linux the commands are the same, with `/` instead of `\` (and `pytho
 
 ### Trying a change in FL
 
-1. Edit `iCON Platform Nano Air\device_iCON_PlatformNanoAir.py`. The file uses Windows (CRLF) line endings; `.gitattributes` keeps Git from changing them.
+1. Edit `iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py`. The file uses Windows (CRLF) line endings; `.gitattributes` keeps Git from changing them.
 2. Run `flsim.py` until it says `ALL PASS`.
-3. Copy the `iCON Platform Nano Air` folder to `Documents\Image-Line\FL Studio\Settings\Hardware` (or to the data folder FL shows in OPTIONS > File settings > User data folder).
-4. In FL: OPTIONS > MIDI settings > **Update MIDI scripts** (or restart FL). In VIEW > Script output, on the tab with the Nano's name, it must say `OnInit ready`.
+3. Copy the `iCON Platform Nano Air FL Studio` folder to `Documents\Image-Line\FL Studio\Settings\Hardware` (or to the data folder FL shows in OPTIONS > File settings > User data folder).
+4. In FL: **VIEW > Script output > Reload script** if the script was already selected, or restart FL if you copied the folder for the first time. On the tab with the Nano's name it must say `OnInit ready`.
 5. If you changed screen texts, update the tutorial (step 2 above).
 
 For more detail while testing, set `NanoDebug = True` at the top of the script: VIEW > Script output then shows every fader position coming in and going out, and the Select, bank and fader-touch notes. Set it back to `False` when you are done.
 
 ### Building the ZIP for a new version
 
-From the repository's main folder (not from `dev`), replacing `v1.0.0` with the new version:
+From the repository's main folder (not from `dev`), replacing `v1.0.1` with the new version:
 
 ```
-python -I -B -c "import zipfile; z = zipfile.ZipFile('../iCON-Platform-Nano-Air-FL-Studio-v1.0.0.zip', 'w', zipfile.ZIP_DEFLATED); z.write('iCON Platform Nano Air'); z.write('iCON Platform Nano Air/device_iCON_PlatformNanoAir.py'); z.close()"
+python -I -B -c "import zipfile; z = zipfile.ZipFile('../iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip', 'w', zipfile.ZIP_DEFLATED); z.write('iCON Platform Nano Air FL Studio'); z.write('iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py'); z.write('docs/index.html', 'Tutorial iCON Platform Nano Air para FL Studio.html'); z.close()"
 ```
 
-The ZIP lands in the folder above (outside the repository) with the `iCON Platform Nano Air` folder and only the script inside, byte for byte the same as in the repository. Upload that ZIP to the release; do not commit it.
+The ZIP lands in the folder above (outside the repository). It must hold the `iCON Platform Nano Air FL Studio` folder, with only the script inside (byte for byte the same as in the repository), and `Tutorial iCON Platform Nano Air para FL Studio.html`, a copy of `docs/index.html`. Upload that ZIP to the release; do not commit it.
+
+Before publishing, update the version and the ZIP name in `README.md`, `docs/index.html` (including the JSON-LD `version`, `softwareVersion` and `dateModified`), `docs/llms.txt`, the script header (`release 1.0.1`) and the `<lastmod>` date in `docs/sitemap.xml` (find them with `git grep -n 1.0.1`), and add the new version to `CHANGELOG.md`.

@@ -1,12 +1,12 @@
-# iCON Platform Nano Air · FL Studio script (Mackie Control / MIDI)
+# Script de FL Studio para iCON Platform Nano Air / FL Studio script for iCON Platform Nano Air
 
-**Script de FL Studio para el controlador iCON Platform Nano Air** en modo Mackie Control (MCP). Se usa en lugar del script genérico Mackie Control Universal (MCU) que trae FL: el fader motorizado sigue al canal seleccionado del Mixer, la pantallita muestra ese canal y su volumen en dB, los modos de la rueda se prenden con un toque y la pantalla externa Platform D3 (opcional) muestra un canal por cuadro. Incluye un [manual de instalación](#manual-de-instalación) paso a paso.
+**Script de FL Studio para el controlador iCON Platform Nano Air** en modo Mackie Control (MCP). Se usa en lugar del script genérico Mackie Control Universal (MCU) que trae FL: el fader motorizado sigue al canal seleccionado del Mixer, la pantallita muestra ese canal y su volumen en dB, los modos de la rueda se prenden con un toque y la pantalla externa Platform D3 (opcional) muestra un canal por cuadro. Incluye un [manual de instalación](#manual-de-instalación-en-fl-studio) paso a paso.
 
-**FL Studio MIDI script for the iCON Platform Nano Air controller** in Mackie Control (MCP) mode. Use it instead of the generic Mackie Control Universal (MCU) script that comes with FL: the motorized fader follows the selected mixer track, the small screen shows that track and its volume in dB, wheel modes latch with one tap and the optional Platform D3 external display shows one track per square. Includes a step-by-step [installation manual](#installation-manual).
+**FL Studio MIDI script for the iCON Platform Nano Air controller** in Mackie Control (MCP) mode. Use it instead of the generic Mackie Control Universal (MCU) script that comes with FL: the motorized fader follows the selected mixer track, the small screen shows that track and its volume in dB, wheel modes latch with one tap and the optional Platform D3 external display shows one track per square. Includes a step-by-step [installation manual](#installation-manual-for-fl-studio).
 
-- **Tutorial interactivo / Interactive tutorial** (en español / in Spanish): [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/)
-- **Descarga / Download:** [última versión / latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest), archivo / file `iCON-Platform-Nano-Air-FL-Studio-v1.0.0.zip`
-- **Versión / Version:** 1.0.0, noviembre de 2026 / November 2026. Probado con FL Studio 2025 en Windows / Tested with FL Studio 2025 on Windows.
+- **Tutorial interactivo / Interactive tutorial** (en español / in Spanish): [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/) · también viene dentro del ZIP de descarga y se abre sin internet / also inside the download ZIP, works offline
+- **Descarga / Download:** [última versión / latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest), archivo / file `iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip` (el script y el tutorial / the script and the tutorial)
+- **Versión / Version:** 1.0.1, noviembre de 2026 / November 2026. Probado con FL Studio 2025 en Windows / Tested with FL Studio 2025 on Windows.
 
 **[Español](#español)** · **[English](#english)**
 
@@ -21,7 +21,7 @@ Manual completo para instalar y usar el script paso a paso. No necesitas saber p
 ### Contenido
 
 1. [Qué es y qué mejora](#qué-es-y-qué-mejora)
-2. [Manual de instalación](#manual-de-instalación)
+2. [Manual de instalación en FL Studio](#manual-de-instalación-en-fl-studio)
     - [Qué necesitas](#qué-necesitas)
     - [Descargar](#descargar)
     - [Instalar el script](#instalar-el-script)
@@ -30,7 +30,7 @@ Manual completo para instalar y usar el script paso a paso. No necesitas saber p
     - [Configurar FL Studio](#configurar-fl-studio)
     - [Comprobar que funciona](#comprobar-que-funciona)
     - [Primer uso: toca el fader](#primer-uso-toca-el-fader)
-3. [Cómo se usa](#cómo-se-usa)
+3. [Cómo se usa en FL Studio](#cómo-se-usa-en-fl-studio)
     - [Las partes del Nano](#las-partes-del-nano)
     - [Los 8 botones de colores](#los-8-botones-de-colores)
     - [Modos de la rueda](#modos-de-la-rueda)
@@ -42,7 +42,7 @@ Manual completo para instalar y usar el script paso a paso. No necesitas saber p
 4. [Preguntas frecuentes](#preguntas-frecuentes)
 5. [Si algo no funciona](#si-algo-no-funciona)
 6. [Actualizar a una versión nueva](#actualizar-a-una-versión-nueva)
-7. [Volver al script original de FL](#volver-al-script-original-de-fl)
+7. [Volver al script original de FL Studio](#volver-al-script-original-de-fl-studio)
 8. [Desinstalar](#desinstalar)
 9. [Créditos y aviso legal](#créditos-y-aviso-legal)
 10. [Licencia](#licencia)
@@ -71,17 +71,20 @@ Qué mejora:
 
 Los 40 botones de colores hacen lo que dice la plantilla (overlay) de FL Studio que iCON incluye con el Nano.
 
-### Manual de instalación
+### Manual de instalación en FL Studio
 
 Cómo instalar y configurar el script del iCON Platform Nano Air en FL Studio, paso a paso.
+
+> **Los nombres de FL están en inglés.** Este manual escribe los menús y botones de FL Studio como se ven con FL en inglés (OPTIONS, MIDI settings, Controller type, Enable, Script output…). Si tu FL está en español u otro idioma, se ven traducidos. Para seguir el manual tal cual, cambia FL a inglés: en el menú de opciones abre la configuración general (**General settings**) y en **Language** (Idioma) elige English, o usa el ícono de idioma de la barra de herramientas de FL si lo tienes; luego reinicia FL. La tecla **F10** abre MIDI settings en cualquier idioma.
 
 **En resumen** (si ya sabes cómo va):
 
 1. Descarga el ZIP de la [última versión](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest) y descomprímelo.
-2. Copia la carpeta `iCON Platform Nano Air` en `Documentos\Image-Line\FL Studio\Settings\Hardware`.
+2. Copia la carpeta `iCON Platform Nano Air FL Studio` en `FL Studio\Settings\Hardware`, dentro de la carpeta que FL muestra en **OPTIONS > File settings > User data folder** (normalmente `Documentos\Image-Line`).
 3. Pon el Nano en modo **MCP**.
-4. En FL, **OPTIONS > MIDI settings**: en **Input** elige el Nano, **Controller type** = **iCON Platform Nano Air (custom)** y **Port** = 1; en **Output**, el mismo Nano con **Port** = 1.
-5. **VIEW > Script output** debe decir **OnInit ready**. Toca el fader una vez.
+4. Cierra y vuelve a abrir FL Studio (con el Nano ya prendido en modo MCP).
+5. En FL, **OPTIONS > MIDI settings**: en **Input** elige el Nano, **Controller type** = **iCON Platform Nano Air (custom)** (al elegirlo, Enable se prende solo; si le das clic, se apaga) y **Port** = 1; en **Output**, el mismo Nano con **Port** = 1.
+6. **VIEW > Script output** debe decir **OnInit ready**. Toca el fader una vez.
 
 Abajo está cada paso con detalle.
 
@@ -98,18 +101,18 @@ Abajo está cada paso con detalle.
 **Opción A (recomendada): el ZIP de la versión**
 
 1. Abre la página de la [última versión](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest).
-2. Baja hasta **Assets** y haz clic en `iCON-Platform-Nano-Air-FL-Studio-v1.0.0.zip` (en versiones nuevas cambia el número). No uses los archivos "Source code".
+2. Baja hasta **Assets** y haz clic en `iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip` (en versiones nuevas cambia el número). No uses los archivos "Source code".
 3. El ZIP queda en tu carpeta **Descargas**.
 4. Haz clic derecho en el ZIP → **Extraer todo…** (en Windows en inglés: **Extract All…**) → **Extraer**.
-5. Se abre una carpeta nueva. Adentro está la carpeta `iCON Platform Nano Air`, y dentro de ella el archivo `device_iCON_PlatformNanoAir.py`. Esa carpeta es lo único que vas a instalar.
+5. Se abre una carpeta nueva con dos cosas: la carpeta `iCON Platform Nano Air FL Studio` (adentro está el archivo `device_iCON_PlatformNanoAir_FLStudio.py`) y el archivo `Tutorial iCON Platform Nano Air para FL Studio.html`. Solo vas a instalar la carpeta. El tutorial ábrelo con doble clic cuando quieras: se abre en tu navegador y funciona sin internet.
 
 **Opción B: todo el repositorio**
 
 1. En la página principal del repositorio, haz clic en el botón verde **Code** → **Download ZIP**.
 2. Descomprímelo igual (clic derecho → **Extraer todo…**).
-3. Abre la carpeta `icon-platform-nano-air-fl-studio-main`: adentro está la carpeta `iCON Platform Nano Air`.
+3. Entra a la carpeta `icon-platform-nano-air-fl-studio-main` (con **Extraer todo** hay otra con el mismo nombre adentro: entra también). Ahí está la carpeta `iCON Platform Nano Air FL Studio`: copia solo esa. El tutorial también viene ahí, en `docs\index.html` (ábrelo con doble clic).
 
-> Windows a veces esconde la terminación `.py`: el archivo puede verse como `device_iCON_PlatformNanoAir`, de tipo "Python File" o "Archivo PY". Es el mismo. No hace falta abrirlo.
+> Windows a veces esconde la terminación `.py`: el archivo puede verse como `device_iCON_PlatformNanoAir_FLStudio`, de tipo "Python File" o "Archivo PY". Es el mismo. No hace falta abrirlo.
 
 #### Instalar el script
 
@@ -119,7 +122,7 @@ No hay instalador: solo copias una carpeta dentro de la carpeta de scripts de FL
 
 1. Abre FL Studio.
 2. Ve al menú **OPTIONS > File settings**.
-3. Mira el campo **User data folder**. Esa es tu carpeta de datos de FL. Si nunca la cambiaste, es `Documentos\Image-Line` (en el disco se llama `Documents\Image-Line`).
+3. Mira el campo **User data folder**. Esa es tu carpeta de datos de FL. Si nunca la cambiaste, normalmente es `Documentos\Image-Line` (en el disco, `C:\Users\<tu usuario>\Documents\Image-Line`; si tu carpeta Documentos está en OneDrive, es otra, por ejemplo `...\OneDrive\Documentos\Image-Line`). Usa siempre la que muestra FL.
 
 **Paso 2. Abre la carpeta Hardware**
 
@@ -132,28 +135,27 @@ C:\Users\<tu usuario>\Documents\Image-Line\FL Studio\Settings\Hardware
 Forma fácil en Windows:
 
 1. Abre el **Explorador de archivos**.
-2. Haz clic en la barra de dirección (arriba), pega esto y presiona **Enter**:
+2. Si FL te mostró la carpeta normal (`...\Documents\Image-Line`), haz clic en la barra de dirección (arriba), pega esto y presiona **Enter**:
    ```text
    %USERPROFILE%\Documents\Image-Line\FL Studio\Settings\Hardware
    ```
-3. Si Windows dice que no existe, usa la ruta que te mostró FL en **User data folder** y entra a `FL Studio` → `Settings` → `Hardware`. Eso pasa si cambiaste la carpeta de datos (por ejemplo a otro disco) o si tu carpeta Documentos está en OneDrive.
+3. Si FL te mostró otra carpeta, o Windows dice que no existe, usa la ruta que te mostró FL en **User data folder** y entra a `FL Studio` → `Settings` → `Hardware`. Eso pasa si cambiaste la carpeta de datos (por ejemplo a otro disco) o si tu carpeta Documentos está en OneDrive.
 4. Si dentro de `Settings` no hay una carpeta `Hardware`, créala: clic derecho → **Nuevo** → **Carpeta**, con el nombre exacto `Hardware`.
 
 En macOS (no probado): en Finder, menú **Ir > Ir a la carpeta…**, pega `~/Documents/Image-Line/FL Studio/Settings/Hardware` y presiona Enter.
 
 **Paso 3. Copia la carpeta**
 
-1. Copia la carpeta `iCON Platform Nano Air` completa (no solo el archivo) dentro de `Hardware`.
+1. Copia la carpeta `iCON Platform Nano Air FL Studio` completa (no solo el archivo) dentro de `Hardware`.
 2. Debe quedar así:
    ```text
-   ...\FL Studio\Settings\Hardware\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py
+   ...\FL Studio\Settings\Hardware\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py
    ```
-3. Revisa que no haya una carpeta de más en medio, por ejemplo `Hardware\iCON-Platform-Nano-Air-FL-Studio-v1.0.0\iCON Platform Nano Air\...`. Si queda así, FL no lo encuentra.
+3. Revisa que no haya una carpeta de más en medio, por ejemplo `Hardware\iCON-Platform-Nano-Air-FL-Studio-v1.0.1\iCON Platform Nano Air FL Studio\...` o `Hardware\icon-platform-nano-air-fl-studio-main\iCON Platform Nano Air FL Studio\...`. Si queda así, FL no lo encuentra.
 
-**Paso 4. Haz que FL lo vea**
+**Paso 4. Cierra FL Studio**
 
-- Cierra FL Studio y vuelve a abrirlo, **o**
-- en **OPTIONS > MIDI settings**, haz clic en **Update MIDI scripts**.
+Ciérralo ahora. Lo vas a abrir otra vez en [Configurar FL Studio](#configurar-fl-studio), ya con el Nano conectado y en modo MCP; al abrirse, FL encuentra el script nuevo.
 
 #### Conectar el Nano
 
@@ -190,7 +192,7 @@ El Nano tiene varios modos, uno por tipo de programa. FL Studio usa el modo **MC
 
 - Si entra solo a otro modo antes de que alcances a elegir, apágalo y vuelve a intentarlo.
 - iCON pone FL Studio en la lista del modo MCP. No uses LogicPro, HUI ni User-Def con este script.
-- El modo también se puede elegir con el programa iMap de iCON (**Control Mode** → **1) MCP** → **Send Data**), pero no hace falta.
+- El modo también se puede elegir con el programa iMap de iCON (**Control Mode** → **1) MCP** → **Send Data**, y luego cierra iMap antes de abrir FL), pero no hace falta.
 - Consejo de iCON: lo más estable es prender el Nano y elegir el modo **antes** de abrir FL.
 
 #### Configurar FL Studio
@@ -214,7 +216,7 @@ Esto se hace una vez para cada nombre del Nano (lee el aviso al final de esta se
 
 Si **iCON Platform Nano Air (custom)** no aparece en la lista, ve a [Si algo no funciona](#si-algo-no-funciona).
 
-> **¿Usas cable e inalámbrico?** FL guarda la configuración por *nombre* de dispositivo, y el Nano tiene un nombre por cable y otro por inalámbrico. Configura los dos una vez: conéctalo de una forma y haz los pasos 3 a 7; luego conéctalo de la otra forma y repítelos. Si no, el día que se acabe la batería y conectes el cable, va a parecer que se perdió la configuración.
+> **¿Usas cable e inalámbrico?** FL guarda la configuración por *nombre* de dispositivo, y el Nano tiene un nombre por cable y otro por inalámbrico. Configura los dos una vez: conéctalo de una forma y haz los pasos 3 a 7; luego conéctalo de la otra forma y repítelos (si su nombre no aparece en Input, haz clic en **Refresh device list** o reinicia FL). Si no, el día que se acabe la batería y conectes el cable, va a parecer que se perdió la configuración.
 
 #### Comprobar que funciona
 
@@ -236,7 +238,7 @@ Cada vez que abras FL, **toca el fader una vez**. Basta con tocarlo; no hace fal
 
 **Prueba rápida:** toca el botón redondo azul (capa azul) y luego el botón 4 de la fila de arriba, **Metronome**. La pantallita dice **METRO** / **ON** y se prende el metrónomo de FL. Tócalo otra vez: **METRO** / **OFF**.
 
-### Cómo se usa
+### Cómo se usa en FL Studio
 
 Aquí está el resumen. Para verlo con dibujos, abre el [tutorial interactivo](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/): tocas cualquier botón del Nano dibujado y te dice qué hace, y la pantallita y la Platform D3 dibujadas muestran lo que deberían decir. Su sección "Lo que dicen las pantallas" lista los 69 controles, y también tiene los modos de la rueda, las combinaciones con Shift, las páginas de las perillas, recetas y ayuda si algo falla.
 
@@ -472,7 +474,7 @@ Todo está explicado en [Si algo no funciona](#si-algo-no-funciona).
 
 #### ¿Cómo configuro el controlador iCON Platform Nano Air en FL Studio?
 
-Instala el script y luego, en **OPTIONS > MIDI settings** (F10): en **Input** elige el Nano, **Controller type** = **iCON Platform Nano Air (custom)** y **Port** = 1; en **Output**, el mismo Nano con **Port** = 1. Paso a paso en el [manual de instalación](#manual-de-instalación).
+Instala el script, cierra y vuelve a abrir FL (con el Nano prendido en modo MCP) y luego, en **OPTIONS > MIDI settings** (F10): en **Input** elige el Nano, **Controller type** = **iCON Platform Nano Air (custom)** (al elegirlo, Enable se prende solo; si le das clic, se apaga) y **Port** = 1; en **Output**, el mismo Nano con **Port** = 1. Paso a paso en el [manual de instalación](#manual-de-instalación-en-fl-studio).
 
 #### ¿El fader motorizado puede seguir al canal seleccionado?
 
@@ -496,20 +498,21 @@ Es gratis, con licencia MIT para el trabajo propio de este repositorio (ver [Lic
 
 #### ¿Cómo regreso al script original de FL?
 
-En **OPTIONS > MIDI settings**, cambia el **Controller type** del Nano a **Mackie Control Universal**. Ver [Volver al script original de FL](#volver-al-script-original-de-fl).
+En **OPTIONS > MIDI settings**, cambia el **Controller type** del Nano a **Mackie Control Universal**. Ver [Volver al script original de FL Studio](#volver-al-script-original-de-fl-studio).
 
 ### Si algo no funciona
 
 **No aparece "iCON Platform Nano Air (custom)" en Controller type**
 
-- La carpeta no está en el lugar correcto. Debe quedar `...\FL Studio\Settings\Hardware\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py`.
+- La carpeta no está en el lugar correcto. Debe quedar `...\FL Studio\Settings\Hardware\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py`.
 - Errores típicos: copiaste el ZIP sin descomprimir; quedó una carpeta de más en medio; la pusiste en otra carpeta de datos (revisa **OPTIONS > File settings** → **User data folder**).
-- Después, cierra y abre FL, o haz clic en **Update MIDI scripts** en **OPTIONS > MIDI settings**.
+- Después, cierra FL y vuelve a abrirlo.
 
 **El Nano no aparece en las listas de MIDI settings**
 
 - Revisa que esté prendido y conectado. Por inalámbrico, la pantallita debe decir **Paired**.
 - Cierra FL, prende y conecta el Nano, y abre FL otra vez.
+- O, con FL abierto: en **OPTIONS > MIDI settings**, haz clic en **Refresh device list** (vuelve a buscar los dispositivos conectados).
 - Prueba otro puerto USB, directo a la computadora (sin hub ni extensión).
 
 **FL no le hace caso al Nano**
@@ -570,19 +573,23 @@ En **OPTIONS > MIDI settings**, cambia el **Controller type** del Nano a **Macki
 
 **En Script output sale un error (un texto que dice Traceback o Error)**
 
-- Copia el texto completo y repórtalo en [Issues](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues). Mientras tanto, puedes [volver al script original de FL](#volver-al-script-original-de-fl).
+- Copia el texto completo y repórtalo en [Issues](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues). Mientras tanto, puedes [volver al script original de FL Studio](#volver-al-script-original-de-fl-studio).
 
 ### Actualizar a una versión nueva
 
 1. Descarga el ZIP nuevo de la página de la [última versión](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest) y descomprímelo.
 2. Cierra FL Studio.
-3. Copia la carpeta nueva `iCON Platform Nano Air` en `...\FL Studio\Settings\Hardware`, en el mismo lugar que la anterior. Cuando Windows pregunte, elige **Reemplazar el archivo en el destino** (en inglés: **Replace the file in the destination**).
+3. Copia la carpeta nueva `iCON Platform Nano Air FL Studio` en `...\FL Studio\Settings\Hardware`, en el mismo lugar que la anterior. Cuando Windows pregunte, elige **Reemplazar el archivo en el destino** (en inglés: **Replace the file in the destination**).
 4. Abre FL Studio. No tienes que configurar nada otra vez: el Controller type se llama igual.
+
+   Si habías cambiado opciones del script (ver [Para desarrolladores](#para-desarrolladores)), el archivo nuevo las regresa a sus valores normales: vuelve a cambiarlas (puedes abrir el archivo en **VIEW > Script output**, pestaña del Nano, botón **Edit script…**). Guarda y reinicia FL.
 5. Revisa que **VIEW > Script output** diga **OnInit ready**.
+
+> **Si vienes de la versión 1.0.0:** ahí la carpeta se llamaba `iCON Platform Nano Air` (sin "FL Studio") y el archivo `device_iCON_PlatformNanoAir.py`. Borra esa carpeta vieja de `Hardware` para que FL no muestre el script dos veces. Luego, en **OPTIONS > MIDI settings**, revisa que el **Controller type** del Nano siga en **iCON Platform Nano Air (custom)**; si no, elígelo otra vez (si usas cable e inalámbrico, revisa los dos nombres). El script hace lo mismo que antes.
 
 Para saber si hay una versión nueva, revisa la página de versiones (Releases). Si tienes cuenta de GitHub, puedes usar **Watch > Custom > Releases** en este repositorio para que te avise. Lo que cambió en cada versión está en [CHANGELOG.md](CHANGELOG.md).
 
-### Volver al script original de FL
+### Volver al script original de FL Studio
 
 Puedes cambiar entre este script y el de FL cuando quieras, sin borrar nada.
 
@@ -598,7 +605,7 @@ Para regresar a este script, elige otra vez **iCON Platform Nano Air (custom)**.
 
 1. En **OPTIONS > MIDI settings**, para cada nombre del Nano, cambia el **Controller type** a otro (por ejemplo **Mackie Control Universal**).
 2. Cierra FL Studio.
-3. Borra la carpeta `iCON Platform Nano Air` de `...\FL Studio\Settings\Hardware`.
+3. Borra la carpeta `iCON Platform Nano Air FL Studio` de `...\FL Studio\Settings\Hardware`.
 4. Abre FL Studio otra vez.
 
 ### Créditos y aviso legal
@@ -619,8 +626,9 @@ Licencia MIT ([LICENSE](LICENSE)) para el trabajo propio de este repositorio: lo
 
 | Ruta | Qué es |
 |---|---|
-| `iCON Platform Nano Air/device_iCON_PlatformNanoAir.py` | El script (lo único que se instala) |
+| `iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py` | El script (lo único que se instala) |
 | `docs/index.html` | El tutorial interactivo en español (GitHub Pages) |
+| `docs/llms.txt` | Resumen en texto (en inglés) para asistentes de IA: [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt) |
 | `dev/` | Herramientas para probar el script fuera de FL ([dev/README.md](dev/README.md)) |
 | `CHANGELOG.md` | Lo que cambió en cada versión |
 | `LICENSE`, `NOTICE.md` | Licencia y avisos |
@@ -642,16 +650,16 @@ Licencia MIT ([LICENSE](LICENSE)) para el trabajo propio de este repositorio: lo
 
 - `flsim.py`: un simulador de la API de scripts de FL que corre 112 pruebas del script. Debe terminar con `ALL PASS`.
   ```text
-  python -I -B flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py"
+  python -I -B flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py"
   ```
 - `gen_screen_data.py` y `embed_screen_data.py`: graban lo que muestran las dos pantallas con cada uno de los 69 controles (corriendo el script en el simulador) y lo meten en el tutorial.
   ```text
-  python -I -B gen_screen_data.py flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py" screen_data.json
+  python -I -B gen_screen_data.py flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py" screen_data.json
   python -I -B embed_screen_data.py ..\docs\index.html screen_data.json
   ```
 - `flicker_probe.py`: imprime la línea de tiempo de la pantallita para revisar parpadeos.
   ```text
-  python -I -B flicker_probe.py flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py"
+  python -I -B flicker_probe.py flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py"
   ```
 
 Todos los detalles (cómo funciona el simulador, cómo probar un cambio en FL y cómo armar el ZIP de una versión) están en [dev/README.md](dev/README.md). Probado con la API de scripts de FL versión 40 (FL Studio 2025). Para reportar un problema o proponer un cambio, abre un [issue](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues).
@@ -665,7 +673,7 @@ A complete step-by-step manual to install and use the script. No programming nee
 ### Contents
 
 1. [What it is and what it improves](#what-it-is-and-what-it-improves)
-2. [Installation manual](#installation-manual)
+2. [Installation manual for FL Studio](#installation-manual-for-fl-studio)
     - [What you need](#what-you-need)
     - [Download](#download)
     - [Install the script](#install-the-script)
@@ -674,7 +682,7 @@ A complete step-by-step manual to install and use the script. No programming nee
     - [Set up FL Studio](#set-up-fl-studio)
     - [Check that it works](#check-that-it-works)
     - [First use: touch the fader](#first-use-touch-the-fader)
-3. [How to use it](#how-to-use-it)
+3. [How to use it in FL Studio](#how-to-use-it-in-fl-studio)
     - [The parts of the Nano](#the-parts-of-the-nano)
     - [The 8 colored keys](#the-8-colored-keys)
     - [Wheel modes](#wheel-modes)
@@ -686,7 +694,7 @@ A complete step-by-step manual to install and use the script. No programming nee
 4. [FAQ](#faq)
 5. [Troubleshooting](#troubleshooting)
 6. [Update to a new version](#update-to-a-new-version)
-7. [Go back to FL's original script](#go-back-to-fls-original-script)
+7. [Go back to FL Studio's original script](#go-back-to-fl-studios-original-script)
 8. [Uninstall](#uninstall)
 9. [Credits and disclaimer](#credits-and-disclaimer)
 10. [License](#license)
@@ -715,17 +723,20 @@ What it improves:
 
 The 40 colored-key functions match iCON's FL Studio overlay that comes with the Nano.
 
-### Installation manual
+### Installation manual for FL Studio
 
 How to install and set up the iCON Platform Nano Air script in FL Studio, step by step.
+
+> **FL labels are quoted in English.** Menus and buttons (OPTIONS, MIDI settings, Controller type, Enable, Script output…) are named as they appear with FL Studio set to English. If your FL shows another language, they are translated. To follow this manual word for word, switch FL to English in **OPTIONS > General settings > Language** (or with the language icon on FL's toolbar, if you have it) and restart FL. **F10** opens MIDI settings in any language.
 
 **In short** (if you know the drill):
 
 1. Download the ZIP from the [latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest) and unzip it.
-2. Copy the `iCON Platform Nano Air` folder into `Documents\Image-Line\FL Studio\Settings\Hardware`.
+2. Copy the `iCON Platform Nano Air FL Studio` folder into `FL Studio\Settings\Hardware`, inside the folder FL shows in **OPTIONS > File settings > User data folder** (usually `Documents\Image-Line`).
 3. Put the Nano in **MCP** mode.
-4. In FL, **OPTIONS > MIDI settings**: in **Input** pick the Nano, **Controller type** = **iCON Platform Nano Air (custom)** and **Port** = 1; in **Output**, the same Nano with **Port** = 1.
-5. **VIEW > Script output** must say **OnInit ready**. Touch the fader once.
+4. Close and reopen FL Studio (with the Nano already on in MCP mode).
+5. In FL, **OPTIONS > MIDI settings**: in **Input** pick the Nano, **Controller type** = **iCON Platform Nano Air (custom)** (choosing it already turns Enable on; clicking Enable turns it off) and **Port** = 1; in **Output**, the same Nano with **Port** = 1.
+6. **VIEW > Script output** must say **OnInit ready**. Touch the fader once.
 
 Every step is explained below.
 
@@ -742,18 +753,18 @@ Every step is explained below.
 **Option A (recommended): the release ZIP**
 
 1. Open the [latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest) page.
-2. Scroll down to **Assets** and click `iCON-Platform-Nano-Air-FL-Studio-v1.0.0.zip` (newer versions have a different number). Don't use the "Source code" files.
+2. Scroll down to **Assets** and click `iCON-Platform-Nano-Air-FL-Studio-v1.0.1.zip` (newer versions have a different number). Don't use the "Source code" files.
 3. The ZIP goes to your **Downloads** folder.
 4. Right-click the ZIP → **Extract All…** → **Extract**.
-5. A new folder opens. Inside it is the `iCON Platform Nano Air` folder, which contains the file `device_iCON_PlatformNanoAir.py`. That folder is the only thing you install.
+5. A new folder opens with two things in it: the `iCON Platform Nano Air FL Studio` folder (with the file `device_iCON_PlatformNanoAir_FLStudio.py` inside) and the file `Tutorial iCON Platform Nano Air para FL Studio.html`. The folder is the only thing you install. Double-click the tutorial whenever you like: it opens in your web browser and works offline (it is in Spanish).
 
 **Option B: the whole repository**
 
 1. On the repository's main page, click the green **Code** button → **Download ZIP**.
 2. Unzip it the same way (right-click → **Extract All…**).
-3. Open the `icon-platform-nano-air-fl-studio-main` folder: the `iCON Platform Nano Air` folder is inside.
+3. Open the `icon-platform-nano-air-fl-studio-main` folder (with **Extract All** there is another one with the same name inside: open that one too). The `iCON Platform Nano Air FL Studio` folder is there: copy only that one. The tutorial is there too, as `docs\index.html` (double-click it).
 
-> Windows sometimes hides the `.py` ending: the file may show as `device_iCON_PlatformNanoAir`, of type "Python File" or "PY File". It's the same file. You don't need to open it.
+> Windows sometimes hides the `.py` ending: the file may show as `device_iCON_PlatformNanoAir_FLStudio`, of type "Python File" or "PY File". It's the same file. You don't need to open it.
 
 #### Install the script
 
@@ -763,7 +774,7 @@ There is no installer: you just copy one folder into FL's script folder.
 
 1. Open FL Studio.
 2. Go to **OPTIONS > File settings**.
-3. Look at the **User data folder** field. That is your FL data folder. If you never changed it, it is `Documents\Image-Line`.
+3. Look at the **User data folder** field. That is your FL data folder. If you never changed it, it is usually `Documents\Image-Line` (if your Documents folder is in OneDrive, it is a different path, e.g. `...\OneDrive\Documents\Image-Line`). Always use the one FL shows.
 
 **Step 2. Open the Hardware folder**
 
@@ -776,28 +787,27 @@ C:\Users\<your user name>\Documents\Image-Line\FL Studio\Settings\Hardware
 The easy way on Windows:
 
 1. Open **File Explorer**.
-2. Click the address bar (at the top), paste this and press **Enter**:
+2. If FL showed the default folder (`...\Documents\Image-Line`), click the address bar (at the top), paste this and press **Enter**:
    ```text
    %USERPROFILE%\Documents\Image-Line\FL Studio\Settings\Hardware
    ```
-3. If Windows says it doesn't exist, use the path FL showed you in **User data folder** and go into `FL Studio` → `Settings` → `Hardware`. This happens if you changed the data folder (for example to another drive) or if your Documents folder is in OneDrive.
+3. If FL showed another folder, or Windows says it doesn't exist, use the path FL showed you in **User data folder** and go into `FL Studio` → `Settings` → `Hardware`. This happens if you changed the data folder (for example to another drive) or if your Documents folder is in OneDrive.
 4. If there is no `Hardware` folder inside `Settings`, create it: right-click → **New** → **Folder**, named exactly `Hardware`.
 
 On macOS (not tested): in Finder, use **Go > Go to Folder…**, paste `~/Documents/Image-Line/FL Studio/Settings/Hardware` and press Enter.
 
 **Step 3. Copy the folder**
 
-1. Copy the whole `iCON Platform Nano Air` folder (not just the file) into `Hardware`.
+1. Copy the whole `iCON Platform Nano Air FL Studio` folder (not just the file) into `Hardware`.
 2. It must end up like this:
    ```text
-   ...\FL Studio\Settings\Hardware\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py
+   ...\FL Studio\Settings\Hardware\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py
    ```
-3. Make sure there is no extra folder in between, such as `Hardware\iCON-Platform-Nano-Air-FL-Studio-v1.0.0\iCON Platform Nano Air\...`. FL won't find it that way.
+3. Make sure there is no extra folder in between, such as `Hardware\iCON-Platform-Nano-Air-FL-Studio-v1.0.1\iCON Platform Nano Air FL Studio\...` or `Hardware\icon-platform-nano-air-fl-studio-main\iCON Platform Nano Air FL Studio\...`. FL won't find it that way.
 
-**Step 4. Make FL see it**
+**Step 4. Close FL Studio**
 
-- Close FL Studio and open it again, **or**
-- in **OPTIONS > MIDI settings**, click **Update MIDI scripts**.
+Close it now. You will open it again in [Set up FL Studio](#set-up-fl-studio), with the Nano already connected and in MCP mode; when FL starts, it finds the new script.
 
 #### Connect the Nano
 
@@ -834,7 +844,7 @@ The Nano has several modes, one per kind of music software. FL Studio uses **MCP
 
 - If it goes into another mode before you can choose, switch it off and try again.
 - iCON lists FL Studio under MCP mode. Don't use LogicPro, HUI or User-Def with this script.
-- The mode can also be set with iCON's iMap software (**Control Mode** → **1) MCP** → **Send Data**), but you don't need it.
+- The mode can also be set with iCON's iMap software (**Control Mode** → **1) MCP** → **Send Data**, then close iMap before opening FL), but you don't need it.
 - iCON's tip: for the most stable start, switch the Nano on and choose the mode **before** you open FL.
 
 #### Set up FL Studio
@@ -858,7 +868,7 @@ You do this once for each name of the Nano (read the note at the end of this sec
 
 If **iCON Platform Nano Air (custom)** is not in the list, see [Troubleshooting](#troubleshooting).
 
-> **Do you use both cable and wireless?** FL keeps MIDI settings per device *name*, and the Nano has one name on the cable and another one wirelessly. Set up both once: connect it one way and do steps 3 to 7, then connect it the other way and repeat them. Otherwise, the day the battery dies and you plug in the cable, it will look as if your setup was lost.
+> **Do you use both cable and wireless?** FL keeps MIDI settings per device *name*, and the Nano has one name on the cable and another one wirelessly. Set up both once: connect it one way and do steps 3 to 7, then connect it the other way and repeat them (if its name is not in the Input list, click **Refresh device list** or restart FL). Otherwise, the day the battery dies and you plug in the cable, it will look as if your setup was lost.
 
 #### Check that it works
 
@@ -880,7 +890,7 @@ Every time you open FL, **touch the fader once**. Just touch it; you don't have 
 
 **Quick test:** press the round blue key (blue layer), then key 4 of the top row, **Metronome**. The screen says **METRO** / **ON** and FL's metronome turns on. Press it again: **METRO** / **OFF**.
 
-### How to use it
+### How to use it in FL Studio
 
 Here is the summary. To see it with drawings, open the [interactive tutorial](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/) (in Spanish): click any key of the drawn Nano to read what it does, and the drawn small screen and Platform D3 play what they should show. Its section "Lo que dicen las pantallas" ("what the screens say") lists all 69 controls, and it also covers the wheel modes, Shift combinations, knob pages, recipes and troubleshooting.
 
@@ -1118,7 +1128,7 @@ Everything is explained in [Troubleshooting](#troubleshooting).
 
 #### How do I set up the iCON Platform Nano Air in FL Studio?
 
-Install the script, then open **OPTIONS > MIDI settings** (F10): in **Input** pick the Nano, **Controller type** = **iCON Platform Nano Air (custom)** and **Port** = 1; in **Output**, the same Nano with **Port** = 1. Step by step in the [installation manual](#installation-manual).
+Install the script, close and reopen FL (with the Nano on in MCP mode), then open **OPTIONS > MIDI settings** (F10): in **Input** pick the Nano, **Controller type** = **iCON Platform Nano Air (custom)** (choosing it already turns Enable on; clicking Enable turns it off) and **Port** = 1; in **Output**, the same Nano with **Port** = 1. Step by step in the [installation manual](#installation-manual-for-fl-studio).
 
 #### Can the motorized fader follow the selected track?
 
@@ -1142,20 +1152,21 @@ It's free, with an MIT license for this repository's own work (see [License](#li
 
 #### How do I go back to FL's original script?
 
-In **OPTIONS > MIDI settings**, change the Nano's **Controller type** to **Mackie Control Universal**. See [Go back to FL's original script](#go-back-to-fls-original-script).
+In **OPTIONS > MIDI settings**, change the Nano's **Controller type** to **Mackie Control Universal**. See [Go back to FL Studio's original script](#go-back-to-fl-studios-original-script).
 
 ### Troubleshooting
 
 **"iCON Platform Nano Air (custom)" is not in the Controller type list**
 
-- The folder is not in the right place. It must end up as `...\FL Studio\Settings\Hardware\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py`.
+- The folder is not in the right place. It must end up as `...\FL Studio\Settings\Hardware\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py`.
 - Common mistakes: you copied the ZIP without unzipping it; there is an extra folder in between; you put it in another data folder (check **OPTIONS > File settings** → **User data folder**).
-- Then close and reopen FL, or click **Update MIDI scripts** in **OPTIONS > MIDI settings**.
+- Then close FL and open it again.
 
 **The Nano is not in the MIDI settings lists**
 
 - Check that it is switched on and connected. Wirelessly, the screen must say **Paired**.
 - Close FL, switch on and connect the Nano, then open FL again.
+- Or, with FL open: in **OPTIONS > MIDI settings**, click **Refresh device list** (it looks for connected devices again).
 - Try another USB port, straight into the computer (no hub or extension cable).
 
 **FL ignores the Nano**
@@ -1216,19 +1227,23 @@ In **OPTIONS > MIDI settings**, change the Nano's **Controller type** to **Macki
 
 **Script output shows an error (text that says Traceback or Error)**
 
-- Copy the whole text and report it in [Issues](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues). Meanwhile, you can [go back to FL's original script](#go-back-to-fls-original-script).
+- Copy the whole text and report it in [Issues](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues). Meanwhile, you can [go back to FL Studio's original script](#go-back-to-fl-studios-original-script).
 
 ### Update to a new version
 
 1. Download the new ZIP from the [latest release](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/releases/latest) page and unzip it.
 2. Close FL Studio.
-3. Copy the new `iCON Platform Nano Air` folder into `...\FL Studio\Settings\Hardware`, in the same place as the old one. When Windows asks, choose **Replace the file in the destination**.
+3. Copy the new `iCON Platform Nano Air FL Studio` folder into `...\FL Studio\Settings\Hardware`, in the same place as the old one. When Windows asks, choose **Replace the file in the destination**.
 4. Open FL Studio. You don't have to set anything up again: the Controller type has the same name.
+
+   If you had changed script options (see [For developers](#for-developers)), the new file brings back the defaults: change them again (you can open the file from **VIEW > Script output**, on the Nano's tab, with the **Edit script…** button). Save it and restart FL.
 5. Check that **VIEW > Script output** says **OnInit ready**.
+
+> **Coming from version 1.0.0:** back then the folder was called `iCON Platform Nano Air` (without "FL Studio") and the file `device_iCON_PlatformNanoAir.py`. Delete that old folder from `Hardware` so FL doesn't list the script twice. Then, in **OPTIONS > MIDI settings**, check that the Nano's **Controller type** is still **iCON Platform Nano Air (custom)**; if not, pick it again (if you use both cable and wireless, check both names). The script works the same as before.
 
 To know whether there's a new version, check the Releases page. If you have a GitHub account, you can use **Watch > Custom > Releases** on this repository to get notified. What changed in each version is in [CHANGELOG.md](CHANGELOG.md).
 
-### Go back to FL's original script
+### Go back to FL Studio's original script
 
 You can switch between this script and FL's whenever you want, without deleting anything.
 
@@ -1244,7 +1259,7 @@ To come back to this script, choose **iCON Platform Nano Air (custom)** again.
 
 1. In **OPTIONS > MIDI settings**, for each name of the Nano, change the **Controller type** to another one (for example **Mackie Control Universal**).
 2. Close FL Studio.
-3. Delete the `iCON Platform Nano Air` folder from `...\FL Studio\Settings\Hardware`.
+3. Delete the `iCON Platform Nano Air FL Studio` folder from `...\FL Studio\Settings\Hardware`.
 4. Open FL Studio again.
 
 ### Credits and disclaimer
@@ -1265,8 +1280,9 @@ MIT license ([LICENSE](LICENSE)) for this repository's own work: the changes to 
 
 | Path | What it is |
 |---|---|
-| `iCON Platform Nano Air/device_iCON_PlatformNanoAir.py` | The script (the only thing you install) |
+| `iCON Platform Nano Air FL Studio/device_iCON_PlatformNanoAir_FLStudio.py` | The script (the only thing you install) |
 | `docs/index.html` | The interactive tutorial, in Spanish (GitHub Pages) |
+| `docs/llms.txt` | Plain-text summary for AI assistants: [https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt](https://noisybeats03-eng.github.io/icon-platform-nano-air-fl-studio/llms.txt) |
 | `dev/` | Tools to test the script outside FL ([dev/README.md](dev/README.md)) |
 | `CHANGELOG.md` | What changed in each version |
 | `LICENSE`, `NOTICE.md` | License and notices |
@@ -1288,16 +1304,16 @@ MIT license ([LICENSE](LICENSE)) for this repository's own work: the changes to 
 
 - `flsim.py`: a simulator of FL's scripting API that runs 112 checks on the script. It must end with `ALL PASS`.
   ```text
-  python -I -B flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py"
+  python -I -B flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py"
   ```
 - `gen_screen_data.py` and `embed_screen_data.py`: record what both screens show for each of the 69 controls (running the script in the simulator) and embed it in the tutorial.
   ```text
-  python -I -B gen_screen_data.py flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py" screen_data.json
+  python -I -B gen_screen_data.py flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py" screen_data.json
   python -I -B embed_screen_data.py ..\docs\index.html screen_data.json
   ```
 - `flicker_probe.py`: prints a timeline of the small screen to look for flicker.
   ```text
-  python -I -B flicker_probe.py flsim.py "..\iCON Platform Nano Air\device_iCON_PlatformNanoAir.py"
+  python -I -B flicker_probe.py flsim.py "..\iCON Platform Nano Air FL Studio\device_iCON_PlatformNanoAir_FLStudio.py"
   ```
 
 All the details (how the simulator works, how to try a change in FL and how to build a release ZIP) are in [dev/README.md](dev/README.md). Tested with FL scripting API version 40 (FL Studio 2025). To report a problem or suggest a change, open an [issue](https://github.com/noisybeats03-eng/icon-platform-nano-air-fl-studio/issues).
