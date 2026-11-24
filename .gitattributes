@@ -1,0 +1,4 @@
+# Keep every Python file byte for byte as it is in the repository.
+# The FL Studio script uses Windows (CRLF) line endings: Git must never convert them,
+# so a clone, GitHub's "Download ZIP" and the release ZIP all give exactly the same file.
+*.py -text

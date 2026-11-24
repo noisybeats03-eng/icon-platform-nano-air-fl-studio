@@ -1,0 +1,7 @@
+# Python caches: never commit them (a .pyc file stores the full path of the computer that made it)
+__pycache__/
+*.pyc
+
+# Intermediate file of dev/gen_screen_data.py and release ZIPs (the ZIP goes to the release, not to the repository)
+dev/screen_data.json
+*.zip
